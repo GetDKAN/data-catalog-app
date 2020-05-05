@@ -1,0 +1,29 @@
+{
+  "hero": [
+    {
+      "title": "Welcome to DKAN",
+      "intro": "DKAN is an open-source data management platform. It treats data as content so that you can easily publish, manage, and maintain your open data no matter the size of your team or the level of technical expertise.",
+      "ref": "0"
+    }
+  ],
+  "stats": [
+    {
+      "content": "Dataset Downloads",
+      "title": "582k",
+      "icon": "download",
+      "ref": "1"
+    },
+    {
+      "content": "API Queries Run",
+      "title": "317k",
+      "icon": "sync",
+      "ref": "2"
+    },
+    {
+      "content": "Total Datasets",
+      "title": "2.63k",
+      "icon": "database",
+      "ref": "3"
+    }
+  ]
+}
