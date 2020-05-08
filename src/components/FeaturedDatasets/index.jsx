@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import excerpts from 'excerpts';
 import { Link } from '@reach/router';
-import { SearchList, SearchListItem, Text } from "@civicactions/data-catalog-components";
+import { Text } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
 import './featureddatasets.scss';
 

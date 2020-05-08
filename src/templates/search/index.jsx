@@ -1,8 +1,6 @@
 import React from 'react';
 
-const SearchTemplate = ({
-
-}) => {
+const SearchTemplate = () => {
   return (
     <div>
       <h1>Datasets</h1>

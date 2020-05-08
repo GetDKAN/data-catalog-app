@@ -17,7 +17,7 @@
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
-    "swagger-ui-react": "^3.25.1"
+    "swagger-ui-react": "3.25.0"
   },
   "scripts": {
     "start": "react-scripts start",

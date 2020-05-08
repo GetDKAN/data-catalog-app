@@ -10,7 +10,7 @@ import {
 import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
 
-const Home = ({}) => {
+const Home = () => {
   const [datasets, setDatasets] = React.useState(null);
   const [themes, setThemes] = React.useState([]);
   const [items, setItems] = React.useState([]);

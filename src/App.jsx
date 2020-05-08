@@ -1,7 +1,9 @@
 import React from 'react';
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import Home from './templates/home';
 import SearchTemplate from './templates/search';
+import ApiDocsFull from './templates/api';
+import NotFound from './templates/not_found';
 import Layout from './components/Layout';
 import "@civicactions/data-catalog-components/dist/index.css";
 
@@ -16,8 +18,10 @@ function App() {
   return (
     <Layout>
       <Router>
+        <NotFound default />
         <Home path="/" />
         <SearchTemplate path="/search" />
+        <ApiDocsFull path="/api" />
       </Router>
     </Layout>
   );
