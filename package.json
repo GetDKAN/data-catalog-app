@@ -1,9 +1,10 @@
 {
   "name": "data-catalog-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.0.0",
+    "@civicactions/data-catalog-components": "^1.1.0",
     "@reach/router": "^1.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

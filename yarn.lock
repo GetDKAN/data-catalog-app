@@ -1041,15 +1041,16 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
   integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
-"@civicactions/data-catalog-components@^1.0.0":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@civicactions/data-catalog-components/-/data-catalog-components-1.0.2.tgz#68c5bd83d2d20f414366c5a56f4bfe295c0046a2"
-  integrity sha512-isQrgiIV5pSRCgtOw2RXt3TxWKZPHOxP6uaeEv2XiO5Ti5nxWUoTfqA/GjRadtaPeBVptYPtGf1Cv3aeAuVP9A==
+"@civicactions/data-catalog-components@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@civicactions/data-catalog-components/-/data-catalog-components-1.1.0.tgz#a4a5276946871a3575ca4f6b7d7d620caa555bca"
+  integrity sha512-8kJfAUjWR1bp55X9RP+tD1N83oXDMsPxf4KJz6qxjkNgVaGUDY3VRoJsjcx89gzdEoTh5Tp4C0gnN2sshlX+1w==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.25"
     "@fortawesome/free-brands-svg-icons" "^5.11.2"
     "@fortawesome/free-solid-svg-icons" "^5.11.2"
     "@fortawesome/react-fontawesome" "^0.1.4"
+    "@reach/router" "^1.3.3"
     "@scarf/scarf" "^1.0.4"
     axios "^0.19.0"
     bootstrap "^4.2.1"
