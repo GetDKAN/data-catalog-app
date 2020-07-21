@@ -12,9 +12,9 @@ This application serves as a starter app, or example of how to use the [data-cat
 ## Manual Set Up
 If you have a backend already running and just need the frontend:
 
-1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-react.git``
+1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-react.git frontend``. The DKAN Tools library is structured to run commands in a folder named `frontend` so frontend repos could be swapped if needed.
 1) Install the dependencies with [npm](https://www.npmjs.com/):
-   1) ``cd data-catalog-frontend``
+   1) ``cd frontend``
    1) ``npm install`` or ``yarn install``
 1) Run the server: ``npm start`` or ``yarn start``
    1) Your site is now running at ``http://localhost:3000``
