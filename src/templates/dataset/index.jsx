@@ -15,8 +15,6 @@ import {
 import orgs from "../../assets/publishers";
 
 const Dataset = ({id, path}) => {
-  // const item = props.pageContext.dataset;
-  // const path = props.path;
   const [item, setItem] = useState({})
   const [hasWindow, checkForWindow] = useState(false);
 
@@ -35,8 +33,6 @@ const Dataset = ({id, path}) => {
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
   const orgDetails = orgs.filter(org => orgName === org.name);
-  // const orgImage = orgDetails.length && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-  // const orgDesc = orgDetails.length && orgDetails[0].description ? orgDetails[0].description : "";
   const orgImage = orgDetails.length > 0 && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : null;
   const orgDesc = orgDetails.length > 0 && orgDetails[0].description ? orgDetails[0].description : "";
   let renderOrg;
@@ -49,7 +45,6 @@ const Dataset = ({id, path}) => {
 
   const tag = "keyword" in item ? item.keyword : [];
   const theme = "theme" in item ? item.theme : [];
-  //const columns = "columns" in item ? item.columns : [];
 
   function themes(theme) {
     if (!theme) {
