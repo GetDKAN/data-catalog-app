@@ -24,7 +24,7 @@ const Dataset = ({id, path}) => {
     }
 
     async function getItem() {
-      const { data } = await axios.get(`http://dkan/api/1/metastore/schemas/dataset/items/${id}?show-reference-ids`);
+      const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
     }
     getItem();
