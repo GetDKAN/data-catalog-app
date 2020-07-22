@@ -15,8 +15,6 @@ import {
 import orgs from "../../assets/publishers";
 
 const Dataset = ({id, path}) => {
-  // const item = props.pageContext.dataset;
-  // const path = props.path;
   const [item, setItem] = useState({})
   const [hasWindow, checkForWindow] = useState(false);
 
@@ -35,12 +33,18 @@ const Dataset = ({id, path}) => {
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
   const orgDetails = orgs.filter(org => orgName === org.name);
-  const orgImage = orgDetails.length && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-  const orgDesc = orgDetails.length && orgDetails[0].description ? orgDetails[0].description : "";
+  const orgImage = orgDetails.length > 0 && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : null;
+  const orgDesc = orgDetails.length > 0 && orgDetails[0].description ? orgDetails[0].description : "";
+  let renderOrg;
+  if(orgDetails.length > 0 && orgDetails[0].imageUrl) {
+    renderOrg = <Organization name={orgName} imageUrl={orgImage} description={orgDesc}/>;
+  } else {
+    renderOrg = <Organization name={orgName} description={orgDesc}/>;
+  }
+
 
   const tag = "keyword" in item ? item.keyword : [];
   const theme = "theme" in item ? item.theme : [];
-  //const columns = "columns" in item ? item.columns : [];
 
   function themes(theme) {
     if (!theme) {
@@ -108,11 +112,7 @@ const Dataset = ({id, path}) => {
     <div className={`dc-dataset-page ${config.container}`}>
         <div className="row">
           <div className="col-md-3 col-sm-12">
-            <Organization
-              name={orgName}
-              imageUrl={orgImage}
-              description={orgDesc}
-            />
+            {renderOrg}
             <div className="dc-block-wrapper">
               The information on this page is also available via the{" "}
               <Link to={`dataset/${item.identifier}/api`}>API</Link>.
