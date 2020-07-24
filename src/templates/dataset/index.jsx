@@ -14,9 +14,7 @@ import {
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
-const Dataset = ({id, path, location}) => {
-  // const item = props.pageContext.dataset;
-  // const path = props.path;
+const Dataset = ({id, location}) => {
   const { dataset } = location.state;
   const [item, setItem] = useState(dataset ? dataset : {})
   const [hasWindow, checkForWindow] = useState(false);
@@ -25,7 +23,6 @@ const Dataset = ({id, path, location}) => {
     if (window !== undefined) {
       checkForWindow(true);
     }
-    console.log(dataset)
     async function getItem() {
       const { data } = await axios.get(`http://dkan.localtest.me/api/1/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
