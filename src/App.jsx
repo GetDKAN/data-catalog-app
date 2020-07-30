@@ -6,6 +6,7 @@ import SearchTemplate from './templates/search';
 import ApiDocsFull from './templates/api';
 import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
+import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
 import Layout from './components/Layout';
 import "@civicactions/data-catalog-components/dist/index.css";
@@ -28,6 +29,7 @@ function App() {
         <SearchTemplate path="/search" />
         <ApiDocsFull path="/api" />
         <Dataset path="/dataset/:id" />
+        <ApiDocsSpecific path="/dataset/:id/api" />
       </Router>
     </Layout>
   );

@@ -14,21 +14,23 @@ import {
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
-const Dataset = ({id, path}) => {
-  const [item, setItem] = useState({})
+const Dataset = ({id, location}) => {
+  const { dataset } = location.state;
+  const [item, setItem] = useState(dataset ? dataset : {})
   const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
     if (window !== undefined) {
       checkForWindow(true);
     }
-
     async function getItem() {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
     }
-    getItem();
-  }, [id]);
+    if (!dataset) {
+      getItem();
+    }
+  }, [id, dataset]);
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
@@ -115,7 +117,12 @@ const Dataset = ({id, path}) => {
             {renderOrg}
             <div className="dc-block-wrapper">
               The information on this page is also available via the{" "}
-              <Link to={`dataset/${item.identifier}/api`}>API</Link>.
+              <Link
+                to={`/dataset/${item.identifier}/api`}
+                state={{ dataset: {...item} }}
+              >
+                API
+              </Link>.
             </div>
           </div>
           <div className="col-md-9 col-sm-12">
