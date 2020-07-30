@@ -20,7 +20,7 @@ const ApiDocsSpecific = ({ id, location }) => {
     if(dataset) {
       setLoading(false);
     } else {
-      axios.get('http://dkan.localtest.me/api/1/metastore/schemas/dataset/items/' + id + "?show-reference-ids")
+      axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
       .then((res) => {
         setItem(res.data);
         setLoading(false);
@@ -74,7 +74,7 @@ const ApiDocsSpecific = ({ id, location }) => {
             <Title title={item.title} />
               <ApiDocs
                 endpoint={
-                  'http://dkan.localtest.me/api/1' +
+                  `${process.env.REACT_APP_ROOT_URL}` +
                   "/metastore/schemas/dataset/items/" +
                   id +
                   "/docs"
