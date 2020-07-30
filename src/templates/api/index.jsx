@@ -6,7 +6,7 @@ const ApiDocsFull = ({ path }) => (
   <div className={`dc-page ${config.container}`}>
     <div className="page-content">
       {typeof window !== `undefined` && (
-        <ApiDocs endpoint={'http://dkan/api/1'} />
+        <ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
       )}
     </div>
   </div>

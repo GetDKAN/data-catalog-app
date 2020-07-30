@@ -10,7 +10,7 @@ const SearchTemplate = ({path}) => {
     <div className={`dc-page ${config.container}`}>
         <h1>Datasets</h1>
         <Search
-          searchEndpoint={`http://dkan/api/1/search`}
+          searchEndpoint={`${process.env.REACT_APP_ROOT_URL}/search`}
           defaultFacets={defaultFacets}
           sortOptions={sortOptions}
           setSearchUrl={true}

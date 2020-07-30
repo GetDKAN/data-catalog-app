@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Resource,
   DataTable,
@@ -8,7 +8,7 @@ import {
 
 const ResourceTemplate = ({ resource }) => {
   const format = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('format') ? resource.data.format : 'unknown';
-  const rootURL = `http://dkan/api/1/`;
+  const rootURL = `${process.env.REACT_APP_ROOT_URL}/`;
   return (
     <div id={`resource_${resource.identifier}`}>
       {format.toLowerCase() === 'csv'
