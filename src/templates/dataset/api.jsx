@@ -13,11 +13,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 
 const ApiDocsSpecific = ({ id, location }) => {
-  const { dataset } = location.state;
-  const [item, setItem] = React.useState(dataset ? dataset : {});
+  const { state } = location;
+  const [item, setItem] = React.useState(state && state.dataset ? state.dataset : {});
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
-    if(dataset) {
+    if(state && state.dataset) {
       setLoading(false);
     } else {
       axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
@@ -26,7 +26,7 @@ const ApiDocsSpecific = ({ id, location }) => {
         setLoading(false);
       })
     }
-  }, [id, dataset])
+  }, [id, state])
 
 
     const orgName = "publisher" in item && item.publisher.data ? item.publisher.data.name : "";
