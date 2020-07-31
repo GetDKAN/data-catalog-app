@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    machine:
+      image: circleci/classic:latest
+    environment:
+      TEST_RESULTS: /tmp/test-results
+      DRUPAL_VERSION: V8
+    steps:
+      - checkout
+      - run:
+          name: "Setup variables"
+          command: |
+            echo $CIRCLE_BRANCH
+      - run:
+          name: Install DKTL
+          command: |
+            cd ~
+            git clone --single-branch --depth 1 https://github.com/GetDKAN/dkan-tools.git
+            chmod 777 ./dkan-tools/bin/dktl
+            export PATH=$PATH:~/dkan-tools/bin
+            which dktl
+      - run:
+          name: Initialize Project
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            mkdir ~/sandbox
+            cd ~/sandbox
+            dktl init
+      - run:
+          name: Get Drupal
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl get 8.9.0
+      - run:
+          name: Make DKAN
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl make --frontend
+      - run:
+          name: Run cypress tests
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl install --demo
+            dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
+            dktl drush search-api-index
+            dktl frontend:install
+            dktl frontend:build
+            dktl dc exec web chmod -R 777 /var/www/docroot/sites/default/files/dkan-tmp
+            dktl drush cr
+            dktl dkan:test-cypress frontend
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/screenshots
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/videos
