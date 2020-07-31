@@ -46,6 +46,7 @@ jobs:
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
             dktl install --demo-backend
+            dktl drush en frontend -y
             cd ~/sandbox/docroot
             git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git frontend
             dktl dc exec cli npm install --prefix /var/www/docroot/frontend --unsafe-perm
