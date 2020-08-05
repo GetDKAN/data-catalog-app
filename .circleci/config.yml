@@ -58,6 +58,7 @@ jobs:
             dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl drush cr
             cd ~/sandbox/docroot/frontend
+            node_modules/cypress/bin/cypress install
             CYPRESS_baseUrl="http://sandbox.localtest.me" npx cypress run
       - store_artifacts:
           path: ~/sandbox/src/frontend/cypress/screenshots
