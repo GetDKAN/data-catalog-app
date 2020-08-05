@@ -4,7 +4,7 @@ context('Publishers', () => {
       cy.visit("/")
     })
 
-    it.only('When I click the main menu Publishers link I should end up on the Publishers page', () => {
+    it('When I click the main menu Publishers link I should end up on the Publishers page', () => {
       cy.findByRole('link', { name: 'Publishers' }).click({ force: true });
       cy.findByRole('heading', { name: 'Dataset Publishers' });
       cy.findByAltText('State Economic Council');
