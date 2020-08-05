@@ -15,8 +15,8 @@ import {
 import orgs from "../../assets/publishers";
 
 const Dataset = ({id, location}) => {
-  const { dataset } = location.state;
-  const [item, setItem] = useState(dataset ? dataset : {})
+  const { state } = location;
+  const [item, setItem] = useState(state && state.dataset ? state.dataset : {})
   const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
@@ -27,10 +27,10 @@ const Dataset = ({id, location}) => {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
     }
-    if (!dataset) {
+    if (!state || !state.dataset) {
       getItem();
     }
-  }, [id, dataset]);
+  }, [id, state]);
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";

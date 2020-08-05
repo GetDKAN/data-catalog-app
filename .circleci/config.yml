@@ -1,0 +1,66 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    machine:
+      image: circleci/classic:latest
+    environment:
+      TEST_RESULTS: /tmp/test-results
+      DRUPAL_VERSION: V8
+    steps:
+      - checkout
+      - run:
+          name: "Setup variables"
+          command: |
+            echo $CIRCLE_BRANCH
+      - run:
+          name: Install DKTL
+          command: |
+            cd ~
+            git clone https://github.com/GetDKAN/dkan-tools.git
+            cd dkan-tools
+            git checkout cra-switch
+            cd ../
+            chmod 777 ./dkan-tools/bin/dktl
+            export PATH=$PATH:~/dkan-tools/bin
+            which dktl
+      - run:
+          name: Initialize Project
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            mkdir ~/sandbox
+            cd ~/sandbox
+            dktl init
+      - run:
+          name: Get Drupal
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl get 8.9.0
+      - run:
+          name: Make DKAN
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl make --frontend
+      - run:
+          name: Run cypress tests
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl install --demo-backend
+            dktl drush en frontend -y
+            cd ~/sandbox/docroot
+            git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git frontend
+            dktl dc exec cli npm install --prefix /var/www/docroot/frontend --unsafe-perm
+            dktl dc exec cli npm run build --prefix /var/www/docroot/frontend --unsafe-perm
+            dktl drush config-set frontend.config build_folder '/build' -y
+            dktl drush config-set frontend.config frontend_path '/frontend' -y
+            dktl drush cr
+            cd ~/sandbox/docroot/frontend
+            node_modules/cypress/bin/cypress install
+            CYPRESS_baseUrl="http://sandbox.localtest.me" npx cypress run
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/screenshots
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/videos
