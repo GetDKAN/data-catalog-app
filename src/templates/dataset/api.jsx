@@ -11,6 +11,7 @@ import config from "../../assets/config";
 import orgs from "../../assets/publishers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import Layout from "../../components/Layout";
 
 const ApiDocsSpecific = ({ id, location }) => {
   const { state } = location;
@@ -40,6 +41,7 @@ const ApiDocsSpecific = ({ id, location }) => {
       renderOrg = <Organization name={orgName} description={orgDesc}/>;
     }
   return (
+    <Layout title="Dataset API">
     <div className={`dc-dataset-page ${config.container}`}>
        <Loader
           backgroundStyle={{ backgroundColor: "#f9fafb" }}
@@ -50,7 +52,7 @@ const ApiDocsSpecific = ({ id, location }) => {
           }
         >
       <div className="row">
-       
+
           <div className="col-md-3 col-sm-12">
             {renderOrg}
             <div className="dc-block-wrapper">
@@ -81,10 +83,11 @@ const ApiDocsSpecific = ({ id, location }) => {
                 }
               />
           </div>
-        
+
       </div>
       </Loader>
     </div>
+    </Layout>
   );
 }
 

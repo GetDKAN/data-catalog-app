@@ -1,13 +1,15 @@
 import React from 'react';
 import { PublisherList } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
+import Layout from '../../components/Layout';
 import orgs from "../../assets/publishers";
 
 const Publishers = () => {
   return (
+    <Layout title="Dataset Publishers">
     <div className={`dc-page ${config.container}`}>
       <h1>Dataset Publishers</h1>
-      <div className="dc-page">
+      <div>
         <p>
           Groups allow you to classify datasets that share a common
           publisher or organizational group (i.e. Parks and Recreation
@@ -22,6 +24,7 @@ const Publishers = () => {
 
       </div>
     </div>
+    </Layout>
   );
 }
 

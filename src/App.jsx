@@ -8,19 +8,19 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
-import Layout from './components/Layout';
-import "@civicactions/data-catalog-components/dist/index.css";
+//import Layout from './components/Layout';
+import '@civicactions/data-catalog-components/dist/index.css';
+import './theme/index.scss';
 
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { fas } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
-// library.add(fab, fas);
-
+library.add(fab, fas);
 
 function App() {
   return (
-    <Layout>
+    // <Layout>
       <Router>
         <NotFound default />
         <Home path="/" />
@@ -31,7 +31,7 @@ function App() {
         <Dataset path="/dataset/:id" />
         <ApiDocsSpecific path="/dataset/:id/api" />
       </Router>
-    </Layout>
+    //</Layout>
   );
 }
 
