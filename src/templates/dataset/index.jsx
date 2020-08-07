@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from '@reach/router';
+import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
 
@@ -26,6 +27,7 @@ const Dataset = ({id, location}) => {
     async function getItem() {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
+      console.log("item: ", item);
     }
     if (!state || !state.dataset) {
       getItem();
@@ -89,6 +91,10 @@ const Dataset = ({id, location}) => {
     labelsT3.modified = { label: "Last Update" };
     valuesT3.modified = item.modified;
   }
+  if ("license" in item && item.license) {
+    labelsT3.license = { label: "License" };
+    valuesT3.license = `<a href="${item.license}">${item.license}</a>`;
+  }
   if ("contactPoint" in item && item.contactPoint && item.contactPoint.fn) {
     labelsT3.contact = { label: "Contact" };
     valuesT3.contact = item.contactPoint.fn;
@@ -111,6 +117,7 @@ const Dataset = ({id, location}) => {
   }
 
   return (
+    <Layout title={`Dataset - ${item.title}`}>
     <div className={`dc-dataset-page ${config.container}`}>
         <div className="row">
           <div className="col-md-3 col-sm-12">
@@ -140,16 +147,17 @@ const Dataset = ({id, location}) => {
               title="Columns in this Dataset"
               th1="Column Name"
               th2="Type"
-              tableclass="table-two"
+              tableclass="data-dictionary"
             /> */}
             <Table
               configuration={labelsT3}
               data={valuesT3}
-              tableclass="table-three"
+              tableclass="metadata"
             />
           </div>
         </div>
       </div>
+      </Layout>
   );
 };
 

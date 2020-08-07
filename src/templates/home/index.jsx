@@ -7,6 +7,7 @@ import {
   IconListItem,
   StatBlock
 } from "@civicactions/data-catalog-components";
+import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
 
@@ -34,11 +35,11 @@ const Home = () => {
       const orderedDatasets = datasets.sort(function(a,b) {
         return a.title - b.title;
       });
-  
+
       setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
     }
   }, [datasets])
-  
+
   React.useEffect(() => {
     setItems(themes.map(x => {
       let item = {
@@ -52,21 +53,25 @@ const Home = () => {
   }, [themes])
 
   return (
-    <div className="home-page">
-      <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} />
-      <IconList
-        items={items}
-        component={IconListItem}
-        paneTitle="Dataset Topics"
-        className="opendata-icon-list"
-      />
-       <Blocks
-        items={copy.stats}
-        component={StatBlock}
-        className="StatBlock"
-      />
-      <FeaturedDatasets datasets={fDatasets} />
-    </div>
+    <Layout title="Home">
+        <div className="home-page">
+        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} />
+        <div className="container">
+            <IconList
+                items={items}
+                component={IconListItem}
+                paneTitle="Dataset Topics"
+                className="opendata-icon-list"
+            />
+        </div>
+        <Blocks
+            items={copy.stats}
+            component={StatBlock}
+            className="StatBlock"
+        />
+        <FeaturedDatasets datasets={fDatasets} />
+        </div>
+    </Layout>
   );
 }
 
