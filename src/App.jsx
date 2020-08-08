@@ -8,7 +8,6 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
-//import Layout from './components/Layout';
 import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
 
@@ -20,18 +19,16 @@ library.add(fab, fas);
 
 function App() {
   return (
-    // <Layout>
-      <Router>
-        <NotFound default />
-        <Home path="/" />
-        <About path="/about"/>
-        <Publishers path="/publishers" />
-        <SearchTemplate path="/search" />
-        <ApiDocsFull path="/api" />
-        <Dataset path="/dataset/:id" />
-        <ApiDocsSpecific path="/dataset/:id/api" />
-      </Router>
-    //</Layout>
+    <Router>
+      <NotFound default />
+      <Home path="/" />
+      <About path="/about"/>
+      <Publishers path="/publishers" />
+      <SearchTemplate path="/search" />
+      <ApiDocsFull path="/api" />
+      <Dataset path="/dataset/:id" />
+      <ApiDocsSpecific path="/dataset/:id/api" />
+    </Router>
   );
 }
 
