@@ -7,7 +7,7 @@ context('Dataset', () => {
       });
   }
 
-  
+
   beforeEach(() => {
     cy.visit('/dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6')
   })
@@ -92,8 +92,8 @@ context('Dataset', () => {
 
     keys.forEach((value, index) => {
       var final = index + 1;
-      cy.get('.table-three > .table > tbody > :nth-child(' + final + ') > :nth-child(1)').contains(value);
-      cy.get('.table-three > .table > tbody > :nth-child(' + final + ') > :nth-child(2)').contains(values[index]);
+      cy.get('.metadata > .table > tbody > :nth-child(' + final + ') > :nth-child(1)').contains(value);
+      cy.get('.metadata > .table > tbody > :nth-child(' + final + ') > :nth-child(2)').contains(values[index]);
     })
   })
 
