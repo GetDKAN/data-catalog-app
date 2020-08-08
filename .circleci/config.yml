@@ -42,7 +42,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl make --frontend
+            dktl make --frontend --branch=add-cra-config
       - run:
           name: Run cypress tests
           command: |
