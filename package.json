@@ -1,5 +1,5 @@
 {
-  "name": "data-catalog-react",
+  "name": "@civicactions/data-catalog-react",
   "version": "0.2.0",
   "private": true,
   "homepage": "frontend/build",
