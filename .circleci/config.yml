@@ -49,17 +49,14 @@ jobs:
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
             dktl install --demo-backend
-            dktl drush en frontend -y
             cd ~/sandbox/docroot
-            git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git frontend
-            dktl dc exec cli npm install --prefix /var/www/docroot/frontend --unsafe-perm
-            dktl dc exec cli npm run build --prefix /var/www/docroot/frontend --unsafe-perm
+            git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git data-catalog-frontend
+            dktl drush en frontend -y
+            dktl dc exec cli npm install --prefix /var/www/docroot/data-catalog-frontend --unsafe-perm
+            dktl dc exec cli npm run build --prefix /var/www/docroot/data-catalog-frontend --unsafe-perm
             dktl drush config-set frontend.config build_folder '/build' -y
-            dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl drush cr
-            cd ~/sandbox/docroot/frontend
-            node_modules/cypress/bin/cypress install
-            CYPRESS_baseUrl="http://sandbox.localtest.me" npx cypress run
+            dktl dkan:test-cypress frontend
       - store_artifacts:
           path: ~/sandbox/src/frontend/cypress/screenshots
       - store_artifacts:
