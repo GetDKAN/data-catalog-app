@@ -48,6 +48,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
+            dktl dc up -d
             dktl install --demo-backend
             cd ~/sandbox/docroot
             git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git data-catalog-frontend
