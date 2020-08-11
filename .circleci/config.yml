@@ -16,25 +16,17 @@ jobs:
       - run:
           name: Install DKTL
           command: |
-            cd ~
-            git clone https://github.com/GetDKAN/dkan-tools.git
-            cd dkan-tools
-            git checkout dan-refactor
-            cd ../
-            chmod 777 ./dkan-tools/bin/dktl
-            export PATH=$PATH:~/dkan-tools/bin
-            which dktl
+            git clone --branch=dan-refactor --depth 1 https://github.com/GetDKAN/dkan-tools.git ~/dkan-tools
+            chmod 777 ~/dkan-tools/bin/dktl
+            echo "export PATH=~/dkan-tools/bin:$PATH" >> $BASH_ENV
       - run:
           name: Set up dirs
           command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ..
-            mv project frontend
+            cd .. &&  mv project frontend
             mkdir project
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
-            export PATH=$PATH:~/dkan-tools/bin
             dktl init --dkan=dev-add-cra-config
             dktl make
             dktl install
