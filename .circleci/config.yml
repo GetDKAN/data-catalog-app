@@ -25,43 +25,25 @@ jobs:
             export PATH=$PATH:~/dkan-tools/bin
             which dktl
       - run:
-          name: Initialize Project
+          name: Set up dirs
           command: |
             export PATH=$PATH:~/dkan-tools/bin
-            mkdir ~/sandbox
-            cd ~/sandbox
-            dktl init
+            cd ..
+            mv project frontend
+            mkdir project
       - run:
-          name: Get Drupal
+          name: Create DKAN site with frontend; run tests
           command: |
             export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl get 8.9.0
-      - run:
-          name: Make DKAN
-          command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl make --frontend --branch=add-cra-config
-      - run:
-          name: Run cypress tests
-          command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl install --demo-backend
-            dktl drush en frontend -y
-            cd ~/sandbox/src
-            git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git frontend
-            dktl dc exec cli npm install --prefix /var/www/docroot/frontend --unsafe-perm
-            dktl dc exec cli npm run build --prefix /var/www/docroot/frontend --unsafe-perm
-            dktl drush config-set frontend.config build_folder '/build' -y
-            dktl drush config-set frontend.config frontend_path '/frontend' -y
-            dktl ln -s ~/sandbox/src/frontend ~/sandbox/docroot/frontend
-            dktl drush cr
-            cd ~/sandbox/docroot/frontend
-            node_modules/cypress/bin/cypress install
-            CYPRESS_baseUrl="http://sandbox.localtest.me" npx cypress run
+            dktl init --dkan=dev-add-cra-config
+            dktl make
+            dktl install
+            dktl install:sample
+            mv ../frontend src
+            dktl frontend:install
+            dktl frontend:build
+            dktl dkan:test-cypress frontend
       - store_artifacts:
-          path: ~/sandbox/src/frontend/cypress/screenshots
+          path: src/frontend/cypress/screenshots
       - store_artifacts:
-          path: ~/sandbox/src/frontend/cypress/videos
+          path: src/frontend/cypress/videos
