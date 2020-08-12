@@ -34,7 +34,7 @@ jobs:
             mv ../frontend src
             dktl frontend:install
             dktl frontend:build
-            dktl dkan:test-cypress frontend
+            dktl frontend:test
       - store_artifacts:
           path: src/frontend/cypress/screenshots
       - store_artifacts:
