@@ -1,4 +1,4 @@
-context('Search', () => {
+context.skip('Search', () => {
 
   beforeEach(() => {
     cy.visit("/search")
