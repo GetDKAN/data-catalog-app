@@ -1,6 +1,6 @@
 {
-  "name": "@civicactions/data-catalog-react",
-  "version": "0.2.0",
+  "name": "@civicactions/data-catalog-app",
+  "version": "1.0.0",
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {

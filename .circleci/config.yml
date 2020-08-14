@@ -25,6 +25,7 @@ jobs:
             dktl init
             dktl make
             dktl install
+            dktl drush en frontend -y
             dktl install:sample
             mv ../frontend src
             dktl drush config-set frontend.config build_folder '/build' -y
