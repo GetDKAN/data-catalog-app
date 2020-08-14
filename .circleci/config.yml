@@ -22,11 +22,13 @@ jobs:
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
-            dktl init --dkan=dev-add-cra-config
+            dktl init
             dktl make
             dktl install
             dktl install:sample
             mv ../frontend src
+            dktl drush config-set frontend.config build_folder '/build' -y
+            dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl frontend:install
             dktl frontend:build
             dktl frontend:test
