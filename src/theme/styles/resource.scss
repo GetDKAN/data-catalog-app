@@ -1,0 +1,94 @@
+@import "../variables";
+
+.dc-datatable-header {
+  position: relative;
+  display: flex;
+  align-content: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  .dc-page-size-options {
+    label {
+      display: inline-block;
+      margin: 0 5px 0 0;
+      font-size: 1.4rem;
+    }
+    select {
+      display: inline-block;
+      max-width: 80px;
+      width: auto;
+      height: 32px;
+      border: 1px solid $grayLight;
+      background: white;
+    }
+  }
+  .density-buttons {
+    display: inline-block;
+    button[type="button"] {
+      padding: 6px;
+      margin: -1px;
+      border: 1px solid $grayLight;
+      background: white;
+      &:first-of-type {
+        margin-left: 8px;
+        border-radius: 5px 0 0 5px;
+      }
+      &:last-of-type {
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+
+  .data-table-results {
+    min-width: 170px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .dc-modal-open-button {
+    position: relative;
+    display: inline-block;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid $grayLight;
+    padding: 8px 16px;
+  }
+
+  .table-header-rows-per-page {
+    span {
+      font-weight: 400;
+    }
+  }
+  .table-header-select select {
+    border: 1px solid $grayLight;
+  }
+  .table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 85%;
+  }
+  .fullscreen-button {
+    border: none;
+    background-color: transparent;
+    height: 40px;
+    vertical-align: middle;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dc-datatable-header,
+  .data-table-density {
+    display: block;
+    & > div {
+      margin: 5px 0;
+    }
+    .dc-modal-open-button {
+      width: 100%;
+    }
+  }
+}

@@ -6,61 +6,33 @@ jobs:
       image: circleci/classic:latest
     environment:
       TEST_RESULTS: /tmp/test-results
-      DRUPAL_VERSION: V8
+      DKTL_VERSION: "4.0.0"
     steps:
       - checkout
       - run:
-          name: "Setup variables"
-          command: |
-            echo $CIRCLE_BRANCH
-      - run:
           name: Install DKTL
           command: |
-            cd ~
-            git clone https://github.com/GetDKAN/dkan-tools.git
-            cd dkan-tools
-            git checkout cra-switch
-            cd ../
-            chmod 777 ./dkan-tools/bin/dktl
-            export PATH=$PATH:~/dkan-tools/bin
-            which dktl
+            git clone -b $DKTL_VERSION https://github.com/GetDKAN/dkan-tools.git ~/dkan-tools
+            echo "export PATH=~/dkan-tools/bin:$PATH" >> $BASH_ENV
       - run:
-          name: Initialize Project
+          name: Set up dirs
           command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            mkdir ~/sandbox
-            cd ~/sandbox
+            cd .. &&  mv project frontend
+            mkdir project
+      - run:
+          name: Create DKAN site with frontend; run tests
+          command: |
             dktl init
-      - run:
-          name: Get Drupal
-          command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl get 8.9.0
-      - run:
-          name: Make DKAN
-          command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl make --frontend
-      - run:
-          name: Run cypress tests
-          command: |
-            export PATH=$PATH:~/dkan-tools/bin
-            cd ~/sandbox
-            dktl install --demo-backend
-            dktl drush en frontend -y
-            cd ~/sandbox/docroot
-            git clone --single-branch -b $CIRCLE_BRANCH https://github.com/GetDKAN/data-catalog-react.git frontend
-            dktl dc exec cli npm install --prefix /var/www/docroot/frontend --unsafe-perm
-            dktl dc exec cli npm run build --prefix /var/www/docroot/frontend --unsafe-perm
+            dktl make
+            dktl install
+            dktl install:sample
+            mv ../frontend src
+            dktl frontend:install
+            dktl frontend:build
             dktl drush config-set frontend.config build_folder '/build' -y
             dktl drush config-set frontend.config frontend_path '/frontend' -y
-            dktl drush cr
-            cd ~/sandbox/docroot/frontend
-            node_modules/cypress/bin/cypress install
-            CYPRESS_baseUrl="http://sandbox.localtest.me" npx cypress run
+            dktl frontend:test
       - store_artifacts:
-          path: ~/sandbox/src/frontend/cypress/screenshots
+          path: src/frontend/cypress/screenshots
       - store_artifacts:
-          path: ~/sandbox/src/frontend/cypress/videos
+          path: src/frontend/cypress/videos
