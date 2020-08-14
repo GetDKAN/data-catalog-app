@@ -25,13 +25,12 @@ jobs:
             dktl init
             dktl make
             dktl install
-            dktl drush en frontend -y
             dktl install:sample
             mv ../frontend src
-            dktl drush config-set frontend.config build_folder '/build' -y
-            dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl frontend:install
             dktl frontend:build
+            dktl drush config-set frontend.config build_folder '/build' -y
+            dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl frontend:test
       - store_artifacts:
           path: src/frontend/cypress/screenshots
