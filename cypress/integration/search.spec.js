@@ -1,4 +1,4 @@
-context.skip('Search', () => {
+context('Search', () => {
 
   beforeEach(() => {
     cy.visit("/search")
@@ -28,83 +28,72 @@ context.skip('Search', () => {
   });
 
   // TOPIC FILTER
-  it.skip('I can use the topic filter', () => {
+  it('I can use the topic filter', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title');
-    //expand tests for sort
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+      .should('contain', 'Florida Bike Lanes')
   });
 
   // TAG FILTER
-  it.skip('I can use the tag filter', () => {
+  it('I can use the tag filter', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title');
-    //expand tests for sort
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+      .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
 
   // PUBLISHER FILTER
-  it.skip('I can use the publisher filter', () => {
+  it('I can use the publisher filter', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title');
-    //expand tests for sort
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
-  });
-
-  // PAGE SIZE
-  it.skip('I can change the amount of results per page', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title');
+    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
     //expand tests for sort
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
   });
 
   // PAGINATION
-  it.skip('I can navigate pages when available', () => {
+  it('I can navigate pages when available', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title');
+    sortFilter.select('modified');
     //expand tests for sort
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+      .should('contain', 'U.S. Tobacco Usage Statistics')
   });
 
-
-
-   //Search Page Text Input Filter
-   it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
-     cy.get('#inputSearch').type('election')
-     cy.get('.dc-search-results-message > p').should('contain', 'datasets found for "election"')
-     // Pluck the number from the results summary message.
-     cy.get('.dc-search-results-message').as('count')
-     cy.get('@count').invoke('text')
-         .then((count) => {
+  //Search Page Text Input Filter
+  it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
+    cy.get('#inputSearch').type('election')
+    cy.get('.dc-search-results-message > p').should('contain', 'datasets found for "election"')
+    // Pluck the number from the results summary message.
+    cy.get('.dc-search-results-message').as('count')
+    cy.get('@count').invoke('text')
+        .then((count) => {
            count = parseInt(count.substr(0,5));
            cy.log('message', count)
            // The summary number should equal the datasets returned.
            cy.get('.dc-results-list ol').children().its('length').should('eq', count)
-         })
-     // Results list.
-     cy.get('.dc-results-list ol').children().each(function($el, i) {
-         let index = i + 1;
-         if (index < 3) {
+        })
+    // Results list.
+    cy.get('.dc-results-list ol').children().each(function($el, i) {
+        let index = i + 1;
+        if (index < 3) {
            // Each result has a heading.
            cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ')').find('h2')
            // Each result has file formats.
            cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ') .format-types').then((element) => {
              assert.isNotNull(element.text())
            })
-         }
-     })
-   })
+        }
+    })
+  })
 
 
    // SORTING
@@ -115,9 +104,9 @@ context.skip('Search', () => {
      cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
        .should('contain', 'Afghanistan Election Districts')
      cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(2) h2')
-       .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
+       .should('contain', 'Asthma Prevalence')
      cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(3) h2')
-       .should('contain', 'Florida Bike Lanes')
+       .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
    })
 
 
