@@ -144,7 +144,7 @@ context('Search', () => {
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
-  it.only('Check results are returned when filtering for topic 4', () => {
+  it('Check results are returned when filtering for topic 4', () => {
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
