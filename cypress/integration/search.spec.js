@@ -43,7 +43,7 @@ context('Search', () => {
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title')
     cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
-    cy.wait(1000)
+    cy.wait(2000)
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
@@ -54,7 +54,7 @@ context('Search', () => {
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title')
     cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
-    //expand tests for sort
+    cy.wait(2000)
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
   });
