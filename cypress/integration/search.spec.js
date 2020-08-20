@@ -33,9 +33,9 @@ context('Search', () => {
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title')
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.wait(2000)
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Florida Bike Lanes')
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
   });
 
   // TAG FILTER
@@ -43,11 +43,10 @@ context('Search', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
     cy.wait(2000)
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
   });
 
   // PUBLISHER FILTER
@@ -55,7 +54,7 @@ context('Search', () => {
     cy.wait(2000)
     const sortFilter = cy.findByLabelText('Sort by:')
     sortFilter.select('title')
-    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
     cy.wait(2000)
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
@@ -74,7 +73,6 @@ context('Search', () => {
   //Search Page Text Input Filter
   it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
     cy.get('#inputSearch').type('election')
-    cy.wait(2000)
     cy.get('.dc-search-results-message > p').should('contain', 'datasets found for "election"')
     // Pluck the number from the results summary message.
     cy.get('.dc-search-results-message').as('count')
