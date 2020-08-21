@@ -136,6 +136,7 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 2', () => {
+    cy.wait(2000)
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
     cy.wait(2000)
     cy.get('.dc-search-results-message').should('not.contain', '0')
