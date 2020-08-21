@@ -30,9 +30,8 @@ context('Search', () => {
   it('I can use the topic filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 10000 })
-      .should('contain', 'Transportation')
-      .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
       .should('contain', 'Florida Bike Lanes')
   });
@@ -41,19 +40,18 @@ context('Search', () => {
   it('I can use the tag filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 10000 })
-      .should('contain','economy').click()
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
 
   // PUBLISHER FILTER
-  it('I can use the publisher filter', () => {
+  it.only('I can use the publisher filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
-    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 })
-      .should('contain','Committee on International Affairs')
-      .click()
+    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get('.dc-search-sidebar-options')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
       .should('contain', 'Afghanistan Election Districts')
   });
@@ -125,41 +123,36 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 10000 })
-      .should('contain','Transportation')
-      .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label', { timeout: 10000 })
-    .should('contain','City Planning')
-    .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 })
-    .should('contain','Finance and Budgeting')
-    .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label', { timeout: 10000 })
-    .should('contain','Public Safety')
-    .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 5', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 10000 })
-    .should('contain','Health Care')
-    .click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
