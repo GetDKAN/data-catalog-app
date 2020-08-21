@@ -161,7 +161,7 @@ context('Search', () => {
     cy.get('.facet-block-keyword-inner > button > span').should('have.text', 'Tags')
   })
 
-  it.only('When filtering by keyword I should get a smaller results list', () => {
+  it('When filtering by keyword I should get a smaller results list', () => {
     let results = 0;
     cy.get('.dc-results-list ol').children().each((item) => {
       results += 1;
