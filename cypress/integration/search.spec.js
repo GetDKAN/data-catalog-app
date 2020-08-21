@@ -29,43 +29,39 @@ context('Search', () => {
 
   // TOPIC FILTER
   it('I can use the topic filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title')
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
-    cy.wait(2000)
+    cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Florida Bike Lanes')
   });
 
   // TAG FILTER
   it('I can use the tag filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title')
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
-    cy.wait(2000)
+    cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
 
   // PUBLISHER FILTER
   it('I can use the publisher filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title')
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
-    cy.wait(2000)
+    cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
   });
 
   // PAGINATION
   it('I can navigate pages when available', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('modified');
-    //expand tests for sort
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('modified')
+    cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'U.S. Tobacco Usage Statistics')
   });
