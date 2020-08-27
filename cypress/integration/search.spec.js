@@ -2,6 +2,7 @@ context('Search', () => {
 
   beforeEach(() => {
     cy.visit("/search")
+    cy.wait(3000)
   })
 
   // HEADER
@@ -22,45 +23,45 @@ context('Search', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
     //expand tests for sort
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'Afghanistan Election Districts')
   });
 
   // TOPIC FILTER
   it('I can use the topic filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 10000 }).click()
     cy.get('.inner-theme-facets')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'Florida Bike Lanes')
   });
 
   // TAG FILTER
   it('I can use the tag filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 10000 }).click()
     cy.get('.inner-theme-facets')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
 
   // PUBLISHER FILTER
-  it.only('I can use the publisher filter', () => {
+  it('I can use the publisher filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 }).click()
     cy.get('.dc-search-sidebar-options')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'Afghanistan Election Districts')
   });
 
   // PAGINATION
   it('I can navigate pages when available', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('modified')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 10000 })
+    cy.get("@sortFilter").select('modified', { timeout: 10000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'U.S. Tobacco Usage Statistics')
   });
 
@@ -123,35 +124,45 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 20000 })
+    .should('be.visible')
+    .click()
     cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label', { timeout: 20000 })
+    .should('be.visible')
+    .click()
     cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 20000 })
+      .should('be.visible')
+      .click()
     cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label', { timeout: 20000 })
+      .should('be.visible')
+      .click()
     cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 5', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 20000 })
+      .should('be.visible')
+      .click()
     cy.get('.inner-theme-facets')
     cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
