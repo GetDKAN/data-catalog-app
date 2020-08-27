@@ -37,9 +37,9 @@ context('Dataset', () => {
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
           cy.get(`#resource_${tables[0].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`, { timeout: 10000 }).type('1985')
           cy.get(`#resource_${tables[1].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`, { timeout: 10000 }).type('2014')
-          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 10000 }).should('contain', '9')
+          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 20000 }).should('contain', '9')
           cy.get(`#resource_${tables[0].identifier} .data-table-results`, { timeout: 20000 }).contains('1 - 1 of 1 rows')
-          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 10000 }).should('contain', '13.4')
+          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 20000 }).should('contain', '13.4')
           cy.get(`#resource_${tables[1].identifier} .data-table-results`, { timeout: 20000 }).contains('1 - 2 of 2 rows')
         });
       })
@@ -51,10 +51,10 @@ context('Dataset', () => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
           cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
-          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`, { timeout: 10000 }).should('contain', '1945')
+          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`, { timeout: 20000 }).should('contain', '1945')
           cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
           cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
-          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(2) > :nth-child(2)`, { timeout: 10000 }).should('contain', '2019')
+          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(2) > :nth-child(2)`, { timeout: 20000 }).should('contain', '2019')
         });
       })
   })
