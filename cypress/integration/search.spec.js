@@ -30,7 +30,7 @@ context('Search', () => {
   // TOPIC FILTER
   it('I can use the topic filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 10000 }).click()
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 30000 })
       .should('contain', 'Florida Bike Lanes')
@@ -39,7 +39,7 @@ context('Search', () => {
   // TAG FILTER
   it('I can use the tag filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 10000 }).click()
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 30000 })
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
@@ -48,7 +48,7 @@ context('Search', () => {
   // PUBLISHER FILTER
   it('I can use the publisher filter', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter", { timeout: 10000 }).select('title')
+    cy.get("@sortFilter").select('title')
     cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 }).click()
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 30000 })
       .should('contain', 'Afghanistan Election Districts')
@@ -57,7 +57,7 @@ context('Search', () => {
   // PAGINATION
   it('I can navigate pages when available', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('modified', { timeout: 10000 })
+    cy.get("@sortFilter").select('modified')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
       .should('contain', 'U.S. Tobacco Usage Statistics')
   });
