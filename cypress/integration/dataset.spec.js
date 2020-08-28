@@ -12,9 +12,9 @@ context('Dataset', () => {
     cy.visit('/dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa')
   })
 
-  it.only('I see the title and description', () => {
+  it('I see the title and description', () => {
     cy.get('h1').should('have.text', 'Asthma Prevalence')
-    cy.get('.col-md-9').contains('This dataset contains the estimated percentage of Californians with asthma')
+    cy.get('.col-md-9').contains('This table contains the estimated percent of California adults (18 and older) with lifetime and current asthma (asthma prevalence), by year.')
   })
 
   it('I see the file is available to download for each dataset', () => {
@@ -22,9 +22,9 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get('.dc-resource:first-of-type > svg').should('have.attr', 'class', 'dkan-icon')
-          cy.get(`#resource_${tables[0].identifier} .dc-resource > a`).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1995-to-2011.csv`);
-          cy.get(`#resource_${tables[1].identifier} .dc-resource > a`).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2012-to-2017.csv`);
+          cy.get('.dc-resource:first-of-type > svg', { timeout: 10000 }).should('have.attr', 'class', 'dkan-icon')
+          cy.get(`#resource_${tables[0].identifier} .dc-resource > a`, { timeout: 10000 }).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv`);
+          cy.get(`#resource_${tables[1].identifier} .dc-resource > a`, { timeout: 10000 }).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2000-to-2020.csv`);
         });
       })
   })
@@ -35,15 +35,12 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`).type('2010')
-          cy.wait(3000)
-          cy.get(`#resource_${tables[1].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`).type('2014')
-          cy.wait(3000)
-          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`).should('contain', '7.9')
-          cy.get(`#resource_${tables[0].identifier} .data-table-results`).contains('1 - 4 of 4 rows')
-          cy.wait(3000)
-          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`).should('contain', '13.4')
-          cy.get(`#resource_${tables[1].identifier} .data-table-results`).contains('1 - 4 of 4 rows')
+          cy.get(`#resource_${tables[0].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`, { timeout: 10000 }).type('1985')
+          cy.get(`#resource_${tables[1].identifier} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input`, { timeout: 10000 }).type('2014')
+          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 20000 }).should('contain', '9')
+          cy.get(`#resource_${tables[0].identifier} .data-table-results`, { timeout: 20000 }).contains('1 - 1 of 1 rows')
+          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(3)`, { timeout: 20000 }).should('contain', '13.4')
+          cy.get(`#resource_${tables[1].identifier} .data-table-results`, { timeout: 20000 }).contains('1 - 2 of 2 rows')
         });
       })
   })
@@ -53,13 +50,11 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-          cy.wait(3000)
-          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', '1995')
-          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-          cy.wait(5000)
-          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(2) > :nth-child(2)`).should('contain', '2017')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
+          cy.get(`#resource_${tables[0].identifier} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`, { timeout: 20000 }).should('contain', '1945')
+          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
+          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr > :nth-child(2)`, { timeout: 10000 }).click()
+          cy.get(`#resource_${tables[1].identifier} .dc-table .dc-tbody > :nth-child(2) > :nth-child(2)`, { timeout: 20000 }).should('contain', '2019')
         });
       })
   })
@@ -104,19 +99,19 @@ context('Dataset', () => {
     cy.request(Cypress.config().baseUrl + '/api/1/metastore/schemas/dataset/items/' + dataset_identifier + '?show-reference-ids')
       .then((response) => {
         const tables = [...response.body.distribution];
+        cy.wait(3000)
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .-pageInfo`).should('contain', 'Page 1 of 3')
+          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 3')
           cy.get(`#resource_${tables[0].identifier} .page-size-select`).select('50')
-          cy.get(`#resource_${tables[0].identifier} .-pageInfo`).should('contain', 'Page 1 of 2')
+          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 2')
           cy.get(`#resource_${tables[0].identifier} .page-size-select`).select('100')
-          cy.get(`#resource_${tables[0].identifier} .-pageInfo`).should('contain', 'Page 1 of 1')
+          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 1')
 
-          cy.get(`#resource_${tables[1].identifier} .-pageInfo`).should('contain', 'Page 1 of 2')
+          cy.get(`#resource_${tables[1].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 2')
           cy.get(`#resource_${tables[1].identifier} .page-size-select`).select('50')
-          cy.get(`#resource_${tables[1].identifier} .-pageInfo`).should('contain', 'Page 1 of 1')
+          cy.get(`#resource_${tables[1].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 1')
           cy.get(`#resource_${tables[1].identifier} .page-size-select`).select('100')
-          cy.wait(6000)
-          cy.get(`#resource_${tables[1].identifier} .-pageInfo`).should('contain', 'Page 1 of 1')
+          cy.get(`#resource_${tables[1].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 1')
         });
       })
   })
@@ -126,17 +121,17 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '5px')
+          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '5px')
           cy.get(`#resource_${tables[0].identifier} [title="expanded"]`).click()
-          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '21px 5px')
+          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '21px 5px')
           cy.get(`#resource_${tables[0].identifier} [title="normal"]`).click()
-          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '14px 5px')
+          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '14px 5px')
 
-          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '5px')
+          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '5px')
           cy.get(`#resource_${tables[1].identifier} [title="expanded"]`).click()
-          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '21px 5px')
+          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '21px 5px')
           cy.get(`#resource_${tables[1].identifier} [title="normal"]`).click()
-          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '14px 5px')
+          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'padding', '14px 5px')
         });
       })
   })
@@ -146,16 +141,16 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(1)`).should('have.css', 'flex', '150 0 auto')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'flex', '150 0 auto')
           cy.get(`#resource_${tables[0].identifier} :nth-child(1) > .resizer`)
             .trigger('mousedown', { which: 1 })
           cy.get(`#resource_${tables[0].identifier} :nth-child(2) > .resizer`)
             .trigger("mousemove")
             .trigger("mouseup")
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(1)`).should('not.have.css', 'flex', '150 0 auto')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr > :nth-child(1)`, { timeout: 10000 }).should('not.have.css', 'flex', '150 0 auto')
           // Column width is consistent.
-          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .tr > :nth-child(1)`).should('not.have.css', 'flex', '150 0 auto')
-          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .tr > :nth-child(1)`).should('have.css', 'flex', '150 0 auto')
+          cy.get(`#resource_${tables[0].identifier} .dc-tbody > .tr > :nth-child(1)`, { timeout: 10000 }).should('not.have.css', 'flex', '150 0 auto')
+          cy.get(`#resource_${tables[1].identifier} .dc-tbody > .tr > :nth-child(1)`, { timeout: 10000 }).should('have.css', 'flex', '150 0 auto')
         });
       })
   })
@@ -169,14 +164,14 @@ context('Dataset', () => {
           // cy.get('#react-aria-modal-dialog #dialog-title').should('contain', 'Display column')
           // Test close button in top right
           cy.get(`#dc-modal-manage_columns-header-close`).click()
-          cy.get(`#dc-modal-manage_columns`).should('not.exist');
+          cy.get(`#dc-modal-manage_columns`, { timeout: 10000 }).should('not.exist');
           // Test Done button
           cy.get(`#resource_${tables[0].identifier} #dc-modal-manage_columns-open`).click()
           cy.get(`#dc-modal-manage_columns-close`).click()
-          cy.get(`#dc-modal-manage_columns`).should('not.exist');
+          cy.get(`#dc-modal-manage_columns`, { timeout: 10000 }).should('not.exist');
           // Test Esc to close
           cy.get(`#resource_${tables[1].identifier} #dc-modal-manage_columns-open`).click()
-          cy.get(`body`).type('{esc}')
+          cy.get(`body`).type('{esc}', { timeout: 10000 })
           cy.get(`#dc-modal-manage_columns`).should('not.exist');
         });
       })
@@ -187,23 +182,23 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 6)
-          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 6)
-          cy.get(`.dc-table > :nth-child(1) .tr .th`).should('contain', 'record_number')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 6)
+          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 6)
+          cy.get(`.dc-table > :nth-child(1) .tr .th`, { timeout: 10000 }).should('contain', 'record_number')
           cy.get(`#resource_${tables[0].identifier} #dc-modal-manage_columns-open`).click()
-          cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label`).should('contain', 'record_number')
+          cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label`, { timeout: 10000 }).should('contain', 'record_number')
           cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label`).click()
           cy.get(`#dc-modal-manage_columns-header-close`).click()
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr .th`).should('contain', 'year')
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 5)
-          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 6)
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr .th`, { timeout: 10000 }).should('contain', 'year')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 5)
+          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 6)
           cy.get(`#resource_${tables[0].identifier} #dc-modal-manage_columns-open`).click()
-          cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').should('contain', 'record_number')
+          cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label', { timeout: 10000 }).should('contain', 'record_number')
           cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').click()
           cy.get('#dc-modal-manage_columns-header-close').click()
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 6)
-          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`).children('.th').should('have.length', 6)
-          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr .th`).should('contain', 'record_number')
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 6)
+          cy.get(`#resource_${tables[1].identifier} .dc-table > :nth-child(1) .tr`, { timeout: 10000 }).children('.th').should('have.length', 6)
+          cy.get(`#resource_${tables[0].identifier} .dc-table > :nth-child(1) .tr .th`, { timeout: 10000 }).should('contain', 'record_number')
         });
       })
   })
@@ -213,8 +208,8 @@ context('Dataset', () => {
       .then((response) => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
-          cy.get(`#resource_${tables[1].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`).should('contain', 'record_number')
-          cy.get(`#resource_${tables[0].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`).should('contain', 'record_number')
+          cy.get(`#resource_${tables[1].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`, { timeout: 10000 }).should('contain', 'record_number')
+          cy.get(`#resource_${tables[0].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`, { timeout: 10000 }).should('contain', 'record_number')
           cy.get(`#resource_${tables[1].identifier} #dc-modal-manage_columns-open`).click()
           cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(2)`)
             .trigger('dragstart')
@@ -222,8 +217,8 @@ context('Dataset', () => {
             .trigger('dragover')
             .trigger('drop')
           cy.get(`#dc-modal-manage_columns-close`).click()
-          cy.get(`#resource_${tables[0].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`).should('contain', 'record_number')
-          cy.get(`#resource_${tables[1].identifier} .dc-table:first-of-type > :nth-child(1) .tr > :nth-child(1)`).should('contain', 'state_abbreviation')
+          cy.get(`#resource_${tables[0].identifier} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`, { timeout: 10000 }).should('contain', 'record_number')
+          cy.get(`#resource_${tables[1].identifier} .dc-table:first-of-type > :nth-child(1) .tr > :nth-child(1)`, { timeout: 10000 }).should('contain', 'year')
         });
       })
   })
