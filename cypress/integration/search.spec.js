@@ -87,7 +87,7 @@ context('Search', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
     cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 20000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 50000 })
       .should('contain', 'Florida Bike Lanes')
     cy.get('.dc-search-results-message').should('contain', '1 dataset found in Topics')
   });
