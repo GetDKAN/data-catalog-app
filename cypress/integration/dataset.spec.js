@@ -103,9 +103,9 @@ context('Dataset', () => {
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
           cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 3')
           cy.get(`#resource_${tables[0].identifier} .page-size-select`).select('50')
-          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 2')
+          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 30000 }).should('contain', 'Page 1 of 2')
           cy.get(`#resource_${tables[0].identifier} .page-size-select`).select('100')
-          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 1')
+          cy.get(`#resource_${tables[0].identifier} .-pageInfo`, { timeout: 30000 }).should('contain', 'Page 1 of 1')
 
           cy.get(`#resource_${tables[1].identifier} .-pageInfo`, { timeout: 20000 }).should('contain', 'Page 1 of 2')
           cy.get(`#resource_${tables[1].identifier} .page-size-select`).select('50')
