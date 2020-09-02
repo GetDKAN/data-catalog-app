@@ -18,42 +18,6 @@ context('Search', () => {
     //expand tests for using text input
   });
 
-  // SORT FILTER
-  it('I can use the sort filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    //expand tests for sort
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
-      .should('contain', 'Afghanistan Election Districts')
-  });
-
-  // TOPIC FILTER
-  it('I can use the topic filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 10000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
-      .should('contain', 'Florida Bike Lanes')
-  });
-
-  // TAG FILTER
-  it('I can use the tag filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 10000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
-      .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
-  });
-
-  // PUBLISHER FILTER
-  it('I can use the publisher filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
-      .should('contain', 'Afghanistan Election Districts')
-  });
-
   // PAGINATION
   it('I can navigate pages when available', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
@@ -89,12 +53,12 @@ context('Search', () => {
     })
   })
 
-
   // SORTING
   it('Sort results alphabetically', () => {
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'U.S. Tobacco Usage Statistics')
-    cy.get('select#dc-search-list-sort').select('title')
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(2) h2')
@@ -102,7 +66,6 @@ context('Search', () => {
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(3) h2')
       .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
   })
-
 
   // TOPIC FILTER
   it('The topics facet block should contain 5 topics and one legend', () => {
@@ -120,53 +83,18 @@ context('Search', () => {
     })
   })
 
-  it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 20000 })
-    .should('be.visible')
-    .click()
-    cy.get('.inner-theme-facets')
-    cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
-    cy.get('.dc-search-results-message').should('contain', 'dataset')
-  })
-
-  it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label', { timeout: 20000 })
-    .should('be.visible')
-    .click()
-    cy.get('.inner-theme-facets')
-    cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
-    cy.get('.dc-search-results-message').should('contain', 'dataset')
-  })
-
-  it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 20000 })
-      .should('be.visible')
-      .click()
-    cy.get('.inner-theme-facets')
-    cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
-    cy.get('.dc-search-results-message').should('contain', 'dataset')
-  })
-
-  it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label', { timeout: 20000 })
-      .should('be.visible')
-      .click()
-    cy.get('.inner-theme-facets')
-    cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
-    cy.get('.dc-search-results-message').should('contain', 'dataset')
-  })
-
-  it('Check results are returned when filtering for topic 5', () => {
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 20000 })
-      .should('be.visible')
-      .click()
-    cy.get('.inner-theme-facets')
-    cy.get('.dc-search-results-message', { timeout: 10000 }).should('not.contain', '0')
-    cy.get('.dc-search-results-message').should('contain', 'dataset')
-  })
+  it('I get the results I expect when using the topic filter', () => {
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 20000 }).click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label > .svg-inline--fa').invoke('attr', 'data-icon').should('contain', 'check-square')
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 80000 })
+      .should('contain', 'Florida Bike Lanes')
+    cy.get('.dc-search-results-message').should('contain', '1 dataset found in Topics')
+  });
 
   // KEYWORD FILTER
-  it('Check that the tags facet block has options', () => {
+  it('Check that the keyword facet block has options', () => {
     cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container').children()
       .its('length')
       .should('be.gt', 0)
@@ -190,6 +118,23 @@ context('Search', () => {
     })
   })
 
+  it('I get the results I expect when using the keyword filter', () => {
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 20000 }).click()
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label > .svg-inline--fa').invoke('attr', 'data-icon').should('contain', 'check-square')
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 80000 })
+      .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
+  });
+
+  // PUBLISHER FILTER
+  it('I get correct results when using the publisher filter', () => {
+    cy.findByLabelText('Sort by:').as("sortFilter")
+    cy.get("@sortFilter").select('title')
+    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 }).click()
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
+      .should('contain', 'Afghanistan Election Districts')
+  });
 
   // FORMAT FILTER
   // Not implemented by default in demo build

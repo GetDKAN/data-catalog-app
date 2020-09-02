@@ -6,7 +6,7 @@ jobs:
       image: circleci/classic:latest
     environment:
       TEST_RESULTS: /tmp/test-results
-      DKTL_VERSION: "4.0.0"
+      DKTL_VERSION: "4.0.3"
     steps:
       - checkout
       - run:
@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
-            dktl init
+            dktl init --dkan=dev-update-sample-data
             dktl make
             dktl install
             dktl install:sample
