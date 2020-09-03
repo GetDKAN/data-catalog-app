@@ -121,7 +121,7 @@ context('Search', () => {
     cy.findByLabelText('Sort by:').as("sortFilter")
     cy.get("@sortFilter").select('title')
     cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 20000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 50000 })
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 60000 })
       .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
   });
 
