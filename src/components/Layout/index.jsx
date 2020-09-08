@@ -16,6 +16,7 @@ const Layout = ({
         title={`${title} - DKAN Demo`}
         description={description}
         defer={false}
+        generator="DKAN 2 (https://github.com/GetDKAN/dkan)"
         htmlAttributes={{
           "lang": "en"
         }}
