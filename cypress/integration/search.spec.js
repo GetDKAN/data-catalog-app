@@ -19,14 +19,12 @@ function updateFacets(facetsFx, updatedFacets) {
 
 function updateResults(resultsFx, updatedResults) {
   let newResults = {};
-  let tempResults = resultsFx.results;
-  updatedResults.forEach((result) => {
-    for(let key in tempResults) {
-      if(key !== result) {
-        delete tempResults[key]
-      }
+  let tempResults = {};
+  for(let key in resultsFx.results) {
+    if(updatedResults.includes(key)) {
+      tempResults[key] = resultsFx.results[key]
     }
-  })
+  }
   newResults.total = Object.keys(tempResults).length;
   newResults.results = tempResults;
   return newResults;
@@ -35,8 +33,9 @@ function updateResults(resultsFx, updatedResults) {
 context('Search', () => {
   const defaultApi = 'fulltext=&page=1&page-size=10&sort=modified&sort_order=desc';
   const fulltextSearch = 'fulltext=gold&page=1&page-size=10&sort=modified&sort_order=desc';
+  const searchList = '.dc-results-list ol';
   // HEADER
-  it.only('When I visit the search page I see a header', () => {
+  it('When I visit the search page I see a header', () => {
     // Test setup
     cy.server();
     cy.route(`**/search?${defaultApi}**`, 'fx:searchResults');
@@ -47,7 +46,7 @@ context('Search', () => {
   });
 
   // FULLTEXT FILTER
-  it.only('I can use the text input filter', () => {
+  it('I can use the text input filter', () => {
     // Test setup
     cy.server();
     cy.route(`**/search?${defaultApi}**`, 'fx:searchResults');
@@ -64,7 +63,6 @@ context('Search', () => {
     ]));
     cy.visit('/search');
     const placholder = 'Type your search term here';
-    const searchList = '.dc-results-list ol';
     const filteredFacets = [
       'economy (1)',
       'price (1)',
@@ -88,37 +86,103 @@ context('Search', () => {
     filteredFacets.forEach((facet) => {
       cy.findByLabelText(facet).should('exist');
     })
-    cy.get(searchList).children().its('length').should('eq', 1).should('exist');
+    cy.get(searchList).children().its('length').should('eq', 1);
   });
 
   // SORT FILTER
   it('I can use the sort filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title');
+    const sortFilter = 'Sort by:';
+    const sortByTitle = 'fulltext=&page=1&page-size=10&sort=title'
+    cy.server();
+    cy.route(`**/search?${defaultApi}**`, 'fx:searchResults');
+    cy.route(`**/search/facets?**`, 'fx:searchFacets');
+    cy.route(`**search?${sortByTitle}**`, () => ({
+      total: "10",
+      results: {
+        'dkan_dataset/c9e2d352-e24c-4051-9158-f48127aa5692': searchResults.results['dkan_dataset/c9e2d352-e24c-4051-9158-f48127aa5692'],
+        'dkan_dataset/d460252e-d42c-474a-9ea9-5287b1d595f6': searchResults.results['dkan_dataset/d460252e-d42c-474a-9ea9-5287b1d595f6'],
+        'dkan_dataset/cedcd327-4e5d-43f9-8eb1-c11850fa7c55': searchResults.results['dkan_dataset/cedcd327-4e5d-43f9-8eb1-c11850fa7c55'],
+        'dkan_dataset/5dc1cfcf-8028-476c-a020-f58ec6dd621c': searchResults.results['dkan_dataset/5dc1cfcf-8028-476c-a020-f58ec6dd621c'],
+        'dkan_dataset/fb3525f2-d32a-451e-8869-906ed41f7695': searchResults.results['dkan_dataset/fb3525f2-d32a-451e-8869-906ed41f7695'],
+        'dkan_dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa': searchResults.results['dkan_dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa'],
+        'dkan_dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6': searchResults.results['dkan_dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6'],
+        'dkan_dataset/74c06c81-9fe0-439c-aba9-cd5c980a6df4': searchResults.results['dkan_dataset/74c06c81-9fe0-439c-aba9-cd5c980a6df4'],
+        'dkan_dataset/e1f2ebcd-ee23-454f-87b5-df0306658418': searchResults.results['dkan_dataset/e1f2ebcd-ee23-454f-87b5-df0306658418'],
+        'dkan_dataset/934400f2-a5dc-4abf-bf16-3f17335888d3': searchResults.results['dkan_dataset/934400f2-a5dc-4abf-bf16-3f17335888d3'],
+      }
+    }))
+    cy.visit('/search');
+    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByLabelText(sortFilter).should('exist');
+    cy.findByLabelText(sortFilter).select('title');
     //expand tests for sort
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+      .should('contain', 'Afghanistan Election Districts');
+    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByText('10 datasets found').should('exist');
   });
 
   // TOPIC FILTER
-  it.skip('I can use the topic filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title');
-    //expand tests for sort
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+  it('I can use the topic filter', () => {
+    const filterTheme = 'fulltext=&page=1&page-size=10&sort=modified&sort_order=desc&theme=City Planning';
+    cy.server();
+    cy.route(`**/search?${defaultApi}&facets=0`, 'fx:searchResults');
+    cy.route(`**/search/facets?${defaultApi}`, 'fx:searchFacets');
+    cy.route(`**facets?${filterTheme}`, updateFacets(searchFacets, [
+      {type: 'publisher__name', name: 'State Economic Council', total: '1'},
+      {type: 'publisher__name', name: 'Committee on International Affairs', total: '2'},
+      {type: 'theme', name: 'City Planning', total: '3'},
+      {type: 'theme', name: 'Transportation', total: '1'},
+      {type: 'keyword', name: 'politics', total: '1'},
+      {type: 'keyword', name: 'transparency', total: '1'},
+      {type: 'keyword', name: 'country-afghanistan', total: '1'},
+      {type: 'keyword', name: 'election', total: '2'},
+    ]));
+    cy.route(`**search?${filterTheme}**`, updateResults(searchResults, [
+      'dkan_dataset/c9e2d352-e24c-4051-9158-f48127aa5692',
+      'dkan_dataset/cedcd327-4e5d-43f9-8eb1-c11850fa7c55',
+      'dkan_dataset/934400f2-a5dc-4abf-bf16-3f17335888d3',
+    ]));
+    cy.visit('/search');
+    cy.findByText('City Planning (3)').click();
+    cy.get('.dc-search-results-message').contains('3 datasets found in Topics: City Planning');
+    cy.findByText('City Planning (3)').should('exist');
+    cy.findByText('Finance and Budgeting (0)').should('exist');
+    cy.get(searchList).children().its('length').should('eq', 3);
+    cy.wait(5)
+    cy.findByText('City Planning (3)').click();
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.findByText('Finance and Budgeting (4)').should('exist');
   });
 
   // TAG FILTER
-  it.skip('I can use the tag filter', () => {
-    cy.wait(2000)
-    const sortFilter = cy.findByLabelText('Sort by:')
-    sortFilter.select('title');
-    //expand tests for sort
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
+  it.only('I can use the tag filter', () => {
+    cy.visit('/search');
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    // Click economy
+    cy.findByText('economy (3)').click();
+    cy.get('.dc-search-results-message').contains('3 datasets found in Tags: economy');
+    cy.get(searchList).children().its('length').should('eq', 3);
+    cy.findByText('Finance and Budgeting (3)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('exist');
+    // Click united kingdom
+    cy.findByText('United Kingdom (1)').click();
+    cy.get('.dc-search-results-message').contains('1 dataset found in Tags: economy, United Kingdom');
+    cy.get(searchList).children().its('length').should('eq', 1);
+    cy.findByText('crime (0)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    // click economy
+    cy.findByText('economy (1)').click();
+    cy.get('.dc-search-results-message').contains('1 dataset found in Tags: United Kingdom');
+    cy.get(searchList).children().its('length').should('eq', 1);
+    cy.findByText('Finance and Budgeting (1)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('not','exist');
+
   });
 
   // PUBLISHER FILTER
