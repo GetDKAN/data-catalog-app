@@ -215,8 +215,6 @@ context('Search', () => {
       .should('contain', 'Afghanistan Election Districts')
   });
 
-
-
    //Search Page Text Input Filter
    it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
      cy.get('#inputSearch').type('election')
