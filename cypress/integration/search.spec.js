@@ -145,7 +145,7 @@ context('Search', () => {
   });
 
   // URL PARAMS
-  it.only('I can visit the site with params to load data', () => {
+  it('I can visit the site with params to load data', () => {
     cy.stubSearchResults('/search/?fulltext=gold');
     cy.get('.dc-search-results-message').contains('1 dataset found for "gold"');
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
