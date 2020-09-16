@@ -26,12 +26,11 @@ Cypress.Commands.add('stubDatatable', (path) => {
 
 Cypress.Commands.add('stubSearchResults', (path) => {
   cy.server();
-  // fulltext=&keyword=United Kingdom&page=1&page-size=10&sort=modified&sort_order=desc
   // RESULTS
   cy.fixture('searchResults').then((res) => {
     // DEFAULT URL
     cy.route(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort_order=desc&facets=0).*$/, res).as('resultsDefault');
-    cy.route(/^(?=.*fulltext=gold)(?=.*facets=0).*$/, 'fx:results/goldFullText.json').as('resultsFulltext');
+    cy.route(/^(?=.*fulltext=gold)(?=.*facets=0).*$/, 'fx:results/goldFulltext.json').as('resultsFulltext');
     cy.route(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=0).*$/, 'fx:results/titleSort.json').as('resultsSortTitle');
     cy.route(/^(?=.*&theme=City Planning)(?=.*facets=0).*$/, 'fx:results/cityPlanningTheme.json').as('resultsTheme');
     cy.route(/^(?=.*keyword=economy)(?=.*facets=0).*$/, 'fx:results/economyKeyword.json').as('resultsKeywordEconomy');
