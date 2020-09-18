@@ -77,23 +77,23 @@ context('Search', () => {
     cy.get(searchList).children().its('length').should('eq', 10);
     cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
     // Click economy
-    cy.findByText('economy (3)').click();
     cy.wait(500)
+    cy.findByText('economy (3)').click();
     cy.get('.dc-search-results-message').contains('3 datasets found in Tags: economy');
     cy.get(searchList).children().its('length').should('eq', 3);
     cy.findByText('Finance and Budgeting (3)').should('exist');
     cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
     cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('exist');
     // Click united kingdom
-    cy.findByText('United Kingdom (1)').click();
     cy.wait(500)
+    cy.findByText('United Kingdom (1)').click();
     cy.get('.dc-search-results-message').contains('1 dataset found in Tags: economy, United Kingdom');
     cy.get(searchList).children().its('length').should('eq', 1);
     cy.findByText('crime (0)').should('exist');
     cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
     // click economy
-    cy.findByText('economy (1)').click();
     cy.wait(500)
+    cy.findByText('economy (1)').click();
     cy.get('.dc-search-results-message').contains('1 dataset found in Tags: United Kingdom');
     cy.get(searchList).children().its('length').should('eq', 1);
     cy.findByText('Finance and Budgeting (1)').should('exist');
