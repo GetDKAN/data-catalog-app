@@ -57,6 +57,7 @@ context('Search', () => {
     cy.get('.inner-theme-facets .show-more-container').children().should('have.length', 5)
     cy.findByText('Finance and Budgeting (4)').should('exist');
     cy.findByText('City Planning (3)').should('exist');
+    cy.wait(5)
     cy.findByText('City Planning (3)').click();
     cy.get('.dc-search-results-message').contains('3 datasets found in Topics: City Planning');
     cy.findByText('City Planning (3)').should('exist');
