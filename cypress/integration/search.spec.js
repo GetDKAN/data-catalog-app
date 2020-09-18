@@ -106,7 +106,7 @@ context('Search', () => {
     cy.stubSearchResults('/search');
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
-    cy.wait(5)
+    cy.wait(500)
     cy.findByText('Advisory Council for Infectious Disease (2)').click();
     cy.get('.dc-search-results-message').contains('2 datasets found in Publishers: Advisory Council for Infectious Disease');
     cy.get(searchList).children().its('length').should('eq', 2);
