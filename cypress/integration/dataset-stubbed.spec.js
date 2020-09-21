@@ -1,4 +1,4 @@
-context('Dataset', () => {
+context('Dataset stubbed', () => {
   beforeEach(() => {
     // cy.visit('/dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa')
     cy.stubMetadata('/dataset/1234-abcd');
