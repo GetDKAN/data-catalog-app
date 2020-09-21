@@ -1,156 +1,165 @@
 context('Search', () => {
-
-  beforeEach(() => {
-    cy.visit("/search")
-    cy.wait(3000)
-  })
-
+  const searchList = '.dc-results-list ol';
   // HEADER
   it('When I visit the search page I see a header', () => {
+    cy.stubSearchResults('/search');
     cy.findByRole('heading', { name: 'Datasets' });
   });
 
   // FULLTEXT FILTER
   it('I can use the text input filter', () => {
-    cy.findByPlaceholderText('Type your search term here')
-    cy.findByLabelText('Search')
-    cy.findByText('10 datasets found')
-    //expand tests for using text input
+    cy.stubSearchResults('/search');
+    const placholder = 'Type your search term here';
+    const filteredFacets = [
+      'economy (1)',
+      'price (1)',
+      'time-series (1)',
+      'State Economic Council (1)',
+      'City Planning (0)',
+      'Finance and Budgeting (1)',
+    ]
+
+    // Load default page
+    cy.get(searchList).children().its('length').should('eq', 10)
+    cy.findByPlaceholderText(placholder).should('exist');
+    cy.findByLabelText('Search').should('exist');
+    cy.findByText('10 datasets found').should('exist');
+    cy.findByLabelText('City Planning (3)').should('exist');
+
+    // Search for "gold" and recheck
+    cy.findByPlaceholderText(placholder).type('gold');
+    cy.get('.dc-search-results-message').contains('1 dataset found for "gold"');
+    cy.findByRole('button', {name: 'Show 9 more'}).click();
+    filteredFacets.forEach((facet) => {
+      cy.findByLabelText(facet).should('exist');
+    })
+    cy.get(searchList).children().its('length').should('eq', 1);
+  });
+
+  // SORT FILTER
+  it('I can use the sort filter', () => {
+    cy.stubSearchResults('/search');
+    const sortFilter = 'Sort by:';
+    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByLabelText(sortFilter).should('exist');
+    cy.findByLabelText(sortFilter).select('title');
+    //expand tests for sort
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+      .should('contain', 'Afghanistan Election Districts');
+    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByText('10 datasets found').should('exist');
+  });
+
+  // TOPIC FILTER
+  it('I can use the topic filter', () => {
+    cy.stubSearchResults('/search');
+    cy.get('h2.facet-block-theme-inner').should('have.text','Topics')
+    cy.get('.inner-theme-facets .show-more-container').children().should('have.length', 5)
+    cy.findByText('Finance and Budgeting (4)').should('exist');
+    cy.findByText('City Planning (3)').should('exist');
+    cy.wait(500)
+    cy.findByText('City Planning (3)').click();
+    cy.get('.dc-search-results-message').contains('3 datasets found in Topics: City Planning');
+    cy.findByText('City Planning (3)').should('exist');
+    cy.findByText('Finance and Budgeting (0)').should('exist');
+    cy.get(searchList).children().its('length').should('eq', 3);
+    cy.wait(500)
+    cy.findByText('City Planning (3)').click();
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.findByText('Finance and Budgeting (4)').should('exist');
+  });
+
+  // TAG FILTER
+  it('I can use the tag filter', () => {
+    cy.stubSearchResults('/search');
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    // Click economy
+    cy.wait(500)
+    cy.findByText('economy (3)').click();
+    cy.get('.dc-search-results-message').contains('3 datasets found in Tags: economy');
+    cy.get(searchList).children().its('length').should('eq', 3);
+    cy.findByText('Finance and Budgeting (3)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('exist');
+    // Click united kingdom
+    cy.wait(500)
+    cy.findByText('United Kingdom (1)').click();
+    cy.get('.dc-search-results-message').contains('1 dataset found in Tags: economy, United Kingdom');
+    cy.get(searchList).children().its('length').should('eq', 1);
+    cy.findByText('crime (0)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    // click economy
+    cy.wait(500)
+    cy.findByText('economy (1)').click();
+    cy.get('.dc-search-results-message').contains('1 dataset found in Tags: United Kingdom');
+    cy.get(searchList).children().its('length').should('eq', 1);
+    cy.findByText('Finance and Budgeting (1)').should('exist');
+    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    cy.findAllByText('US National Foreclosure Statistics January 2012').should('not.exist')
+  });
+
+  // PUBLISHER FILTER
+  it('I can use the publisher filter', () => {
+    cy.stubSearchResults('/search');
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.wait(500)
+    cy.findByText('Advisory Council for Infectious Disease (2)').click();
+    cy.get('.dc-search-results-message').contains('2 datasets found in Publishers: Advisory Council for Infectious Disease');
+    cy.get(searchList).children().its('length').should('eq', 2);
+  });
+
+  // PAGE SIZE
+  it('I can change the amount of results per page', () => {
+    cy.stubSearchResults('/search');
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get('.dataset-results-count').contains('1-10 out of 10 datasets')
+    cy.get(searchList).children().its('length').should('eq', 10);
+    cy.findByLabelText('Page Size').select('5')
+    cy.wait(500);
+    cy.get('.dc-search-results-message').contains('10 datasets found');
+    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets')
+    cy.get(searchList).children().its('length').should('eq', 5);
   });
 
   // PAGINATION
   it('I can navigate pages when available', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('modified')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 20000 })
-      .should('contain', 'U.S. Tobacco Usage Statistics')
-  });
-
-  //Search Page Text Input Filter
-  it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
-    cy.get('#inputSearch').type('election')
-    cy.get('.dc-search-results-message > p', { timeout: 10000 }).should('contain', 'datasets found for "election"')
-    // Pluck the number from the results summary message.
-    cy.get('.dc-search-results-message').as('count')
-    cy.get('@count').invoke('text')
-      .then((count) => {
-        count = parseInt(count.substr(0, 5));
-        cy.log('message', count)
-        // The summary number should equal the datasets returned.
-        cy.get('.dc-results-list ol').children().its('length').should('eq', count)
-      })
-    // Results list.
-    cy.get('.dc-results-list ol').children().each(function ($el, i) {
-      let index = i + 1;
-      if (index < 3) {
-        // Each result has a heading.
-        cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ')').find('h2')
-        // Each result has file formats.
-        cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ') .format-types').then((element) => {
-          assert.isNotNull(element.text())
-        })
-      }
-    })
-  })
-
-  // SORTING
-  it('Sort results alphabetically', () => {
+    cy.stubSearchResults('/search');
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'U.S. Tobacco Usage Statistics')
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
+      .should('contain', 'U.S. Tobacco Usage Statistics');
+    cy.get('.pagination').children().its('length').should('eq', 1);
+    cy.findByLabelText('Page Size').select('5');
+    cy.wait(500)
+    cy.get('.pagination').children().its('length').should('eq', 4);
+    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
-      .should('contain', 'Afghanistan Election Districts')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(2) h2')
-      .should('contain', 'Asthma Prevalence')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(3) h2')
-      .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
-  })
-
-  // TOPIC FILTER
-  it('The topics facet block should contain 5 topics and one legend', () => {
-    cy.get('h2.facet-block-theme-inner').should('have.text', 'Topics')
-    cy.get('.inner-theme-facets .show-more-container').children().should('have.length', 5)
-  })
-
-  it('The topic terms should match the expected POD themes', () => {
-    cy.get('.inner-theme-facets .show-more-container').children().then(($li) => {
-      cy.fixture('topics.json').then((topics) => {
-        Cypress._.each(topics, (category) => {
-          expect($li).to.contain(category)
-        })
-      })
-    })
-  })
-
-  it('I get the results I expect when using the topic filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label', { timeout: 20000 }).click()
-    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label > .svg-inline--fa').invoke('attr', 'data-icon').should('contain', 'check-square')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 80000 })
-      .should('contain', 'Florida Bike Lanes')
-    cy.get('.dc-search-results-message').should('contain', '1 dataset found in Topics')
+      .should('contain', 'U.S. Tobacco Usage Statistics');
+    cy.findByRole('link', {name: 'Go to page number 2'}).click();
+    cy.get('.dataset-results-count').contains('6-10 out of 10 datasets');
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+      .should('contain', 'Afghanistan Election Districts');
+    cy.findByRole('link', {name: 'Go to previous page'}).click();
+    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets');
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+      .should('contain', 'U.S. Tobacco Usage Statistics');
   });
 
-  // KEYWORD FILTER
-  it('Check that the keyword facet block has options', () => {
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container').children()
-      .its('length')
-      .should('be.gt', 0)
-    cy.get('.facet-block-keyword-inner > button > span').should('have.text', 'Tags')
+  // URL PARAMS
+  it('I can visit the site with params to load data', () => {
+    cy.stubSearchResults('/search/?fulltext=gold');
+    cy.get('.dc-search-results-message').contains('1 dataset found for "gold"');
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+      .should('contain', 'Gold Prices in London 1950-2008 (Monthly)');
+    cy.get(searchList).children().its('length').should('eq', 1);
+
+    // TODO: FIX ready for merge in components
+    // cy.stubSearchResults('/search/?page=2&page-size=5');
+    // cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+    //   .should('contain', 'U.S. Tobacco Usage Statistics');
+    // cy.get('.dataset-results-count').contains('6-10 out of 10 datasets');
   })
 
-  it('When filtering by keyword I should get a smaller results list', () => {
-    let results = 0;
-    cy.get('.dc-results-list ol').children().each((item) => {
-      results += 1;
-    }).then(() => {
-      cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
-      cy.wait(2000)
-
-      let filtered = 0;
-      cy.get('.dc-results-list ol').children().each((element) => {
-        filtered += 1;
-      }).then(() => {
-        expect(filtered).to.be.lessThan(results)
-      })
-    })
-  })
-
-  it('I get the results I expect when using the keyword filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label', { timeout: 20000 }).click()
-    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label > .svg-inline--fa').invoke('attr', 'data-icon').should('contain', 'check-square')
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 80000 })
-      .should('contain', 'Gold Prices in London 1950-2008 (Monthly)')
-  });
-
-  // PUBLISHER FILTER
-  it('I get correct results when using the publisher filter', () => {
-    cy.findByLabelText('Sort by:').as("sortFilter")
-    cy.get("@sortFilter").select('title')
-    cy.get('.inner-publisher__name-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label', { timeout: 10000 }).click()
-    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2', { timeout: 40000 })
-      .should('contain', 'Afghanistan Election Districts')
-  });
-
-  // FORMAT FILTER
-  // Not implemented by default in demo build
-  it.skip('Check that the Format facet block has options', () => {
-    cy.get(':nth-child(3) > .list-group').children()
-      .its('length')
-      .should('be.gt', 0)
-    cy.get(':nth-child(3) > h3').should('have.text', 'Format')
-  })
-
-  it.skip('When filtering by format I should get a smaller results list', () => {
-    cy.get('.search-list').children()
-      .its('length').as('results')
-    cy.get(':nth-child(2) > .list-group > :nth-child(1) > a').click()
-    cy.get('.search-list').children()
-      .its('length').as('filtered')
-    expect('@filtered').to.be.lessThan('@results')
-  })
-})
+ })

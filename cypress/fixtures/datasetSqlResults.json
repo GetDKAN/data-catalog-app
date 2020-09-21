@@ -1,0 +1,1002 @@
+[
+  {
+    "record_number": "1",
+    "date": "1950-01-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "2",
+    "date": "1950-02-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "3",
+    "date": "1950-03-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "4",
+    "date": "1950-04-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "5",
+    "date": "1950-05-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "6",
+    "date": "1950-06-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "7",
+    "date": "1950-07-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "8",
+    "date": "1950-08-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "9",
+    "date": "1950-09-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "10",
+    "date": "1950-10-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "11",
+    "date": "1950-11-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "12",
+    "date": "1950-12-01",
+    "price": "34.72"
+  },
+  {
+    "record_number": "13",
+    "date": "1951-01-01",
+    "price": "34.72"
+  },
+  {
+    "record_number": "14",
+    "date": "1951-02-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "15",
+    "date": "1951-03-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "16",
+    "date": "1951-04-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "17",
+    "date": "1951-05-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "18",
+    "date": "1951-06-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "19",
+    "date": "1951-07-01",
+    "price": "34.72"
+  },
+  {
+    "record_number": "20",
+    "date": "1951-08-01",
+    "price": "34.71"
+  },
+  {
+    "record_number": "21",
+    "date": "1951-09-01",
+    "price": "34.71"
+  },
+  {
+    "record_number": "22",
+    "date": "1951-10-01",
+    "price": "34.71"
+  },
+  {
+    "record_number": "23",
+    "date": "1951-11-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "24",
+    "date": "1951-12-01",
+    "price": "34.66"
+  },
+  {
+    "record_number": "25",
+    "date": "1952-01-01",
+    "price": "34.49"
+  },
+  {
+    "record_number": "26",
+    "date": "1952-02-01",
+    "price": "34.49"
+  },
+  {
+    "record_number": "27",
+    "date": "1952-03-01",
+    "price": "34.68"
+  },
+  {
+    "record_number": "28",
+    "date": "1952-04-01",
+    "price": "34.82"
+  },
+  {
+    "record_number": "29",
+    "date": "1952-05-01",
+    "price": "34.73"
+  },
+  {
+    "record_number": "30",
+    "date": "1952-06-01",
+    "price": "34.53"
+  },
+  {
+    "record_number": "31",
+    "date": "1952-07-01",
+    "price": "34.57"
+  },
+  {
+    "record_number": "32",
+    "date": "1952-08-01",
+    "price": "34.58"
+  },
+  {
+    "record_number": "33",
+    "date": "1952-09-01",
+    "price": "34.51"
+  },
+  {
+    "record_number": "34",
+    "date": "1952-10-01",
+    "price": "34.63"
+  },
+  {
+    "record_number": "35",
+    "date": "1952-11-01",
+    "price": "34.72"
+  },
+  {
+    "record_number": "36",
+    "date": "1952-12-01",
+    "price": "34.79"
+  },
+  {
+    "record_number": "37",
+    "date": "1953-01-01",
+    "price": "34.88"
+  },
+  {
+    "record_number": "38",
+    "date": "1953-02-01",
+    "price": "34.95"
+  },
+  {
+    "record_number": "39",
+    "date": "1953-03-01",
+    "price": "34.92"
+  },
+  {
+    "record_number": "40",
+    "date": "1953-04-01",
+    "price": "34.93"
+  },
+  {
+    "record_number": "41",
+    "date": "1953-05-01",
+    "price": "34.90"
+  },
+  {
+    "record_number": "42",
+    "date": "1953-06-01",
+    "price": "34.89"
+  },
+  {
+    "record_number": "43",
+    "date": "1953-07-01",
+    "price": "34.91"
+  },
+  {
+    "record_number": "44",
+    "date": "1953-08-01",
+    "price": "34.91"
+  },
+  {
+    "record_number": "45",
+    "date": "1953-09-01",
+    "price": "34.76"
+  },
+  {
+    "record_number": "46",
+    "date": "1953-10-01",
+    "price": "34.79"
+  },
+  {
+    "record_number": "47",
+    "date": "1953-11-01",
+    "price": "34.86"
+  },
+  {
+    "record_number": "48",
+    "date": "1953-12-01",
+    "price": "34.85"
+  },
+  {
+    "record_number": "49",
+    "date": "1954-01-01",
+    "price": "34.86"
+  },
+  {
+    "record_number": "50",
+    "date": "1954-02-01",
+    "price": "34.88"
+  },
+  {
+    "record_number": "51",
+    "date": "1954-03-01",
+    "price": "34.92"
+  },
+  {
+    "record_number": "52",
+    "date": "1954-04-01",
+    "price": "35.04"
+  },
+  {
+    "record_number": "53",
+    "date": "1954-05-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "54",
+    "date": "1954-06-01",
+    "price": "35.07"
+  },
+  {
+    "record_number": "55",
+    "date": "1954-07-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "56",
+    "date": "1954-08-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "57",
+    "date": "1954-09-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "58",
+    "date": "1954-10-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "59",
+    "date": "1954-11-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "60",
+    "date": "1954-12-01",
+    "price": "35.04"
+  },
+  {
+    "record_number": "61",
+    "date": "1955-01-01",
+    "price": "35.04"
+  },
+  {
+    "record_number": "62",
+    "date": "1955-02-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "63",
+    "date": "1955-03-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "64",
+    "date": "1955-04-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "65",
+    "date": "1955-05-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "66",
+    "date": "1955-06-01",
+    "price": "35.04"
+  },
+  {
+    "record_number": "67",
+    "date": "1955-07-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "68",
+    "date": "1955-08-01",
+    "price": "35.03"
+  },
+  {
+    "record_number": "69",
+    "date": "1955-09-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "70",
+    "date": "1955-10-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "71",
+    "date": "1955-11-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "72",
+    "date": "1955-12-01",
+    "price": "34.97"
+  },
+  {
+    "record_number": "73",
+    "date": "1956-01-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "74",
+    "date": "1956-02-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "75",
+    "date": "1956-03-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "76",
+    "date": "1956-04-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "77",
+    "date": "1956-05-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "78",
+    "date": "1956-06-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "79",
+    "date": "1956-07-01",
+    "price": "35.00"
+  },
+  {
+    "record_number": "80",
+    "date": "1956-08-01",
+    "price": "35.02"
+  },
+  {
+    "record_number": "81",
+    "date": "1956-09-01",
+    "price": "35.01"
+  },
+  {
+    "record_number": "82",
+    "date": "1956-10-01",
+    "price": "35.02"
+  },
+  {
+    "record_number": "83",
+    "date": "1956-11-01",
+    "price": "34.98"
+  },
+  {
+    "record_number": "84",
+    "date": "1956-12-01",
+    "price": "34.90"
+  },
+  {
+    "record_number": "85",
+    "date": "1957-01-01",
+    "price": "34.88"
+  },
+  {
+    "record_number": "86",
+    "date": "1957-02-01",
+    "price": "34.89"
+  },
+  {
+    "record_number": "87",
+    "date": "1957-03-01",
+    "price": "34.91"
+  },
+  {
+    "record_number": "88",
+    "date": "1957-04-01",
+    "price": "34.92"
+  },
+  {
+    "record_number": "89",
+    "date": "1957-05-01",
+    "price": "34.93"
+  },
+  {
+    "record_number": "90",
+    "date": "1957-06-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "91",
+    "date": "1957-07-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "92",
+    "date": "1957-08-01",
+    "price": "34.97"
+  },
+  {
+    "record_number": "93",
+    "date": "1957-09-01",
+    "price": "34.96"
+  },
+  {
+    "record_number": "94",
+    "date": "1957-10-01",
+    "price": "34.97"
+  },
+  {
+    "record_number": "95",
+    "date": "1957-11-01",
+    "price": "34.97"
+  },
+  {
+    "record_number": "96",
+    "date": "1957-12-01",
+    "price": "34.99"
+  },
+  {
+    "record_number": "97",
+    "date": "1958-01-01",
+    "price": "35.01"
+  },
+  {
+    "record_number": "98",
+    "date": "1958-02-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "99",
+    "date": "1958-03-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "100",
+    "date": "1958-04-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "101",
+    "date": "1958-05-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "102",
+    "date": "1958-06-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "103",
+    "date": "1958-07-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "104",
+    "date": "1958-08-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "105",
+    "date": "1958-09-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "106",
+    "date": "1958-10-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "107",
+    "date": "1958-11-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "108",
+    "date": "1958-12-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "109",
+    "date": "1959-01-01",
+    "price": "35.07"
+  },
+  {
+    "record_number": "110",
+    "date": "1959-02-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "111",
+    "date": "1959-03-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "112",
+    "date": "1959-04-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "113",
+    "date": "1959-05-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "114",
+    "date": "1959-06-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "115",
+    "date": "1959-07-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "116",
+    "date": "1959-08-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "117",
+    "date": "1959-09-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "118",
+    "date": "1959-10-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "119",
+    "date": "1959-11-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "120",
+    "date": "1959-12-01",
+    "price": "35.05"
+  },
+  {
+    "record_number": "121",
+    "date": "1960-01-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "122",
+    "date": "1960-02-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "123",
+    "date": "1960-03-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "124",
+    "date": "1960-04-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "125",
+    "date": "1960-05-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "126",
+    "date": "1960-06-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "127",
+    "date": "1960-07-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "128",
+    "date": "1960-08-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "129",
+    "date": "1960-09-01",
+    "price": "35.22"
+  },
+  {
+    "record_number": "130",
+    "date": "1960-10-01",
+    "price": "35.78"
+  },
+  {
+    "record_number": "131",
+    "date": "1960-11-01",
+    "price": "35.82"
+  },
+  {
+    "record_number": "132",
+    "date": "1960-12-01",
+    "price": "35.54"
+  },
+  {
+    "record_number": "133",
+    "date": "1961-01-01",
+    "price": "35.56"
+  },
+  {
+    "record_number": "134",
+    "date": "1961-02-01",
+    "price": "35.17"
+  },
+  {
+    "record_number": "135",
+    "date": "1961-03-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "136",
+    "date": "1961-04-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "137",
+    "date": "1961-05-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "138",
+    "date": "1961-06-01",
+    "price": "35.07"
+  },
+  {
+    "record_number": "139",
+    "date": "1961-07-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "140",
+    "date": "1961-08-01",
+    "price": "35.16"
+  },
+  {
+    "record_number": "141",
+    "date": "1961-09-01",
+    "price": "35.19"
+  },
+  {
+    "record_number": "142",
+    "date": "1961-10-01",
+    "price": "35.19"
+  },
+  {
+    "record_number": "143",
+    "date": "1961-11-01",
+    "price": "35.19"
+  },
+  {
+    "record_number": "144",
+    "date": "1961-12-01",
+    "price": "35.15"
+  },
+  {
+    "record_number": "145",
+    "date": "1962-01-01",
+    "price": "35.16"
+  },
+  {
+    "record_number": "146",
+    "date": "1962-02-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "147",
+    "date": "1962-03-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "148",
+    "date": "1962-04-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "149",
+    "date": "1962-05-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "150",
+    "date": "1962-06-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "151",
+    "date": "1962-07-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "152",
+    "date": "1962-08-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "153",
+    "date": "1962-09-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "154",
+    "date": "1962-10-01",
+    "price": "35.14"
+  },
+  {
+    "record_number": "155",
+    "date": "1962-11-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "156",
+    "date": "1962-12-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "157",
+    "date": "1963-01-01",
+    "price": "35.06"
+  },
+  {
+    "record_number": "158",
+    "date": "1963-02-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "159",
+    "date": "1963-03-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "160",
+    "date": "1963-04-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "161",
+    "date": "1963-05-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "162",
+    "date": "1963-06-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "163",
+    "date": "1963-07-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "164",
+    "date": "1963-08-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "165",
+    "date": "1963-09-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "166",
+    "date": "1963-10-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "167",
+    "date": "1963-11-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "168",
+    "date": "1963-12-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "169",
+    "date": "1964-01-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "170",
+    "date": "1964-02-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "171",
+    "date": "1964-03-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "172",
+    "date": "1964-04-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "173",
+    "date": "1964-05-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "174",
+    "date": "1964-06-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "175",
+    "date": "1964-07-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "176",
+    "date": "1964-08-01",
+    "price": "35.08"
+  },
+  {
+    "record_number": "177",
+    "date": "1964-09-01",
+    "price": "35.09"
+  },
+  {
+    "record_number": "178",
+    "date": "1964-10-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "179",
+    "date": "1964-11-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "180",
+    "date": "1964-12-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "181",
+    "date": "1965-01-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "182",
+    "date": "1965-02-01",
+    "price": "35.14"
+  },
+  {
+    "record_number": "183",
+    "date": "1965-03-01",
+    "price": "35.16"
+  },
+  {
+    "record_number": "184",
+    "date": "1965-04-01",
+    "price": "35.14"
+  },
+  {
+    "record_number": "185",
+    "date": "1965-05-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "186",
+    "date": "1965-06-01",
+    "price": "35.10"
+  },
+  {
+    "record_number": "187",
+    "date": "1965-07-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "188",
+    "date": "1965-08-01",
+    "price": "35.15"
+  },
+  {
+    "record_number": "189",
+    "date": "1965-09-01",
+    "price": "35.14"
+  },
+  {
+    "record_number": "190",
+    "date": "1965-10-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "191",
+    "date": "1965-11-01",
+    "price": "35.11"
+  },
+  {
+    "record_number": "192",
+    "date": "1965-12-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "193",
+    "date": "1966-01-01",
+    "price": "35.15"
+  },
+  {
+    "record_number": "194",
+    "date": "1966-02-01",
+    "price": "35.17"
+  },
+  {
+    "record_number": "195",
+    "date": "1966-03-01",
+    "price": "35.15"
+  },
+  {
+    "record_number": "196",
+    "date": "1966-04-01",
+    "price": "35.13"
+  },
+  {
+    "record_number": "197",
+    "date": "1966-05-01",
+    "price": "35.12"
+  },
+  {
+    "record_number": "198",
+    "date": "1966-06-01",
+    "price": "35.15"
+  },
+  {
+    "record_number": "199",
+    "date": "1966-07-01",
+    "price": "35.18"
+  },
+  {
+    "record_number": "200",
+    "date": "1966-08-01",
+    "price": "35.18"
+  }
+]
