@@ -6,13 +6,13 @@ context('Dataset', () => {
   })
 
   it('I see the title and description', () => {
-    cy.get('h1').should('have.text', 'Gold Prices in London 1950-2008 (Monthly)')
-    cy.get('.col-md-9').contains('Monthly gold prices (USD) in London from Bundesbank. General: 1 ounce of fine gold = 31.1034768g.')
+    cy.get('h1').should('have.text', 'Asthma Prevalence')
+    cy.get('.col-md-9').contains('This table contains the estimated percent of California adults (18 and older)')
   })
 
   it('I see the file is available to download for each dataset', () => {
     cy.get('.dc-resource:first-of-type > svg', { timeout: 20000 }).should('have.attr', 'class', 'dkan-icon')
-    cy.get(`#resource_1234abcd .dc-resource > a`).should('have.attr', 'href', `http://demo.getdkan.org/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0.csv`);
+    cy.get(`#resource_1234abcd .dc-resource > a`).should('have.attr', 'href', `http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv`);
   })
 
   // add check to make sure message updates to correct amount of rows
@@ -32,8 +32,8 @@ context('Dataset', () => {
   })
 
   it('I see the tags.', () => {
-    cy.get('.dc-tag-wrapper > :nth-child(2) > a').contains("economy");
-    cy.get('.dc-tag-wrapper > :nth-child(3) > a').contains("price");
+    cy.get('.dc-tag-wrapper > :nth-child(2) > a').contains("health");
+    cy.get('.dc-tag-wrapper > :nth-child(3) > a').contains("asthma");
   })
 
   it('I see the release and update date, identifier, and contact information.', () => {
@@ -49,13 +49,13 @@ context('Dataset', () => {
     ]
 
     var values = [
-      'State Economic Council',
-      '5dc1cfcf-8028-476c-a020-f58ec6dd621c',
-      '2013-02-10',
+      'National Health Council',
+      '95f8eac4-fd1f-4b35-8472-5c87e9425dfa',
+      '2017-08-01',
       '2019-06-06',
-      "http://opendefinition.org/licenses/odc-pddl/",
-      'Gray, Stefanie',
-      'mailto:datademo@example.com',
+      "http://opendefinition.org/licenses/odc-odbl/",
+      'Jane Doe',
+      'mailto:data.admin@example.com',
       'public'
     ]
 

@@ -40,13 +40,13 @@ context('Search', () => {
   it('I can use the sort filter', () => {
     cy.stubSearchResults('/search');
     const sortFilter = 'Sort by:';
-    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByLabelText('Health Care (3)').should('exist');
     cy.findByLabelText(sortFilter).should('exist');
     cy.findByLabelText(sortFilter).select('title');
     //expand tests for sort
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts');
-    cy.findByLabelText('Health Care (2)').should('exist');
+    cy.findByLabelText('Health Care (3)').should('exist');
     cy.findByText('10 datasets found').should('exist');
   });
 
@@ -55,7 +55,7 @@ context('Search', () => {
     cy.stubSearchResults('/search');
     cy.get('h2.facet-block-theme-inner').should('have.text','Topics')
     cy.get('.inner-theme-facets .show-more-container').children().should('have.length', 5)
-    cy.findByText('Finance and Budgeting (4)').should('exist');
+    cy.findByText('Finance and Budgeting (3)').should('exist');
     cy.findByText('City Planning (3)').should('exist');
     cy.wait(500)
     cy.findByText('City Planning (3)').click();
@@ -67,7 +67,7 @@ context('Search', () => {
     cy.findByText('City Planning (3)').click();
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
-    cy.findByText('Finance and Budgeting (4)').should('exist');
+    cy.findByText('Finance and Budgeting (3)').should('exist');
   });
 
   // TAG FILTER
@@ -75,7 +75,7 @@ context('Search', () => {
     cy.stubSearchResults('/search');
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
-    cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
+    cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('exist');
     // Click economy
     cy.wait(500)
     cy.findByText('economy (3)').click();
@@ -107,9 +107,9 @@ context('Search', () => {
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
     cy.wait(500)
-    cy.findByText('Advisory Council for Infectious Disease (2)').click();
-    cy.get('.dc-search-results-message').contains('2 datasets found in Publishers: Advisory Council for Infectious Disease');
-    cy.get(searchList).children().its('length').should('eq', 2);
+    cy.findByText('National Health Council (3)').click();
+    cy.get('.dc-search-results-message').contains('3 datasets found in Publishers: National Health Council');
+    cy.get(searchList).children().its('length').should('eq', 3);
   });
 
   // PAGE SIZE

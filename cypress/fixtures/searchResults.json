@@ -4,27 +4,32 @@
     "dkan_dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
+      "accrualPeriodicity": "R/P1Y",
       "contactPoint": {
-        "fn": "CDC INFO",
-        "hasEmail": "mailto:cdcinfo@cdc.gov"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Statistics on U.S. smoking rates and tobacco taxation rates for all fifty states.</p>\n<p><strong>Source:</strong> Centers for Disease Control and Prevention, 2015<br /><a href=\"https://www.cdc.gov/tobacco/data_statistics/state_data/\">https://www.cdc.gov/tobacco/data_statistics/state_data/</a></p>\n<p><strong>Related Data Story: </strong><a href=\"/story/state-level-policies-reduce-smoking-rates-nationwide\">State-Level Policies Reduce Smoking Rates Nationwide</a></p>\n",
+      "description": "Statistics on U.S. smoking rates and tobacco taxation rates for all fifty states.\nSource: Centers for Disease Control and Prevention, 2015",
       "distribution": [
-        {
-          "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "description": "<p>Source: The Campaign for Tobacco-Free Kids, April 2016: <a href=\"https://www.tobaccofreekids.org/research/factsheets/pdf/0097.pdf\">https://www.tobaccofreekids.org/research/factsheets/pdf/0097.pdf</a></p>\n",
-          "title": "Tobacco Taxation by State as of April 2016"
-        },
         {
           "@type": "dcat:Distribution",
           "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Source: Centers for Disease Control and Prevention, 2015</p>\n",
-          "title": "U.S. Adult Smoking Rate"
+          "description": "This dataset highlights critical trends in adult total and per capita consumption of both combustible (cigarettes, little cigars, small cigars, pipe tobacco, roll-your-own tobacco) tobacco products and smokeless (chewing tobacco and snuff) tobacco.",
+          "title": "U.S. Adult Smoking Rate",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "32c9e83b3e42993249f4d785fb4bad6a__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv",
+                "identifier": "32c9e83b3e42993249f4d785fb4bad6a",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "1f2042ad-c513-4fcf-a933-cae6c6fd35e6",
@@ -33,33 +38,94 @@
         "demographics",
         "health"
       ],
-      "modified": "2019-06-06",
+      "license": "http://opendatacommons.org/licenses/by/1.0/",
+      "modified": "2016-04-10",
       "publisher": {
         "@type": "org:Organization",
-        "name": "Advisory Council for Infectious Disease"
+        "name": "National Health Council"
       },
       "spatial": "POLYGON ((-127.705078125 24.206889622398, -127.705078125 50.625073063414, -63.193359375 50.625073063414, -63.193359375 24.206889622398))",
       "theme": [
         "Health Care"
       ],
-      "title": "U.S. Tobacco Usage Statistics"
+      "title": "U.S. Tobacco Usage Statistics",
+      "%Ref:theme": [
+        {
+          "identifier": "ebea68c6-14b5-5a68-ac94-955e69666ad7",
+          "data": "Health Care"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "121fb1d6-032c-50a7-9a4c-97cb9a6908a1",
+          "data": "demographics"
+        },
+        {
+          "identifier": "2d2fb90b-c0d3-5292-b2fe-68a13e42c76f",
+          "data": "health"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "806cb23a-6c56-532a-ae96-b27cf7499090",
+        "data": {
+          "@type": "org:Organization",
+          "name": "National Health Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "c3f8f7d2-a593-5318-b4d7-398cb6cfe736",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "This dataset highlights critical trends in adult total and per capita consumption of both combustible (cigarettes, little cigars, small cigars, pipe tobacco, roll-your-own tobacco) tobacco products and smokeless (chewing tobacco and snuff) tobacco.",
+            "title": "U.S. Adult Smoking Rate",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "32c9e83b3e42993249f4d785fb4bad6a__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv",
+                  "identifier": "32c9e83b3e42993249f4d785fb4bad6a",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/5dc1cfcf-8028-476c-a020-f58ec6dd621c": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Gray, Stefanie",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Monthly gold prices (USD) in London from Bundesbank.</p>\n<p>General: 1 ounce of fine gold = 31.1034768g.</p>\n<p>Method of calculation:</p>\n<ul><li>Since 1 April 1968, calculated from the daily morning fixing;</li>\n<li>From January 1950 to 21 March 1954, calculated using the Bank of England's gold purchasing price (1 ounce of fine = pound 12.40) in connection with the average exchange rate for the pound in New York (up to the end of 1952; source: Federal Reserve Bulletin) and, from January 1953, midpoint exchange rates for the US dollar in London (source: Financial Times (FT)).</li>\n<li>From 22 March 1954 to December 1959, calculated using the fixing price for gold bars of approx. 12 1/2 kg and 995/1000 fineness and over (so-called standard bars) according to data from Metallgesellschaft AG, Frankfurt am Main, in connection with the average midpoint exchange rates for the US dollar in London (source: FT).</li>\n<li>From January 1960 to 14 March 1968, average fixing price for standard bars as specified in the Bank of England's Quarterly Bulletin.</li>\n<li>On 15 March 1968, fixing price suspended. Gold market split into an official (reserved for central banks) and a free market as a result of the Washington Communique of 17 March 1968. Gold trading suspended from 18 to 29 March 1968.</li>\n<li>Sources for daily prices: April 1968 - March 1974: FT; April 1974 - December 1980: Samuel Montagu &amp; Co. Ltd.; January 1981 - December 2005: FT; January 2006 - present: Reuters.</li>\n<li>Comment on 1968-03: Average from 1 to 14 March 1968.</li>\n</ul><p>License: PDDL (Source indicates no restrictions on data).</p>\n",
+      "description": "Monthly gold prices (USD) in London from Bundesbank. General: 1 ounce of fine gold = 31.1034768g.<p>Method of calculation:</p>\n<ul><li>Since 1 April 1968, calculated from the daily morning fixing;</li>\n<li>From January 1950 to 21 March 1954, calculated using the Bank of England's gold purchasing price (1 ounce of fine = pound 12.40) in connection with the average exchange rate for the pound in New York (up to the end of 1952; source: Federal Reserve Bulletin) and, from January 1953, midpoint exchange rates for the US dollar in London (source: Financial Times (FT)).</li>\n<li>From 22 March 1954 to December 1959, calculated using the fixing price for gold bars of approx. 12 1/2 kg and 995/1000 fineness and over (so-called standard bars) according to data from Metallgesellschaft AG, Frankfurt am Main, in connection with the average midpoint exchange rates for the US dollar in London (source: FT).</li>\n<li>From January 1960 to 14 March 1968, average fixing price for standard bars as specified in the Bank of England's Quarterly Bulletin.</li>\n<li>On 15 March 1968, fixing price suspended. Gold market split into an official (reserved for central banks) and a free market as a result of the Washington Communique of 17 March 1968. Gold trading suspended from 18 to 29 March 1968.</li>\n<li>Sources for daily prices: April 1968 - March 1974: FT; April 1974 - December 1980: Samuel Montagu &amp; Co. Ltd.; January 1981 - December 2005: FT; January 2006 - present: Reuters.</li>\n<li>Comment on 1968-03: Average from 1 to 14 March 1968.</li>\n</ul><p>\n</p>",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>CSV file extracted and cleaned from source excel.</p>\n<p>Click on Graph button under Preview and plot date (x-axis) against price (y-axis) to see a line graph. Hovering over a point gives you the value of that data entry.</p>\n",
-          "title": "Table of Gold Prices"
+          "title": "Table of Gold Prices",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "76873092044447a8f7f2cf5e079dbb5d__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data.csv",
+                "identifier": "76873092044447a8f7f2cf5e079dbb5d",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "5dc1cfcf-8028-476c-a020-f58ec6dd621c",
@@ -80,24 +146,88 @@
       "theme": [
         "Finance and Budgeting"
       ],
-      "title": "Gold Prices in London 1950-2008 (Monthly)"
+      "title": "Gold Prices in London 1950-2008 (Monthly)",
+      "%Ref:theme": [
+        {
+          "identifier": "b1f822b6-ae46-584d-9268-52ca95a3f8ec",
+          "data": "Finance and Budgeting"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "cf43cf96-f037-516f-974d-4330bcdbc1f9",
+          "data": "economy"
+        },
+        {
+          "identifier": "476d534b-e212-504d-82c9-5d21df655329",
+          "data": "price"
+        },
+        {
+          "identifier": "88232224-58d8-5dec-8cf3-e38426566501",
+          "data": "time-series"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "c43b40ae-b279-58ed-91c8-065966b36fe8",
+        "data": {
+          "@type": "org:Organization",
+          "name": "State Economic Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "19996757-6856-5575-9a74-fecb9b5c58bc",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "title": "Table of Gold Prices",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "76873092044447a8f7f2cf5e079dbb5d__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data.csv",
+                  "identifier": "76873092044447a8f7f2cf5e079dbb5d",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/74c06c81-9fe0-439c-aba9-cd5c980a6df4": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Gray, Stefanie",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>County data: <a href=\"https://www.npr.org/templates/story/story.php?storyId=111494514\">https://www.npr.org/templates/story/story.php?storyId=111494514</a></p>\n<p>State data: <a href=\"http://statehealthfacts.org/comparetable.jsp?ind=649&amp;cat=1\">http://statehealthfacts.org/comparetable.jsp?ind=649&amp;cat=1</a></p>\n",
+      "description": "US National Foreclosure Statistics - By State - January 2012",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/74c06c81-9fe0-439c-aba9-cd5c980a6df4/us_foreclosures_jan_2012_by_state_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/74c06c81-9fe0-439c-aba9-cd5c980a6df4/us_foreclosures_jan_2012_by_state.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>US National Foreclosure Statistics - By State - January 2012</p>\n",
-          "title": "1-2012-Foreclosures-by-State"
+          "description": "US National Foreclosure Statistics - By State - January 2012",
+          "title": "1-2012-Foreclosures-by-State",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "3623d893b9d77fcd0d3604d74ca75838__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/74c06c81-9fe0-439c-aba9-cd5c980a6df4/us_foreclosures_jan_2012_by_state.csv",
+                "identifier": "3623d893b9d77fcd0d3604d74ca75838",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "74c06c81-9fe0-439c-aba9-cd5c980a6df4",
@@ -107,7 +237,7 @@
         "politics",
         "transparency"
       ],
-      "modified": "2019-06-06",
+      "modified": "2013-02-10",
       "publisher": {
         "@type": "org:Organization",
         "name": "State Economic Council"
@@ -117,23 +247,89 @@
       "theme": [
         "Finance and Budgeting"
       ],
-      "title": "US National Foreclosure Statistics January 2012"
+      "title": "US National Foreclosure Statistics January 2012",
+      "%Ref:theme": [
+        {
+          "identifier": "b1f822b6-ae46-584d-9268-52ca95a3f8ec",
+          "data": "Finance and Budgeting"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "cf43cf96-f037-516f-974d-4330bcdbc1f9",
+          "data": "economy"
+        },
+        {
+          "identifier": "516f6cda-0793-5746-9437-d962dc90c762",
+          "data": "politics"
+        },
+        {
+          "identifier": "5adccd39-ddb8-5efe-b60e-81498acb9e89",
+          "data": "transparency"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "c43b40ae-b279-58ed-91c8-065966b36fe8",
+        "data": {
+          "@type": "org:Organization",
+          "name": "State Economic Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "3795a9d4-b916-5fa9-9d8d-38b32d90efb3",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/74c06c81-9fe0-439c-aba9-cd5c980a6df4/us_foreclosures_jan_2012_by_state.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "US National Foreclosure Statistics - By State - January 2012",
+            "title": "1-2012-Foreclosures-by-State",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "3623d893b9d77fcd0d3604d74ca75838__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/74c06c81-9fe0-439c-aba9-cd5c980a6df4/us_foreclosures_jan_2012_by_state.csv",
+                  "identifier": "3623d893b9d77fcd0d3604d74ca75838",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/934400f2-a5dc-4abf-bf16-3f17335888d3": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Couch, Aaron",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Polling places in the state of Wisconsin.</p>\n",
+      "description": "Polling places in the state of Wisconsin.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/934400f2-a5dc-4abf-bf16-3f17335888d3/Polling_Places.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/934400f2-a5dc-4abf-bf16-3f17335888d3/polling-places.csv",
+          "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>This is a list and map of polling places in Madison, WI.</p>\n<p>Original data here:<br /><a href=\"https://data.cityofmadison.com/Polling-Places/Polling-Places/rtyh-6ucr\">https://data.cityofmadison.com/Polling-Places/Polling-Places/rtyh-6ucr</a></p>\n",
-          "title": "Madison Polling Places"
+          "description": "List of polling places in Madison, WI.",
+          "title": "Madison Polling Places",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "51e9e21cf3003835a06b82649ff5423f__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/934400f2-a5dc-4abf-bf16-3f17335888d3/polling-places.csv",
+                "identifier": "51e9e21cf3003835a06b82649ff5423f",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "934400f2-a5dc-4abf-bf16-3f17335888d3",
@@ -141,7 +337,8 @@
       "keyword": [
         "election"
       ],
-      "modified": "2019-06-06",
+      "license": "http://opendefinition.org/licenses/cc-by/",
+      "modified": "2013-02-11",
       "publisher": {
         "@type": "org:Organization",
         "name": "Committee on International Affairs"
@@ -150,76 +347,262 @@
         "City Planning"
       ],
       "spatial": "POLYGON ((-90.415429 46.568478, -90.229213 46.508231, -90.119674 46.338446, -89.09001 46.135799, -88.662808 45.987922, -88.531362 46.020784, -88.10416 45.922199, -87.989145 45.796229, -87.781021 45.675736, -87.791975 45.500474, -87.885083 45.363551, -87.649574 45.341643, -87.742682 45.199243, -87.589328 45.095181, -87.627666 44.974688, -87.819359 44.95278, -87.983668 44.722749, -88.043914 44.563917, -87.928898 44.536533, -87.775544 44.640595, -87.611236 44.837764, -87.403112 44.914442, -87.238804 45.166381, -87.03068 45.22115, -87.047111 45.089704, -87.189511 44.969211, -87.468835 44.552964, -87.545512 44.322932, -87.540035 44.158624, -87.644097 44.103854, -87.737205 43.8793, -87.704344 43.687607, -87.791975 43.561637, -87.912467 43.249452, -87.885083 43.002989, -87.76459 42.783912, -87.802929 42.493634, -88.788778 42.493634, -90.639984 42.510065, -90.711184 42.636034, -91.067185 42.75105, -91.143862 42.909881, -91.176724 43.134436, -91.056231 43.254929, -91.204109 43.353514, -91.215062 43.501391, -91.269832 43.616407, -91.242447 43.775238, -91.43414 43.994316, -91.592971 44.032654, -91.877772 44.202439, -91.927065 44.333886, -92.233773 44.443425, -92.337835 44.552964, -92.545959 44.569394, -92.808852 44.750133, -92.737652 45.117088, -92.75956 45.286874, -92.644544 45.440228, -92.770513 45.566198, -92.885529 45.577151, -92.869098 45.719552, -92.639067 45.933153, -92.354266 46.015307, -92.29402 46.075553, -92.29402 46.667063, -92.091373 46.749217, -92.014696 46.705401, -91.790141 46.694447, -91.09457 46.864232, -90.837154 46.95734, -90.749522 46.88614, -90.886446 46.754694, -90.55783 46.584908))",
-      "title": "Wisconsin Polling Places"
+      "title": "Wisconsin Polling Places",
+      "%Ref:theme": [
+        {
+          "identifier": "3c23032d-47c6-58fc-be0a-ef3fbaa54865",
+          "data": "City Planning"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "91fd5330-9540-5085-bbc1-e7c3373836f1",
+          "data": "election"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "3621ae3b-030b-541b-999e-38ddbf00df8a",
+        "data": {
+          "@type": "org:Organization",
+          "name": "Committee on International Affairs"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "bf25fde9-ed8f-594f-8e41-1ee963e6d603",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/934400f2-a5dc-4abf-bf16-3f17335888d3/polling-places.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "List of polling places in Madison, WI.",
+            "title": "Madison Polling Places",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "51e9e21cf3003835a06b82649ff5423f__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/934400f2-a5dc-4abf-bf16-3f17335888d3/polling-places.csv",
+                  "identifier": "51e9e21cf3003835a06b82649ff5423f",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
+      "accrualPeriodicity": "R/PT1S",
       "contactPoint": {
-        "fn": "Stefanie Gray",
-        "hasEmail": "mailto:stefanie@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Information about the state workforce, broken down into four generational cohorts.</p>\n<p><strong>Note:</strong> This dataset has been given a vague name because it is anonymized demo data, not actual state data.</p>\n",
+      "description": "This table contains the estimated percent of California adults (18 and older) with lifetime and current asthma (asthma prevalence), by year.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/GenChart_0_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Population of state employees broken down into Gen X, Gen Y, Baby Boomers and Over 65+.</p>\n",
-          "title": "Workforce By Generation (2011-2015)"
+          "description": "Mock data for demonstration purposes.",
+          "title": "Data-Adult Asthma Prevalence 1945 to 1999",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "26b78330a581458b59bf25b434b5ea56__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv",
+                "identifier": "26b78330a581458b59bf25b434b5ea56",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         },
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/retirements_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2000-to-2020.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Total number of employees who retired from the state workforce, 2011-2015.</p>\n",
-          "title": "Retirements (2011 - 2015)"
+          "description": "Mock data for demonstration purposes.",
+          "title": "Data-Adult Asthma Prevalence 2000 to 2020",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "37b4a12f517e8f19b39e45d185cb26cc__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2000-to-2020.csv",
+                "identifier": "37b4a12f517e8f19b39e45d185cb26cc",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         },
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/2015EligibleVsActual.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "description": "<p>This data, ranging from fiscal year 2011 to fiscal year 2015, depicts the percentage of the workforce that is eligible to retire compared to the percentage of the workforce who actually retired.</p>\n",
-          "title": "Retirements: Eligible vs. Actual"
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/lifetime-asthma-prevalence-by-county_data-dictionary.xlsx",
+          "mediaType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "format": "xlsx",
+          "title": "Data Dictionary Data-Lifetime Asthma Prevalence",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "6aec2388ca0bb4d8e70bab84f4e0bac2__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/lifetime-asthma-prevalence-by-county_data-dictionary.xlsx",
+                "identifier": "6aec2388ca0bb4d8e70bab84f4e0bac2",
+                "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "95f8eac4-fd1f-4b35-8472-5c87e9425dfa",
-      "issued": "2016-04-11",
+      "issued": "2017-08-01",
       "keyword": [
-        "demographics",
-        "socioeconomic",
-        "workforce"
+        "health",
+        "asthma"
       ],
+      "license": "http://opendefinition.org/licenses/odc-odbl/",
       "modified": "2019-06-06",
       "publisher": {
         "@type": "org:Organization",
-        "name": "State Economic Council"
+        "name": "National Health Council"
       },
       "theme": [
-        "Finance and Budgeting"
+        "Health Care"
       ],
-      "temporal": "2011-01-01T05:00:00+00:00/2011-01-01T05:00:00+00:00",
-      "title": "State Workforce by Generation (2011-2015)"
+      "temporal": "1995-01-01T05:00:00+00:00/2017-12-31T05:00:00+00:00",
+      "title": "Asthma Prevalence",
+      "%Ref:theme": [
+        {
+          "identifier": "ebea68c6-14b5-5a68-ac94-955e69666ad7",
+          "data": "Health Care"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "2d2fb90b-c0d3-5292-b2fe-68a13e42c76f",
+          "data": "health"
+        },
+        {
+          "identifier": "5f0f72cb-fd04-5f13-8a3a-44aaae62b165",
+          "data": "asthma"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "806cb23a-6c56-532a-ae96-b27cf7499090",
+        "data": {
+          "@type": "org:Organization",
+          "name": "National Health Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "0996dfae-04a4-5dbd-a863-7f11094e27a9",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "Mock data for demonstration purposes.",
+            "title": "Data-Adult Asthma Prevalence 1945 to 1999",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "26b78330a581458b59bf25b434b5ea56__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-1945-to-1999.csv",
+                  "identifier": "26b78330a581458b59bf25b434b5ea56",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "2a6924b6-f8bb-5c85-93d8-1744fa1e2093",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2000-to-2020.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "Mock data for demonstration purposes.",
+            "title": "Data-Adult Asthma Prevalence 2000 to 2020",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "37b4a12f517e8f19b39e45d185cb26cc__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/asthma-prevalence-adults-by-year-2000-to-2020.csv",
+                  "identifier": "37b4a12f517e8f19b39e45d185cb26cc",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "18665dfe-b31e-5ccf-9325-97c9833c6804",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/lifetime-asthma-prevalence-by-county_data-dictionary.xlsx",
+            "mediaType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "format": "xlsx",
+            "title": "Data Dictionary Data-Lifetime Asthma Prevalence",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "6aec2388ca0bb4d8e70bab84f4e0bac2__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/95f8eac4-fd1f-4b35-8472-5c87e9425dfa/lifetime-asthma-prevalence-by-county_data-dictionary.xlsx",
+                  "identifier": "6aec2388ca0bb4d8e70bab84f4e0bac2",
+                  "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/c9e2d352-e24c-4051-9158-f48127aa5692": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Gray, Stefanie",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>This data created by the National Democratic Institute (NDI) in partnership with Development Seed, a Washington, D.C.-based online communications consultancy, is designed to make data from the August 20, 2009, Afghanistan presidential election accessible and transparent. We have provided this csv file as there is no download for the whole dataset. There are many more files on the website.</p>\n",
+      "description": "This data created by the National Democratic Institute (NDI) in partnership with Development Seed, a Washington, D.C.-based online communications consultancy, is designed to make data from the August 20, 2009, Afghanistan presidential election accessible and transparent.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/c9e2d352-e24c-4051-9158-f48127aa5692/district_centerpoints_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/c9e2d352-e24c-4051-9158-f48127aa5692/district_centerpoints.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>You can see this data plotted on a map, by clicking on 'Map' below. Individual data records can be seen by clicking on each point.</p>\n",
-          "title": "District Names"
+          "title": "District Names",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "d96fbc2e931a4edc842d5bcb6cce3272__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/c9e2d352-e24c-4051-9158-f48127aa5692/district_centerpoints.csv",
+                "identifier": "d96fbc2e931a4edc842d5bcb6cce3272",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "c9e2d352-e24c-4051-9158-f48127aa5692",
@@ -230,7 +613,8 @@
         "politics",
         "transparency"
       ],
-      "modified": "2019-06-06",
+      "modified": "2012-10-30",
+      "license": "http://opendefinition.org/licenses/cc-by/",
       "publisher": {
         "@type": "org:Organization",
         "name": "Committee on International Affairs"
@@ -239,91 +623,207 @@
         "City Planning"
       ],
       "spatial": "POLYGON ((60.8642578125 29.878755346038, 61.787109375 30.977609093349, 61.7431640625 31.391157522825, 60.7763671875 31.653381399664, 60.8642578125 32.361403315275, 60.556640625 33.137551192346, 60.908203125 33.578014746144, 60.5126953125 33.614619292334, 60.5126953125 34.307143856288, 60.8642578125 34.343436068483, 61.3037109375 35.603718740697, 62.666015625 35.353216101238, 64.5556640625 36.421282443649, 64.86328125 37.195330582801, 65.654296875 37.195330582801, 65.654296875 37.474858084971, 67.9833984375 37.055177106661, 68.7744140625 37.265309955619, 69.345703125 37.125286284967, 69.697265625 37.683820326694, 70.3125 37.683820326694, 70.3125 38.065392351332, 71.0595703125 38.582526159353, 71.279296875 37.78808138412, 71.7626953125 37.926867601481, 71.4990234375 37.405073750177, 71.630859375 36.738884124394, 73.3447265625 37.474858084971, 73.7841796875 37.474858084971, 73.7841796875 37.265309955619, 74.7509765625 37.335224359306, 74.9267578125 37.160316546737, 74.1357421875 36.809284702059, 72.9931640625 36.949891786813, 71.54296875 36.315125147481, 71.2353515625 36.066862132579, 71.5869140625 35.460669951495, 71.54296875 34.813803317113, 71.103515625 34.560859367084, 71.1474609375 34.08906131585, 70.3125 33.979808728725, 69.873046875 33.979808728725, 70.2685546875 33.321348526699, 69.345703125 32.916485347314, 69.2578125 32.324275588877, 69.1259765625 31.802892586707, 68.7744140625 31.578535426473, 68.0712890625 31.802892586707, 67.67578125 31.615965936476, 67.8515625 31.353636941501, 67.4560546875 31.278550858947, 67.0166015625 31.278550858947, 66.4892578125 30.939924331023, 66.2255859375 30.334953881989, 66.357421875 29.91685223307, 65.0390625 29.535229562948, 64.248046875 29.611670115197, 64.2041015625 29.420460341013, 63.4130859375 29.458731185355, 62.6220703125 29.420460341013))",
-      "title": "Afghanistan Election Districts"
+      "title": "Afghanistan Election Districts",
+      "%Ref:theme": [
+        {
+          "identifier": "3c23032d-47c6-58fc-be0a-ef3fbaa54865",
+          "data": "City Planning"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "fdbf0bf5-0550-59c1-84f1-82226bcf4a30",
+          "data": "country-afghanistan"
+        },
+        {
+          "identifier": "91fd5330-9540-5085-bbc1-e7c3373836f1",
+          "data": "election"
+        },
+        {
+          "identifier": "516f6cda-0793-5746-9437-d962dc90c762",
+          "data": "politics"
+        },
+        {
+          "identifier": "5adccd39-ddb8-5efe-b60e-81498acb9e89",
+          "data": "transparency"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "3621ae3b-030b-541b-999e-38ddbf00df8a",
+        "data": {
+          "@type": "org:Organization",
+          "name": "Committee on International Affairs"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "3dc3eaa0-5903-5ab7-9217-ad05ff9c3628",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/c9e2d352-e24c-4051-9158-f48127aa5692/district_centerpoints.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "title": "District Names",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "d96fbc2e931a4edc842d5bcb6cce3272__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/c9e2d352-e24c-4051-9158-f48127aa5692/district_centerpoints.csv",
+                  "identifier": "d96fbc2e931a4edc842d5bcb6cce3272",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/cedcd327-4e5d-43f9-8eb1-c11850fa7c55": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "admin",
-        "hasEmail": "mailto:noemailprovided@usa.gov"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Data on bike lanes in Florida.</p>\n",
+      "description": "Data on bike lanes in Florida.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
           "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/cedcd327-4e5d-43f9-8eb1-c11850fa7c55/Bike_Lane.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "title": "Florida Bike Lanes"
+          "title": "Florida Bike Lanes",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "8045ffee0b4a7c54848c775bc5402b33__1600709121__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/cedcd327-4e5d-43f9-8eb1-c11850fa7c55/Bike_Lane.csv",
+                "identifier": "8045ffee0b4a7c54848c775bc5402b33",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709121"
+              }
+            }
+          ]
         }
       ],
       "identifier": "cedcd327-4e5d-43f9-8eb1-c11850fa7c55",
       "issued": "2016-06-22",
-      "modified": "2019-06-06",
+      "license": "http://opendatacommons.org/licenses/by/1.0/",
+      "modified": "2016-06-22",
       "publisher": {
         "@type": "org:Organization",
         "name": "State Economic Council"
       },
+      "spatial": "Florida",
       "theme": [
         "Transportation",
         "City Planning"
       ],
       "title": "Florida Bike Lanes ",
       "keyword": [
-        "hello",
-        "goodbye",
-        "yep",
-        "blah"
-      ]
+        "bike-lanes",
+        "streets",
+        "infrastructure"
+      ],
+      "%Ref:theme": [
+        {
+          "identifier": "35648bca-83ec-5580-a193-86d716e1e284",
+          "data": "Transportation"
+        },
+        {
+          "identifier": "3c23032d-47c6-58fc-be0a-ef3fbaa54865",
+          "data": "City Planning"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "d36530dd-6bea-516e-8b32-7b3bbbcd1bd9",
+          "data": "bike-lanes"
+        },
+        {
+          "identifier": "1981b385-a6a9-561c-a83a-15395c19c97d",
+          "data": "streets"
+        },
+        {
+          "identifier": "4d280d80-a41a-514f-8ae0-6859bb222055",
+          "data": "infrastructure"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "c43b40ae-b279-58ed-91c8-065966b36fe8",
+        "data": {
+          "@type": "org:Organization",
+          "name": "State Economic Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "f991ff9f-21f8-5cdc-8899-e80a6615a2de",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/cedcd327-4e5d-43f9-8eb1-c11850fa7c55/Bike_Lane.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "title": "Florida Bike Lanes",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "8045ffee0b4a7c54848c775bc5402b33__1600709121__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/cedcd327-4e5d-43f9-8eb1-c11850fa7c55/Bike_Lane.csv",
+                  "identifier": "8045ffee0b4a7c54848c775bc5402b33",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709121"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/d460252e-d42c-474a-9ea9-5287b1d595f6": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Gray, Stefanie",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p><strong>Source:</strong> FBI Uniform Crime Report, 2014 (<a href=\"https://www.fbi.gov/about-us/cjis/ucr/ucr\">https://www.fbi.gov/about-us/cjis/ucr/ucr</a>)</p>\n<p>Data is split into two categories:</p>\n<p><strong>Violent Crime:</strong> Includes aggravated assault, murder, rape and robbery.<br /><strong>Property Crime:</strong> Includes arson, burglary, larceny-theft and motor vehicle theft.</p>\n<p><strong>Top 10 Most Populous U.S. Cities:</strong></p>\n<ol><li>New York, NY</li>\n<li>Los Angeles, CA</li>\n<li>Chicago, IL</li>\n<li>Houston, TX</li>\n<li>Philadelphia, PA</li>\n<li>Las Vegas, NV</li>\n<li>Phoenix, AZ</li>\n<li>San Antonio, TX</li>\n<li>San Diego, TX</li>\n<li>Dallas, TX</li>\n</ol><p><strong>Related Data Dashboard: </strong><a href=\"/crime-americas-top-10-most-populous-cities\">Crime in America's Top 10 Most Populous Cities</a></p>\n",
+      "description": "Source: FBI Uniform Crime Report, 2014",
       "distribution": [
         {
           "@type": "dcat:Distribution",
           "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/ViolentCrimeRates.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Source: FBI Uniform Crime Report, 2014 (<a href=\"https://www.fbi.gov/about-us/cjis/ucr/ucr\">https://www.fbi.gov/about-us/cjis/ucr/ucr</a>)</p>\n<p>Includes information on the frequency of violent crimes in general, murder and non-negligent manslaughter, aggravated assault, rape and robbery. All crime rates are per 100,000 people.</p>\n",
-          "title": "Violent Crime Data for the Ten Most Populous Cities in the U.S."
-        },
-        {
-          "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/PropertyCrimesByCity_3.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "title": "Property Crime Statistics by City"
-        },
-        {
-          "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/PropertyCrimeRates_1.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "description": "<p>Source: FBI Uniform Crime Report, 2014 (<a href=\"https://www.fbi.gov/about-us/cjis/ucr/ucr\">https://www.fbi.gov/about-us/cjis/ucr/ucr</a>)</p>\n",
-          "title": "Property Crime Rates for 10 Most Populous US Cities (2015)"
-        },
-        {
-          "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/NumbersByCity.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "title": "Violent Crime Statistics by City "
+          "description": "Includes information on the frequency of violent crimes in general, murder and non-negligent manslaughter, aggravated assault, rape and robbery. All crime rates are per 100,000 people.",
+          "title": "Violent Crime Data for the Ten Most Populous Cities in the U.S.",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "b560195d5b93542ef66090fe235c159d__1600709121__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/ViolentCrimeRates.csv",
+                "identifier": "b560195d5b93542ef66090fe235c159d",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709121"
+              }
+            }
+          ]
         }
       ],
       "identifier": "d460252e-d42c-474a-9ea9-5287b1d595f6",
       "issued": "2016-04-20",
       "keyword": [
         "crime",
-        "public safety"
+        "city"
       ],
-      "modified": "2019-06-06",
+      "license": "http://opendatacommons.org/licenses/by/1.0/",
+      "modified": "2016-04-20",
       "publisher": {
         "@type": "org:Organization",
         "name": "State Economic Council"
@@ -333,40 +833,106 @@
       "theme": [
         "Public Safety"
       ],
-      "title": "Crime Data for the Ten Most Populous Cities in the U.S."
+      "title": "Crime Data for the Ten Most Populous Cities in the U.S.",
+      "%Ref:theme": [
+        {
+          "identifier": "bbe16aad-386b-55cc-9cfb-03414fd07c5a",
+          "data": "Public Safety"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "6d319f97-6915-5b7e-a312-8ee2932020c9",
+          "data": "crime"
+        },
+        {
+          "identifier": "b8a8dab8-6da6-5ba2-a2e3-77c26cdbc456",
+          "data": "city"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "c43b40ae-b279-58ed-91c8-065966b36fe8",
+        "data": {
+          "@type": "org:Organization",
+          "name": "State Economic Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "30ebbcee-3a21-5aa0-aeca-012fc7f0a318",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/ViolentCrimeRates.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "Includes information on the frequency of violent crimes in general, murder and non-negligent manslaughter, aggravated assault, rape and robbery. All crime rates are per 100,000 people.",
+            "title": "Violent Crime Data for the Ten Most Populous Cities in the U.S.",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "b560195d5b93542ef66090fe235c159d__1600709121__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/ViolentCrimeRates.csv",
+                  "identifier": "b560195d5b93542ef66090fe235c159d",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709121"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/e1f2ebcd-ee23-454f-87b5-df0306658418": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
+      "accrualPeriodicity": "R/P1Y",
       "contactPoint": {
-        "fn": "CDC INFO",
-        "hasEmail": "mailto:cdcinfo@cdc.gov"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Centers for Disease Control and Prevention data regarding varicella (chickenpox) virus incidence and mortality rates.</p>\n<p><strong>Source:</strong> <a href=\"https://data.cdc.gov/NNDSS/NNDSS-Table-II-Varicella-to-West-Nile-virus-diseas/ig4m-ub43\">https://data.cdc.gov/NNDSS/NNDSS-Table-II-Varicella-to-West-Nile-virus-d...</a></p>\n<p><strong>Related Data Story: </strong><a href=\"/story/end-chickenpox-varicella-vaccines-success-story\">An End to Chickenpox: The Varicella Vaccine's Success Story</a></p>\n",
+      "description": "Example data for reviewing catalog functionality.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/postvaccinedeaths_0_0.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1991_2007.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Source: \"Near elimination of varicella deaths in the US after implementation of the vaccination program.\" published in the American Journal of Pediatrics in August 2011.</p>\n",
-          "title": " Varicella Mortality by Age Group, 1995-2009"
+          "description": "Mock data for demonstration purposes.",
+          "title": "Varicella Mortality by Age Group, 1991-2007",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "9377223c7d4df52d626ad1d723621a84__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1991_2007.csv",
+                "identifier": "9377223c7d4df52d626ad1d723621a84",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         },
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/varicelladeaths1970_1994.csv",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1974_1990.csv",
           "mediaType": "text/csv",
           "format": "csv",
-          "description": "<p>Source: Centers for Disease Control and Prevention in Atlanta, Georgia. “Varicella Mortality: Trends before Vaccine Licensure in the United States, 1970–1994” published August 2000 in the Journal of Infectious Diseases.</p>\n",
-          "title": "Varicella Mortality by Age Group, 1970-1994"
-        },
-        {
-          "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/varicellaincidencerates_0.csv",
-          "mediaType": "text/csv",
-          "format": "csv",
-          "description": "<p>Source: \"Impact of Vaccination on the Epidemiology of Varicella: 1995–2009\" published in the journal Pediatrics in August 2011.</p>\n",
-          "title": "Varicella Incidence Rates After Vaccine Introduced in U.S., 1995-2009"
+          "description": "Mock data for demonstration purposes.",
+          "title": "Varicella Mortality by Age Group, 1974-1990",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "3224e9838c12d21a2082713c5b43b72f__1600709122__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1974_1990.csv",
+                "identifier": "3224e9838c12d21a2082713c5b43b72f",
+                "mimeType": "text/csv",
+                "perspective": "source",
+                "version": "1600709122"
+              }
+            }
+          ]
         }
       ],
       "identifier": "e1f2ebcd-ee23-454f-87b5-df0306658418",
@@ -375,54 +941,247 @@
         "health"
       ],
       "modified": "2019-06-06",
+      "license": "http://opendatacommons.org/licenses/by/1.0/",
       "publisher": {
         "@type": "org:Organization",
-        "name": "Advisory Council for Infectious Disease"
+        "name": "National Health Council"
       },
       "spatial": "POLYGON ((-128.056640625 24.206889622398, -128.056640625 50.176898122001, -64.775390625 50.176898122001, -64.775390625 24.206889622398))",
+      "temporal": "1974-01-01/2007-01-01",
       "theme": [
         "Health Care"
       ],
-      "title": "Varicella (Chickenpox) Incidence and Mortality, Before and After the Vaccine"
+      "title": "Varicella (Chickenpox) Incidence and Mortality, Before and After the Vaccine",
+      "%Ref:theme": [
+        {
+          "identifier": "ebea68c6-14b5-5a68-ac94-955e69666ad7",
+          "data": "Health Care"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "2d2fb90b-c0d3-5292-b2fe-68a13e42c76f",
+          "data": "health"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "806cb23a-6c56-532a-ae96-b27cf7499090",
+        "data": {
+          "@type": "org:Organization",
+          "name": "National Health Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "cf1a6955-cbd3-51f9-a005-269a9f226b8f",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1991_2007.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "Mock data for demonstration purposes.",
+            "title": "Varicella Mortality by Age Group, 1991-2007",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "9377223c7d4df52d626ad1d723621a84__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1991_2007.csv",
+                  "identifier": "9377223c7d4df52d626ad1d723621a84",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "969e4e92-52bc-50c4-986f-74282500f350",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1974_1990.csv",
+            "mediaType": "text/csv",
+            "format": "csv",
+            "description": "Mock data for demonstration purposes.",
+            "title": "Varicella Mortality by Age Group, 1974-1990",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "3224e9838c12d21a2082713c5b43b72f__1600709122__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/e1f2ebcd-ee23-454f-87b5-df0306658418/demo_varicelladeaths_1974_1990.csv",
+                  "identifier": "3224e9838c12d21a2082713c5b43b72f",
+                  "mimeType": "text/csv",
+                  "perspective": "source",
+                  "version": "1600709122"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     },
     "dkan_dataset/fb3525f2-d32a-451e-8869-906ed41f7695": {
       "@type": "dcat:Dataset",
       "accessLevel": "public",
       "contactPoint": {
-        "fn": "Gray, Stefanie",
-        "hasEmail": "mailto:datademo@example.com"
+        "fn": "Jane Doe",
+        "hasEmail": "mailto:data.admin@example.com"
       },
-      "description": "<p>Deprivation is measured across seven different areas or domains - income, employment, health, education, living environment, crime and barriers to services using a wide range of indicators, and the methods used show how each area compares with other areas across England using a combination of all these indicators.</p>\n<p>As stated by The Guardian, \"the data is based on a close analysis of the UK government's Indices of Multiple Deprivation - which measures relative poverty across England – by Alasdair Rae at the University of Sheffield.\" (<a href=\"https://www.theguardian.com/uk/datablog/2012/apr/12/deprivation-poverty-london\">Source</a>)</p>\n<p><strong>Source:</strong> <a href=\"https://data.london.gov.uk/dataset/indices-of-deprivation-2015\">https://data.london.gov.uk/dataset/indices-of-deprivation-2015</a></p>\n<p><strong>Related Data Story: </strong><a href=\"/story/london-income-analysis\">London Income Analysis</a></p>\n",
+      "description": "In late 2016, the URA, in conjunction with Reinvestment Fund, completed the 2016 Market Value Analysis (MVA) for the City of Pittsburgh. The Market Value Analysis (MVA) offers an approach for community revitalization; it recommends applying interventions not only to where there is a need for development but also in places where public investment can stimulate private market activity and capitalize on larger public investment activities. The MVA is a unique tool for characterizing markets because it creates an internally referenced index of a municipality’s residential real estate market. It identifies areas that are the highest demand markets as well as areas of greatest distress, and the various markets types between. The MVA offers insight into the variation in market strength and weakness within and between traditional neighborhood boundaries because it uses Census block groups as the unit of analysis. Where market types abut each other on the map becomes instructive about the potential direction of market change, and ultimately, the appropriateness of types of investment or intervention strategies.",
       "distribution": [
         {
           "@type": "dcat:Distribution",
-          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/IMD-MAPS.zip",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/pittsmva2016data.zip",
           "mediaType": "application/zip",
           "format": "zip",
-          "title": "English Indices of Deprivation 2010"
+          "title": "MVA Geographic Data 2016",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "859393bed6ec6942239154ddc1832aab__1600709121__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/pittsmva2016data.zip",
+                "identifier": "859393bed6ec6942239154ddc1832aab",
+                "mimeType": "application/zip",
+                "perspective": "source",
+                "version": "1600709121"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "dcat:Distribution",
+          "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/2016mvadatadictionary.pdf",
+          "mediaType": "application/pdf",
+          "format": "pdf",
+          "title": "2016 MVA Data Dictionary",
+          "%Ref:downloadURL": [
+            {
+              "identifier": "cce90da1e488177adf3231cfe0c99a23__1600709121__source",
+              "data": {
+                "filePath": "http://h-o.st/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/2016mvadatadictionary.pdf",
+                "identifier": "cce90da1e488177adf3231cfe0c99a23",
+                "mimeType": "application/pdf",
+                "perspective": "source",
+                "version": "1600709121"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "dcat:Distribution",
+          "accessURL": "file:///var/www/docroot/modules/contrib/dkan/modules/sample_content/files/pittsmva2016data.zip",
+          "format": "zip",
+          "title": "Map files"
         }
       ],
       "identifier": "fb3525f2-d32a-451e-8869-906ed41f7695",
       "issued": "2016-04-21",
       "keyword": [
-        "demographics",
+        "foreclosures",
         "economy",
-        "spatial data",
-        "United Kingdom"
+        "affordable-housing",
+        "housing-markets"
       ],
-      "modified": "2019-06-06",
+      "license": "http://www.opendefinition.org/licenses/cc-by",
+      "modified": "2016-04-21",
       "publisher": {
         "@type": "org:Organization",
-        "name": "Committee on International Affairs"
+        "name": "State Economic Council"
       },
-      "references": [
-        "http://www.lfpress.com/2016/05/13/expert-panel-says-londons-living-wage-is-1553h-londoners-need-30284-to-meet-basic-needs"
-      ],
-      "spatial": "POLYGON ((-1.1178588867187 51.08282186161, -1.1178588867187 51.859531509855, 1.1178588867187 51.859531509855, 1.1178588867187 51.08282186161))",
+      "spatial": "Pittsburgh, PA",
+      "temporal": "2016",
       "theme": [
         "Finance and Budgeting"
       ],
-      "title": "London Deprivation Index"
+      "title": "Market Value Analysis - Urban Redevelopment Authority",
+      "%Ref:theme": [
+        {
+          "identifier": "b1f822b6-ae46-584d-9268-52ca95a3f8ec",
+          "data": "Finance and Budgeting"
+        }
+      ],
+      "%Ref:keyword": [
+        {
+          "identifier": "c6a43d4c-7311-5c70-a7d3-4918cb1cfdd7",
+          "data": "foreclosures"
+        },
+        {
+          "identifier": "cf43cf96-f037-516f-974d-4330bcdbc1f9",
+          "data": "economy"
+        },
+        {
+          "identifier": "51fb372a-2f48-5e4b-b8af-f984a36fe90f",
+          "data": "affordable-housing"
+        },
+        {
+          "identifier": "0de06c9a-e413-5277-af83-57b6c3e46513",
+          "data": "housing-markets"
+        }
+      ],
+      "%Ref:publisher": {
+        "identifier": "c43b40ae-b279-58ed-91c8-065966b36fe8",
+        "data": {
+          "@type": "org:Organization",
+          "name": "State Economic Council"
+        }
+      },
+      "%Ref:distribution": [
+        {
+          "identifier": "a53f4166-029a-5d17-b95a-cb48e66a3621",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/pittsmva2016data.zip",
+            "mediaType": "application/zip",
+            "format": "zip",
+            "title": "MVA Geographic Data 2016",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "859393bed6ec6942239154ddc1832aab__1600709121__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/pittsmva2016data.zip",
+                  "identifier": "859393bed6ec6942239154ddc1832aab",
+                  "mimeType": "application/zip",
+                  "perspective": "source",
+                  "version": "1600709121"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "73778c98-7b81-5c52-883c-e321f65abfe8",
+          "data": {
+            "@type": "dcat:Distribution",
+            "downloadURL": "http://dkan.localtest.me/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/2016mvadatadictionary.pdf",
+            "mediaType": "application/pdf",
+            "format": "pdf",
+            "title": "2016 MVA Data Dictionary",
+            "%Ref:downloadURL": [
+              {
+                "identifier": "cce90da1e488177adf3231cfe0c99a23__1600709121__source",
+                "data": {
+                  "filePath": "http://h-o.st/sites/default/files/distribution/fb3525f2-d32a-451e-8869-906ed41f7695/2016mvadatadictionary.pdf",
+                  "identifier": "cce90da1e488177adf3231cfe0c99a23",
+                  "mimeType": "application/pdf",
+                  "perspective": "source",
+                  "version": "1600709121"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "0fc9d146-37c3-5ccb-9a9c-d04a16931e04",
+          "data": {
+            "@type": "dcat:Distribution",
+            "accessURL": "file:///var/www/docroot/modules/contrib/dkan/modules/sample_content/files/pittsmva2016data.zip",
+            "format": "zip",
+            "title": "Map files"
+          }
+        }
+      ],
+      "%modified": "2020-09-21"
     }
   }
 }
