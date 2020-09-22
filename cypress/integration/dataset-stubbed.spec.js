@@ -140,7 +140,4 @@ context('Dataset stubbed', () => {
     cy.get(`#resource_1234abcd .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`, { timeout: 40000 }).should('contain', 'date')
   })
 
-  it('I don\'t see a datatable if a distribution doesn\'t contain a csv file.', () => {
-    cy.get(`.dc-datatable`).its('length').should('eq', 1)
-  })
 })
