@@ -13,7 +13,7 @@
     {
       "type": "theme",
       "name": "Finance and Budgeting",
-      "total": "4"
+      "total": "3"
     },
     {
       "type": "theme",
@@ -23,32 +23,27 @@
     {
       "type": "theme",
       "name": "Health Care",
-      "total": "2"
-    },
-    {
-      "type": "keyword",
-      "name": "hello",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "goodbye",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "yep",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "blah",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "demographics",
       "total": "3"
+    },
+    {
+      "type": "keyword",
+      "name": "bike-lanes",
+      "total": "1"
+    },
+    {
+      "type": "keyword",
+      "name": "streets",
+      "total": "1"
+    },
+    {
+      "type": "keyword",
+      "name": "infrastructure",
+      "total": "1"
+    },
+    {
+      "type": "keyword",
+      "name": "foreclosures",
+      "total": "1"
     },
     {
       "type": "keyword",
@@ -57,12 +52,12 @@
     },
     {
       "type": "keyword",
-      "name": "spatial data",
+      "name": "affordable-housing",
       "total": "1"
     },
     {
       "type": "keyword",
-      "name": "United Kingdom",
+      "name": "housing-markets",
       "total": "1"
     },
     {
@@ -72,23 +67,23 @@
     },
     {
       "type": "keyword",
-      "name": "public safety",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "socioeconomic",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "workforce",
+      "name": "city",
       "total": "1"
     },
     {
       "type": "keyword",
       "name": "health",
-      "total": "2"
+      "total": "3"
+    },
+    {
+      "type": "keyword",
+      "name": "asthma",
+      "total": "1"
+    },
+    {
+      "type": "keyword",
+      "name": "demographics",
+      "total": "1"
     },
     {
       "type": "keyword",
@@ -127,12 +122,12 @@
     },
     {
       "type": "publisher__name",
-      "name": "Committee on International Affairs",
+      "name": "National Health Council",
       "total": "3"
     },
     {
       "type": "publisher__name",
-      "name": "Advisory Council for Infectious Disease",
+      "name": "Committee on International Affairs",
       "total": "2"
     }
   ]

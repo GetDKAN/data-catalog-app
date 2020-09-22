@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
-            dktl init
+            dktl init --dkan=2.x-dev
             dktl make
             dktl install
             dktl install:sample
