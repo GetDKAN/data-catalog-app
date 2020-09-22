@@ -3,7 +3,7 @@ context('Search', () => {
       cy.visit('/search')
     })
 
-    it('I can use the text input filter', () => {
+    it('I find the expected search elements.', () => {
         cy.get('h1').should('contain','Datasets')
         cy.get('.dc-results-list ol').children().its('length').should('eq', 10)
         cy.findByPlaceholderText('Type your search term here').should('exist');
