@@ -67,7 +67,8 @@ const Home = () => {
         <Blocks
             items={copy.stats}
             component={StatBlock}
-            className="StatBlock"
+            containerClass=""
+            blockClass="StatBlock"
         />
         <FeaturedDatasets datasets={fDatasets} />
         </div>
