@@ -15,9 +15,9 @@ context('Publishers', () => {
       cy.findByRole('heading', { name: 'Committee on International Affairs' });
     })
     // Enable when components are updated.
-    it.skip('Links should take me to the search page', () => {
+    it('Links should take me to the search page', () => {
       cy.findByRole('link', { name: 'Publishers' }).click({ force: true });
-      cy.get('.dc-publisher-list  > :nth-child(1) > a').should('have.attr', 'href').and('eq', '../search?publisher__name=State Economic Council');
+      cy.get('.dc-publisher-list  > :nth-child(1) > a').should('have.attr', 'href').and('eq', '/search/?publisher__name=State Economic Council');
     })
 
   });
