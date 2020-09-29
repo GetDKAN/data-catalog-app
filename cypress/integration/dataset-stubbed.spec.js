@@ -70,9 +70,9 @@ context('Dataset stubbed', () => {
   it('I can select the number of rows per page in each table.', () => {
     cy.get(`#resource_1234abcd .-pageInfo`).should('contain', 'Page 1 of 10')
     cy.get(`#resource_1234abcd .page-size-select`).select('50')
-    cy.get(`#resource_1234abcd .-pageInfo`).should('contain', 'Page 1 of 4')
+    cy.get(`#resource_1234abcd .-pageInfo`, { timeout: 40000 }).should('contain', 'Page 1 of 4')
     cy.get(`#resource_1234abcd .page-size-select`).select('100')
-    cy.get(`#resource_1234abcd .-pageInfo`).should('contain', 'Page 1 of 2')
+    cy.get(`#resource_1234abcd .-pageInfo`, { timeout: 40000 }).should('contain', 'Page 1 of 2')
   })
 
   it('I can change the density of the data table rows', () => {
