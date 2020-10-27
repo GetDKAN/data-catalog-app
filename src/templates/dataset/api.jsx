@@ -4,7 +4,6 @@ import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
 import {
   ApiDocs,
-  Title,
   Organization
 } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
@@ -73,15 +72,15 @@ const ApiDocsSpecific = ({ id, location }) => {
             </div>
           </div>
           <div className="results-list col-md-9 col-sm-12">
-            <Title title={item.title} />
-              <ApiDocs
-                endpoint={
-                  `${process.env.REACT_APP_ROOT_URL}` +
-                  "/metastore/schemas/dataset/items/" +
-                  id +
-                  "/docs"
-                }
-              />
+            <h1>{item.title}</h1>
+            <ApiDocs
+              endpoint={
+                `${process.env.REACT_APP_ROOT_URL}` +
+                "/metastore/schemas/dataset/items/" +
+                id +
+                "/docs"
+              }
+            />
           </div>
 
       </div>
