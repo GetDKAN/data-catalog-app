@@ -6,6 +6,8 @@
     margin-right: 6px;
     fill: $linkColor;
   }
+}
+a.dc-topic-wrapper {
   &:focus,
   &:hover {
     color: $linkHoverColor;
@@ -19,7 +21,8 @@
   letter-spacing: .25px;
   margin: .5em 0;
   padding-bottom: .75em;
-  a {
+  a,
+  div {
     color: $primary;
     display: inline-block;
     position: relative;
