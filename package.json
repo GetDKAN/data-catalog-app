@@ -1,10 +1,10 @@
 {
   "name": "@civicactions/data-catalog-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.4.1",
+    "@civicactions/data-catalog-components": "^1.4.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
