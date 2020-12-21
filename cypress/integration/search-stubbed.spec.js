@@ -116,12 +116,12 @@ context('Search stubbed', () => {
   it('I can change the amount of results per page', () => {
     cy.stubSearchResults('/search');
     cy.get('.dc-search-results-message').contains('10 datasets found');
-    cy.get('.dataset-results-count').contains('1-10 out of 10 datasets')
+    cy.get('.dataset-results-count').contains('1-10 of 10 datasets')
     cy.get(searchList).children().its('length').should('eq', 10);
     cy.findByLabelText('Page Size').select('5')
     cy.wait(500);
     cy.get('.dc-search-results-message').contains('10 datasets found');
-    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets')
+    cy.get('.dataset-results-count').contains('1-5 of 10 datasets')
     cy.get(searchList).children().its('length').should('eq', 5);
   });
 
@@ -134,15 +134,15 @@ context('Search stubbed', () => {
     cy.findByLabelText('Page Size').select('5');
     cy.wait(500)
     cy.get('.pagination').children().its('length').should('eq', 4);
-    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets')
+    cy.get('.dataset-results-count').contains('1-5 of 10 datasets')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'U.S. Tobacco Usage Statistics');
     cy.findByRole('link', {name: 'Go to page number 2'}).click();
-    cy.get('.dataset-results-count').contains('6-10 out of 10 datasets');
+    cy.get('.dataset-results-count').contains('6-10 of 10 datasets');
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts');
     cy.findByRole('link', {name: 'Go to previous page'}).click();
-    cy.get('.dataset-results-count').contains('1-5 out of 10 datasets');
+    cy.get('.dataset-results-count').contains('1-5 of 10 datasets');
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'U.S. Tobacco Usage Statistics');
   });
