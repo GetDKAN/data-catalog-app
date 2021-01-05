@@ -1,27 +1,29 @@
 import '@testing-library/cypress/add-commands';
 
-Cypress.Commands.add('stubMetadata', (path) => {
+Cypress.Commands.add('stubDatastoreImportInfo', () => {
   cy.server();
-  cy.route(`**/metastore/schemas/dataset/items/1234-abcd?**`, 'fx:datasetMetadata')
-  cy.visit(path)
+  cy.route(/.*\/datastore\/imports.*/, 'fx:datastoreImportInfo')
 });
 
-Cypress.Commands.add('stubDatatable', (path) => {
+Cypress.Commands.add('stubMetadata', () => {
+  cy.server();
+  cy.route(/.*\/metastore\/schemas\/dataset\/items\/1234-abcd\?.*/, 'fx:datasetMetadata')
+});
+
+Cypress.Commands.add('stubDatatable', () => {
   cy.server();
   cy.fixture('datasetSqlCount').then((res) => {
-    cy.route(/^(?=.*COUNT)(?=.*price)(?=.*3).*$/, () => ([{expression: "26"}]))
-    cy.route(/^(?=.*\[SELECT COUNT\(\*\) FROM 1234abcd]&show-db-columns).*$/, res)
-    cy.route(/^(?=.*\[SELECT COUNT\(\*\) FROM 1234abcd];&show-db-columns).*$/, res)
+    cy.route(/.*\[SELECT COUNT\(\*\) FROM .*/, res)
+    cy.route(/.*\[SELECT COUNT\(\*\) FROM .*price.*/, () => ([{expression: "26"}]))
   })
   cy.fixture('datasetSqlResults').then((res) => {
-    cy.route(/^(?=.*1234abcd)(?=.*LIMIT 20).*$/, res.slice(0, 20));
-    cy.route(/^(?=.*1234abcd)(?=.*LIMIT 50).*$/, res.slice(0, 50))
-    cy.route(/^(?=.*1234abcd)(?=.*LIMIT 100).*$/, res.slice(0, 100))
-    cy.route(/^(?=.*1234abcd)(?=.*35.08)(?=.*LIMIT 20).*$/, res.filter((item) => item.price == '35.08'))
-    cy.route(/^(?=.*1234abcd)(?=.*ORDER BY record_number ASC).*$/, res.slice(0, 20))
-    cy.route(/^(?=.*1234abcd)(?=.*ORDER BY record_number DESC).*$/, res.reverse().slice(0, 20))
+    cy.route(/.*\[SELECT \* FROM .*LIMIT 20.*/, res.slice(0, 20));
+    cy.route(/.*\[SELECT \* FROM .*LIMIT 50.*/, res.slice(0, 50))
+    cy.route(/.*\[SELECT \* FROM .*LIMIT 100.*/, res.slice(0, 100))
+    cy.route(/.*\[SELECT \* FROM .*price =.*/, res.filter((item) => item.price == '35.08'))
+    cy.route(/.*\[SELECT \* FROM .*ORDER BY record_number ASC.*/, res.slice(0, 20))
+    cy.route(/.*\[SELECT \* FROM .*ORDER BY record_number DESC.*/, res.reverse().slice(0, 20))
   })
-  cy.visit(path)
 });
 
 Cypress.Commands.add('stubSearchResults', (path) => {

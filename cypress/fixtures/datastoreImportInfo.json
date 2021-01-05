@@ -1,0 +1,18 @@
+{
+  "numOfColumns": 3,
+  "columns":{
+    "record_number":{
+      "type":"text",
+      "description":""
+    },
+    "date":{
+      "type":"text",
+      "description":"CMS Certification Number (CCN)"
+    },
+    "price":{
+      "type":"text",
+      "description":"Facility Name"
+    }
+  },
+  "numOfRows":200
+}
