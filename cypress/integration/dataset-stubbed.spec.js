@@ -1,8 +1,10 @@
 context('Dataset stubbed', () => {
   beforeEach(() => {
     // cy.visit('/dataset/95f8eac4-fd1f-4b35-8472-5c87e9425dfa')
-    cy.stubMetadata('/dataset/1234-abcd');
-    cy.stubDatatable('/dataset/1234-abcd');
+    cy.stubMetadata();
+    cy.stubDatatable();
+    cy.stubDatastoreImportInfo();
+    cy.visit('/dataset/1234-abcd')
   })
 
   it('I see the title and description', () => {
