@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
-
+import { Spinner } from 'reactstrap';
 import {
   Text,
   Organization,
@@ -27,7 +27,6 @@ const Dataset = ({id, location}) => {
     async function getItem() {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
-      console.log("item: ", item);
     }
     if (!state || !state.dataset) {
       getItem();
@@ -118,44 +117,44 @@ const Dataset = ({id, location}) => {
 
   return (
     <Layout title={`Dataset - ${item.title}`}>
-    <div className={`dc-dataset-page ${config.container}`}>
-        <div className="row">
-          <div className="col-md-3 col-sm-12">
-            {renderOrg}
-            <div className="dc-block-wrapper">
-              The information on this page is also available via the{" "}
-              <Link
-                to={`/dataset/${item.identifier}/api`}
-                state={{ dataset: {...item} }}
-              >
-                API
-              </Link>.
+      <div className={`dc-dataset-page ${config.container}`}>
+       
+            <div className="row">
+              <div className="col-md-3 col-sm-12">
+                {renderOrg}
+                <div className="dc-block-wrapper">
+                  The information on this page is also available via the{" "}
+                  <Link
+                    to={`/dataset/${item.identifier}/api`}
+                    state={{ dataset: {...item} }}
+                  >
+                    API
+                  </Link>.
+                </div>
+              </div>
+              <div className="col-md-9 col-sm-12">
+              {Object.keys(item).length
+                ?(
+                <div>
+                  <h1>{item.title}</h1>
+                {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
+                <Text value={item.description} />
+                {(hasWindow && item.distribution) &&
+                  item.distribution.map(dist => {
+                    return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
+                  })}
+                <Tags tags={tag} path="/search?keyword=" label="Tags" />
+                <Table
+                  configuration={labelsT3}
+                  data={valuesT3}
+                  tableclass="metadata"
+                /></div>
+                ):( <div className="row">
+                <Spinner color="primary" />
+              </div>
+            )}
+              </div>
             </div>
-          </div>
-          <div className="col-md-9 col-sm-12">
-            <h1>{item.title}</h1>
-            {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
-            <Text value={item.description} />
-            {(hasWindow && item.distribution) &&
-              item.distribution.map(dist => {
-                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
-              })}
-            <Tags tags={tag} path="/search?keyword=" label="Tags" />
-            {/* <Table
-              configuration={labelsT2}
-              data={valuesT2}
-              title="Columns in this Dataset"
-              th1="Column Name"
-              th2="Type"
-              tableclass="data-dictionary"
-            /> */}
-            <Table
-              configuration={labelsT3}
-              data={valuesT3}
-              tableclass="metadata"
-            />
-          </div>
-        </div>
       </div>
       </Layout>
   );

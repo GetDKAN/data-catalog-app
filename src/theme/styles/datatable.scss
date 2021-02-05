@@ -22,10 +22,10 @@ $expandSize: 7px;
   &.density-3 .dc-tbody .dc-td {
     padding: 5px 5px;
   }
-  &.-striped .dc-tr:nth-child(odd) {
+  &.-striped .dc-tr:nth-child(odd) .dc-td {
     background-color: rgba(0,0,0,.05);
   }
-  &.-highlight .dc-tbody .dc-tr:not(.-padRow):hover {
+  &.-highlight .dc-tbody .dc-tr:not(.-padRow):hover .dc-td {
     background-color: #FFFEEE;
   }
 
@@ -75,9 +75,6 @@ $expandSize: 7px;
     }
 
     &.-header {
-      .tr {
-        box-shadow: 0 2px 15px 0px rgba(0,0,0,.15);
-      }
       .th {
         overflow: hidden;
         text-align: center;
