@@ -21,6 +21,9 @@ a.dc-topic-wrapper {
   letter-spacing: .25px;
   margin: .5em 0;
   padding-bottom: .75em;
+  li {
+    display: inline;
+  }
   a,
   div {
     color: $primary;

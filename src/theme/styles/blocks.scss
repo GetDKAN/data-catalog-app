@@ -33,10 +33,17 @@
 .BasicBlock {
     h2 {
         padding-bottom: 1.6rem;
+        img {
+            margin-bottom: 2rem;
+        }
     }
     .basic-block {
         padding: 0 20px;
         min-width: 33%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 .StatBlock {
