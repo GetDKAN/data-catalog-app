@@ -1,0 +1,6 @@
+{
+  "title": "About this site",
+  "p1": "This is the default state of the DKAN data catalog.",
+  "p2": "This tool helps create open data catalogs using React and other libraries.",
+  "announcement": "Update this about page before publishing."
+}
