@@ -1,3 +1,10 @@
+$theme-font-path: "~uswds/dist/fonts";
+$theme-image-path: "~uswds/dist/img";
+@import "~uswds/dist/scss/uswds";
+
+@import "~@civicactions/data-catalog-components/dist/scss/index";
+
+
 // Fonts and General css.
 @import "./fonts/rubik-cufonfonts-webfont/style.css";
 @import "./styles/general.scss";

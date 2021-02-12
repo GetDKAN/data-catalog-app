@@ -8,7 +8,6 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
-import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';

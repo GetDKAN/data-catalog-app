@@ -22,7 +22,8 @@
     "react-helmet": "^5.2.1",
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
-    "swagger-ui-react": "3.25.0"
+    "swagger-ui-react": "3.25.0",
+    "uswds": "^2.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
