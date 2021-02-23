@@ -9,18 +9,13 @@ const About = () => {
   return(
     <Layout title="About">
       <div className={`dc-page ${config.container}`}>
-        <h1>{t('about:title', 'Fallback')}</h1>
-        <div className="dc-page-content row">
-          <div class="col-md-9 col-sm-12">
-            <p>{t('about:p1')}</p>
-            <p>{t('about:p2')}</p>
-          </div>
-          <div className="col-md-3 col-sm-12">
-            <Announcement variation="info" heading="Note">
-              <p>{t('about:announcement')}</p>
-            </Announcement>
-          </div>
-        </div>
+	<h1>{t('about:title', 'Fallback')}</h1>
+	<div className="dc-page-content">
+	  <div>
+	    <p>{t('about:p1')}</p>
+	    <p>{t('about:p2')}</p>
+	  </div>
+	</div>
       </div>
     </Layout>
   )
