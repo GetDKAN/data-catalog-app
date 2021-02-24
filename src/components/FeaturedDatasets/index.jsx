@@ -8,19 +8,19 @@ import './featureddatasets.scss';
 
 const FeaturedDatasets = ({ datasets }) => {
   return (
-    <div className={`dc-featured-datasets ${config.container}`}>
+    <div className="dc-featured-datasets grid-container">
       <h2 className="dc-featured-title">Featured Datasets</h2>
       <ol>
-        {datasets.map((item) => (
-          <li>
-            <Link to={`dataset/${item.identifier}`} key={item.identifier}>
-              <h3>{item.title}</h3>
-            </Link>
-            <Text>
-              {excerpts(item.description, {words: 35})}
-            </Text>
-          </li>
-        ))}
+	{datasets.map((item) => (
+	  <li>
+	    <Link to={`dataset/${item.identifier}`} key={item.identifier}>
+	      <h3>{item.title}</h3>
+	    </Link>
+	    <Text>
+	      {excerpts(item.description, {words: 35})}
+	    </Text>
+	  </li>
+	))}
       </ol>
     </div>
   );

@@ -118,7 +118,7 @@ const Dataset = ({id, location}) => {
 
   return (
     <Layout title={`Dataset - ${item.title}`}>
-      <div className={`dc-dataset-page ${config.container}`}>
+      <div className="dc-dataset-page grid-container">
 	<div className="grid-row">
 	  <div className="tablet:grid-col-3">
 	    {renderOrg}

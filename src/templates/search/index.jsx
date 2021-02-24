@@ -9,7 +9,7 @@ const SearchTemplate = ({path}) => {
   const location = useLocation();
   return (
     <Layout title="Search">
-    <div className={`dc-page ${config.container}`}>
+    <div className="dc-page grid-container">
 	<h1>Datasets</h1>
 	<Search
 	  searchEndpoint={`${process.env.REACT_APP_ROOT_URL}/search`}

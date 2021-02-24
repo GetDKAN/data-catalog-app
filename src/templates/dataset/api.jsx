@@ -41,7 +41,7 @@ const ApiDocsSpecific = ({ id, location }) => {
     }
   return (
     <Layout title="Dataset API">
-    <div className={`dc-dataset-page ${config.container}`}>
+    <div className="dc-dataset-page grid-container">
        <Loader
 	  backgroundStyle={{ backgroundColor: "#f9fafb" }}
 	  foregroundStyle={{ backgroundColor: "#f9fafb" }}

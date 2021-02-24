@@ -8,7 +8,7 @@ const About = () => {
   const { t } = useTranslation('about');
   return(
     <Layout title="About">
-      <div className={`dc-page ${config.container}`}>
+      <div className="dc-page grid-container">
 	<h1>{t('about:title', 'Fallback')}</h1>
 	<div className="dc-page-content">
 	  <div>
