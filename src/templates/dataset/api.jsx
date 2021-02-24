@@ -22,8 +22,8 @@ const ApiDocsSpecific = ({ id, location }) => {
     } else {
       axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
       .then((res) => {
-        setItem(res.data);
-        setLoading(false);
+	setItem(res.data);
+	setLoading(false);
       })
     }
   }, [id, state])
@@ -41,47 +41,46 @@ const ApiDocsSpecific = ({ id, location }) => {
     }
   return (
     <Layout title="Dataset API">
-    <div className={`dc-dataset-page ${config.container}`}>
+    <div className="dc-dataset-page grid-container">
        <Loader
-          backgroundStyle={{ backgroundColor: "#f9fafb" }}
-          foregroundStyle={{ backgroundColor: "#f9fafb" }}
-          show={loading}
-          message={
-            <LoadingSpin width={"3px"} primaryColor={"#007BBC"} />
-          }
-        >
-      <div className="row">
-
-          <div className="col-md-3 col-sm-12">
-            {renderOrg}
-            <div className="dc-block-wrapper">
-              <FontAwesomeIcon
-                icon={['fas', 'arrow-left']}
-                size="1x"
-                aria-hidden="true"
-                role="presentation"
-              />
-              Back to the{" "}
-              <Link
-                to={`/dataset/${id}`}
-                state={{dataset: {...item}}}
-              >
-                dataset
-              </Link>
-              .
-            </div>
-          </div>
-          <div className="results-list col-md-9 col-sm-12">
-            <h1>{item.title}</h1>
-            <ApiDocs
-              endpoint={
-                `${process.env.REACT_APP_ROOT_URL}` +
-                "/metastore/schemas/dataset/items/" +
-                id +
-                "/docs"
-              }
-            />
-          </div>
+	  backgroundStyle={{ backgroundColor: "#f9fafb" }}
+	  foregroundStyle={{ backgroundColor: "#f9fafb" }}
+	  show={loading}
+	  message={
+	    <LoadingSpin width={"3px"} primaryColor={"#007BBC"} />
+	  }
+	>
+      <div className="grid-row">
+	  <div className="tablet:grid-col-3">
+	    {renderOrg}
+	    <div className="dc-block-wrapper">
+	      <FontAwesomeIcon
+		icon={['fas', 'arrow-left']}
+		size="1x"
+		aria-hidden="true"
+		role="presentation"
+	      />
+	      Back to the{" "}
+	      <Link
+		to={`/dataset/${id}`}
+		state={{dataset: {...item}}}
+	      >
+		dataset
+	      </Link>
+	      .
+	    </div>
+	  </div>
+	  <div className="tablet:grid-col-9">
+	    <h1>{item.title}</h1>
+	    <ApiDocs
+	      endpoint={
+		`${process.env.REACT_APP_ROOT_URL}` +
+		"/metastore/schemas/dataset/items/" +
+		id +
+		"/docs"
+	      }
+	    />
+	  </div>
 
       </div>
       </Loader>

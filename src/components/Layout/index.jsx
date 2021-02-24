@@ -13,27 +13,27 @@ const Layout = ({
   return (
     <div className="App">
       <Helmet
-        title={`${title} - DKAN Demo`}
-        description={description}
-        generator="DKAN 2 (https://github.com/GetDKAN/dkan)"
-        defer={false}
-        htmlAttributes={{
-          "lang": "en"
-        }}
+	title={`${title} - DKAN Demo`}
+	description={description}
+	generator="DKAN 2 (https://github.com/GetDKAN/dkan)"
+	defer={false}
+	htmlAttributes={{
+	  "lang": "en"
+	}}
       />
-      <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
+      <Header site={config.site} slogan={config.slogan} customClasses="grid-container" />
       <NavBar
-        navItems={links.main.map(item => (
-          <Link activeClassName="active" to={item.url}>
-            {item.label}
-          </Link>
-        ))}
-        customClasses={config.container}
+	navItems={links.main.map(item => (
+	  <Link activeClassName="active" to={item.url}>
+	    {item.label}
+	  </Link>
+	))}
+	customClasses="grid-container"
       />
       <main>
-        {children}
+	{children}
       </main>
-      <Footer links={links} customClasses={config.container} />
+      <Footer links={links} customClasses="grid-container" />
     </div>
   );
 };

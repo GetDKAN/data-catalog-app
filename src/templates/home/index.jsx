@@ -10,6 +10,7 @@ import {
 import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
+import config from "../../assets/config";
 
 const Home = () => {
   const [datasets, setDatasets] = React.useState(null);
@@ -33,7 +34,7 @@ const Home = () => {
     }
     if (datasets) {
       const orderedDatasets = datasets.sort(function(a,b) {
-        return a.title - b.title;
+	return a.title - b.title;
       });
 
       setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
@@ -43,10 +44,10 @@ const Home = () => {
   React.useEffect(() => {
     setItems(themes.map(x => {
       let item = {
-        identifier: x.identifier,
-        ref: `search?theme=${x.data}`,
-        title: x.data,
-        size: "100"
+	identifier: x.identifier,
+	ref: `search?theme=${x.data}`,
+	title: x.data,
+	size: "100"
       };
       return item;
     }))
@@ -54,24 +55,23 @@ const Home = () => {
 
   return (
     <Layout title="Home">
-        <div className="home-page">
-        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} gradient={'rgb(22, 46, 81), rgb(9, 120, 188)'} />
-        <div className="container">
-            <IconList
-                items={items}
-                component={IconListItem}
-                paneTitle="Dataset Topics"
-                className="opendata-icon-list"
-            />
-        </div>
-        <Blocks
-            items={copy.stats}
-            component={StatBlock}
-            containerClass=""
-            blockClass="StatBlock"
-        />
-        <FeaturedDatasets datasets={fDatasets} />
-        </div>
+	<div className="home-page">
+	<Hero title={copy.hero[0].title} intro={copy.hero[0].intro} gradient={'rgb(22, 46, 81), rgb(9, 120, 188)'} />
+	  <div className="grid-container">
+	    <IconList
+	      items={items}
+	      component={IconListItem}
+	      paneTitle="Dataset Topics"
+	      className="opendata-icon-list"
+	    />
+	</div>
+	<Blocks
+	  items={copy.stats}
+	  component={StatBlock}
+	  blockClass="StatBlock"
+	/>
+	<FeaturedDatasets datasets={fDatasets} />
+	</div>
     </Layout>
   );
 }

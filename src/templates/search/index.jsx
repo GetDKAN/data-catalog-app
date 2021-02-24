@@ -9,22 +9,22 @@ const SearchTemplate = ({path}) => {
   const location = useLocation();
   return (
     <Layout title="Search">
-    <div className={`dc-page ${config.container}`}>
-        <h1>Datasets</h1>
-        <Search
-          searchEndpoint={`${process.env.REACT_APP_ROOT_URL}/search`}
-          defaultFacets={defaultFacets}
-          sortOptions={sortOptions}
-          setSearchUrl={true}
-          path={path}
-          location={location}
-          normalize={normalizeItems}
-        >
-          <div className="row">
-            <SearchContent />
-            <SearchSidebar />
-          </div>
-        </Search>
+    <div className="dc-page grid-container">
+	<h1>Datasets</h1>
+	<Search
+	  searchEndpoint={`${process.env.REACT_APP_ROOT_URL}/search`}
+	  defaultFacets={defaultFacets}
+	  sortOptions={sortOptions}
+	  setSearchUrl={true}
+	  path={path}
+	  location={location}
+	  normalize={normalizeItems}
+	>
+	  <div className="grid-row">
+	    <div className="tablet:grid-col-8"><SearchContent /></div>
+	    <div className="tablet:grid-col-4"><SearchSidebar /></div>
+	  </div>
+	</Search>
       </div>
       </Layout>
   );

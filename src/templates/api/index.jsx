@@ -5,10 +5,10 @@ import { ApiDocs } from "@civicactions/data-catalog-components";
 
 const ApiDocsFull = ({ path }) => (
   <Layout title="API Documentation">
-  <div className={`dc-page ${config.container}`}>
+  <div className="dc-page grid-container">
     <div className="page-content">
       {typeof window !== `undefined` && (
-        <ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
+	<ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
       )}
     </div>
   </div>

@@ -9,12 +9,12 @@ const Publishers = () => {
   const { t } = useTranslation('publishers');
   return (
     <Layout title="Dataset Publishers">
-    <div className={`dc-page ${config.container}`}>
+    <div className="dc-page grid-container">
       <h1>{t('publishers:title', 'Fallback Title')}</h1>
       <div>
-        <p>{t('publishers:description')}</p>
+	<p>{t('publishers:description')}</p>
 
-        <PublisherList items = {orgs} />
+	<PublisherList items = {orgs} />
 
       </div>
     </div>
