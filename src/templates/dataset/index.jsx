@@ -31,7 +31,7 @@ const Dataset = ({id, location}) => {
     if (!state || !state.dataset) {
       getItem();
     }
-  }, [id, state]);
+  }, [id, state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
