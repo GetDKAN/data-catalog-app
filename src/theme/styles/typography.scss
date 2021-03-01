@@ -1,0 +1,15 @@
+@import '../variables';
+
+body {
+  @include u-font('body', $theme-body-font-size);
+
+  h1 {
+    @include u-font('heading', $theme-h1-font-size)
+  }
+  h2 {
+    @include u-font('heading', $theme-h2-font-size)
+  }
+  h3 {
+    @include u-font('heading', $theme-h3-font-size)
+  }
+}

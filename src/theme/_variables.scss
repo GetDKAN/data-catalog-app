@@ -1,4 +1,20 @@
-// Colors.
+//
+// USWDS
+//
+
+// Font sizes
+$theme-body-font-size: 'sm';
+$theme-h1-font-size: "2xl";
+$theme-h2-font-size: "xl";
+$theme-h3-font-size: "lg";
+
+// USWDS font families
+$theme-font-type-serif:  'merriweather';
+$theme-font-role-heading:  $theme-font-type-serif;
+
+//
+// Legacy Colors.
+//
 $backgroundColor:   #f9fafb;
 $borderColor:       #e8ebf0;
 $borderRadius:      4px;
@@ -33,8 +49,8 @@ $footerLink:        #FFFFFF;
 $footerLinkHover:   #FFFFFF;
 
 // Fonts.
-$fontText: 'Rubik','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-$fontHeading:'Rubik Bold','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+// $fontText: 'Rubik','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+// $fontHeading:'Rubik Bold','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 
 // Alerts/Messaging.
 $info:          #039fce;
