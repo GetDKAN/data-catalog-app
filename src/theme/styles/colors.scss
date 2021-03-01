@@ -1,0 +1,11 @@
+body {
+  @include u-bg($theme-color-base-lighter);
+  @include u-color($theme-color-base-darker);
+  a {
+    @include u-color($theme-color-primary);
+    &:hover,
+    &:focus {
+      @include u-color($theme-color-primary-darker);
+     }
+  }
+}
