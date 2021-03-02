@@ -6,7 +6,6 @@ import {
   ApiDocs,
   Organization
 } from "@civicactions/data-catalog-components";
-import config from "../../assets/config";
 import orgs from "../../assets/publishers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
