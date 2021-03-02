@@ -1,10 +1,10 @@
 import React from "react";
-import {
-  Resource,
-  DataTable,
-  FileDownload,
-  DataTableHeader
-} from "@civicactions/data-catalog-components";
+// import {
+//   Resource,
+//   DataTable,
+//   FileDownload,
+//   DataTableHeader
+// } from "@civicactions/data-catalog-components";
 
 const ResourceTemplate = ({ resource }) => {
   const type = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('mediaType') ? resource.data.mediaType.split("/") : '';
@@ -17,7 +17,7 @@ const ResourceTemplate = ({ resource }) => {
 
   return (
     <div id={`resource_${resource.identifier}`}>
-      {format.toLowerCase() === 'csv'
+      {/* {format.toLowerCase() === 'csv'
         ? (
           <Resource
             apiURL={rootURL}
@@ -43,7 +43,7 @@ const ResourceTemplate = ({ resource }) => {
             downloadURL={resource.data.downloadURL}
           />
         )
-      }
+      } */}
     </div>
   );
 };

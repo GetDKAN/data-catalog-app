@@ -2,28 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from '@reach/router';
 import Layout from '../../components/Layout';
-import config from "../../assets/config";
-import ResourceTemplate from "../../components/Resource";
-
 import {
-  Text,
   Organization,
-  Table,
   Tags,
   TopicIcon,
   TopicWrapper
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
-const Dataset = ({id, location}) => {
+const DatasetPage = ({id, location}) => {
   const { state } = location;
   const [item, setItem] = useState(state && state.dataset ? state.dataset : {})
-  const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
-    if (window !== undefined) {
-      checkForWindow(true);
-    }
     async function getItem() {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
@@ -55,9 +46,9 @@ const Dataset = ({id, location}) => {
       return null;
     } else {
       return theme.map(topic => {
-	return (
-	  <TopicWrapper component={TopicIcon} topic={topic.data} key={topic.identifier}/>
-	);
+        return (
+          <TopicWrapper component={TopicIcon} topic={topic.data} key={topic.identifier}/>
+        );
       });
     }
   }
@@ -119,46 +110,38 @@ const Dataset = ({id, location}) => {
   return (
     <Layout title={`Dataset - ${item.title}`}>
       <div className="dc-dataset-page grid-container">
-	<div className="grid-row">
-	  <div className="tablet:grid-col-3">
-	    {renderOrg}
-	    <div className="dc-block-wrapper">
-	      The information on this page is also available via the{" "}
-	      <Link
-		to={`/dataset/${item.identifier}/api`}
-		state={{ dataset: {...item} }}
-	      >
-		API
-	      </Link>.
-	    </div>
-	  </div>
-	  <div className="tablet:grid-col-9">
-	    <h1>{item.title}</h1>
-	    {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
-	    <Text value={item.description} />
-	    {(hasWindow && item.distribution) &&
-	     item.distribution.map(dist => {
-	       return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
-	     })}
-	    <Tags tags={tag} path="/search?keyword=" label="Tags" />
-	    {/* <Table
-		configuration={labelsT2}
-		data={valuesT2}
-		title="Columns in this Dataset"
-		th1="Column Name"
-		th2="Type"
-		tableclass="data-dictionary"
-		/> */}
-	    <Table
-	      configuration={labelsT3}
-	      data={valuesT3}
-	      tableclass="metadata"
-	    />
-	    </div>
-	    </div>
-	    </div>
-	    </Layout>
-	    );
+        <div className="grid-row">
+          <div className="tablet:grid-col-3">
+            {renderOrg}
+            <div className="dc-block-wrapper">
+              The information on this page is also available via the{" "}
+              <Link
+                to={`/dataset/${item.identifier}/api`}
+                state={{ dataset: {...item} }}
+              >
+                API.
+              </Link>
+            </div>
+          </div>
+          <div className="tablet:grid-col-9">
+            <h1>{item.title}</h1>
+            {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
+            <p>{item.description}</p>
+            {/* {(hasWindow && item.distribution) &&
+              item.distribution.map(dist => {
+                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
+              })} */}
+            <Tags tags={tag} path="/search?keyword=" label="Tags" />
+            {/* <Table
+              configuration={labelsT3}
+              data={valuesT3}
+              tableclass="metadata"
+            /> */}
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
 };
 
-export default Dataset;
+export default DatasetPage;

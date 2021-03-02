@@ -5,7 +5,7 @@ import config from "../../assets/config";
 import Layout from '../../components/Layout';
 import orgs from "../../assets/publishers";
 
-const Publishers = () => {
+const PublishersPage = () => {
   const { t } = useTranslation('publishers');
   return (
     <Layout title="Dataset Publishers">
@@ -22,4 +22,4 @@ const Publishers = () => {
   );
 }
 
-export default Publishers;
+export default PublishersPage;

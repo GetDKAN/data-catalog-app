@@ -1,13 +1,13 @@
 import React from 'react';
 import { Router } from "@reach/router";
-import Home from './templates/home';
-import About from './templates/about';
-import SearchTemplate from './templates/search';
+import HomePage from './templates/HomePage';
+import AboutPage from './templates/AboutPage';
+import SearchPage from './templates/SearchPage';
 import ApiDocsFull from './templates/api';
-import NotFound from './templates/not_found';
-import Dataset from './templates/dataset';
+import NotFoundPage from './templates/NotFoundPage';
+import DatasetPage from './templates/DatasetPage';
 import ApiDocsSpecific from './templates/dataset/api';
-import Publishers from './templates/publishers';
+import PublishersPage from './templates/PublishersPage';
 import './theme/index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,13 +19,13 @@ library.add(fab, fas);
 function App() {
   return (
     <Router>
-      <NotFound default />
-      <Home path="/" />
-      <About path="/about"/>
-      <Publishers path="/publishers" />
-      <SearchTemplate path="/search" />
+      <NotFoundPage default />
+      <HomePage path="/" />
+      <AboutPage path="/about"/>
+      <PublishersPage path="/publishers" />
+      <SearchPage path="/search" />
       <ApiDocsFull path="/api" />
-      <Dataset path="/dataset/:id" />
+      <DatasetPage path="/dataset/:id" />
       <ApiDocsSpecific path="/dataset/:id/api" />
     </Router>
   );
