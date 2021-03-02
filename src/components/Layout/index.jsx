@@ -23,15 +23,15 @@ const Layout = ({
       />
       <Header site={config.site} slogan={config.slogan} customClasses="grid-container" />
       {/* <NavBar
-	navItems={links.main.map(item => (
-	  <Link activeClassName="active" to={item.url}>
-	    {item.label}
-	  </Link>
-	))}
-	customClasses="grid-container"
+        navItems={links.main.map(item => (
+          <Link activeClassName="active" to={item.url}>
+            {item.label}
+          </Link>
+        ))}
+        customClasses="grid-container"
       /> */}
       <main>
-	{children}
+        {children}
       </main>
       <Footer links={links} customClasses="grid-container" />
     </div>
