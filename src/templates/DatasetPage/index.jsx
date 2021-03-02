@@ -27,15 +27,12 @@ const DatasetPage = ({id, location}) => {
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
-  const orgDetails = orgs.filter(org => orgName === org.name);
-  const orgImage = orgDetails.length > 0 && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : null;
-  const orgDesc = orgDetails.length > 0 && orgDetails[0].description ? orgDetails[0].description : "";
-  let renderOrg;
-  if(orgDetails.length > 0 && orgDetails[0].imageUrl) {
-    renderOrg = <Organization name={orgName} imageUrl={orgImage} description={orgDesc}/>;
-  } else {
-    renderOrg = <Organization name={orgName} description={orgDesc}/>;
-  }
+  const orgDetails = orgs.find(org => orgName === org.name);
+  console.log(orgDetails)
+  // const orgImage = orgDetails.length > 0 && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : null;
+  // const orgDesc = orgDetails.length > 0 && orgDetails[0].description ? orgDetails[0].description : "";
+  // let renderOrg = <Organization isCard={false} org={orgDetails}/>;
+  
 
 
   const tag = "keyword" in item ? item.keyword : [];
@@ -112,7 +109,9 @@ const DatasetPage = ({id, location}) => {
       <div className="dc-dataset-page grid-container">
         <div className="grid-row">
           <div className="tablet:grid-col-3">
-            {renderOrg}
+            {orgDetails
+              && (<Organization isCard={false} org={orgDetails}/>)
+            }
             <div className="dc-block-wrapper">
               The information on this page is also available via the{" "}
               <Link

@@ -6,7 +6,7 @@ import SearchPage from './templates/SearchPage';
 import ApiDocsFull from './templates/api';
 import NotFoundPage from './templates/NotFoundPage';
 import DatasetPage from './templates/DatasetPage';
-import ApiDocsSpecific from './templates/dataset/api';
+import ApiDocsSpecific from './templates/DatasetPage/api';
 import PublishersPage from './templates/PublishersPage';
 import './theme/index.scss';
 
