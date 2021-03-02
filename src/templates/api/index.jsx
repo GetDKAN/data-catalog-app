@@ -8,7 +8,7 @@ const ApiDocsFull = ({ path }) => (
   <div className="dc-page grid-container">
     <div className="page-content">
       {typeof window !== `undefined` && (
-	<ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
+        <ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
       )}
     </div>
   </div>
