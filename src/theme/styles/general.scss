@@ -8,10 +8,8 @@ html {
 body {
   background-color: $backgroundColor;
   color: $textColor;
-  font-weight: 300;
-  font-size: 1.6rem;
-  font-style: normal;
   font-family: $fontText;
+  font-size: 1.6rem;
 
   a, input, button, textarea {
     transition: all 0.2s linear;
