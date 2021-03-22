@@ -19,9 +19,8 @@ const Publishers = () => {
           important for large sites that may have several working groups
           publishing data to the same site.
         </p>
-
-        <PublisherList items = {orgs} />
-
+        <PublisherList items = {orgs}
+                       organizationEndpoint={process.env.REACT_APP_ROOT_URL} />
       </div>
     </div>
     </Layout>
