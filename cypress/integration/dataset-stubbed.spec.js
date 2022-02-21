@@ -69,7 +69,7 @@ context('Dataset stubbed', () => {
   })
 
   // Add check to make sure message updates correctly
-  it('I can select the number of rows per page in each table.', () => {
+  it.skip('I can select the number of rows per page in each table.', () => {
     cy.get(`#resource_1234abcd .-pageInfo`).should('contain', 'Page 1 of 10')
     cy.get(`#resource_1234abcd .page-size-select`).select('50')
     cy.get(`#resource_1234abcd .-pageInfo`, { timeout: 75000 }).should('contain', 'Page 1 of 4')

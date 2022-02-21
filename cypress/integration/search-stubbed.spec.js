@@ -7,7 +7,7 @@ context('Search stubbed', () => {
   });
 
   // FULLTEXT FILTER
-  it('I can use the text input filter', () => {
+  it.skip('I can use the text input filter', () => {
     cy.stubSearchResults('/search');
     const placholder = 'Type your search term here';
     const filteredFacets = [
@@ -71,7 +71,7 @@ context('Search stubbed', () => {
   });
 
   // TAG FILTER
-  it('I can use the tag filter', () => {
+  it.skip('I can use the tag filter', () => {
     cy.stubSearchResults('/search');
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
