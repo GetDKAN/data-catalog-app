@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from "@reach/router";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './templates/home';
 import About from './templates/about';
 import SearchTemplate from './templates/search';
@@ -19,16 +19,18 @@ library.add(fab, fas);
 
 function App() {
   return (
-    <Router>
-      <NotFound default />
-      <Home path="/" />
-      <About path="/about"/>
-      <Publishers path="/publishers" />
-      <SearchTemplate path="/search" />
-      <ApiDocsFull path="/api" />
-      <Dataset path="/dataset/:id" />
-      <ApiDocsSpecific path="/dataset/:id/api" />
-    </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/'} element={<Home />} />
+          <Route path={'/about'} element={<About />} />
+          <Route path={'/publishers'} element={<Publishers />} />
+          <Route path={'/search'} element={<SearchTemplate />} />
+          <Route path={'/api'} element={<ApiDocsFull />} />
+          <Route path={'/dataset/:id'} element={<Dataset />} />
+          <Route path={'/dataset/:id/api'} element={<ApiDocsSpecific />} />
+          <Route path={'*'} element={<NotFound />} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 

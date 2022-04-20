@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";

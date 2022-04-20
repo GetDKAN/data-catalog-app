@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
 import config from "../../assets/config.json";
 import links from "../../assets/menu.json";
