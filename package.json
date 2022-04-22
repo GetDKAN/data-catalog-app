@@ -16,10 +16,13 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
+    "i18next": "^21.6.16",
+    "i18next-browser-languagedetector": "^6.1.4",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
+    "react-i18next": "^11.16.7",
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
     "swagger-ui-react": "3.25.0"
