@@ -12,6 +12,9 @@ const resources = {
         'featured': 'Featured Datasets',
         'topics': 'Dataset Topics'
       },
+      'not_found': {
+        'title': 'Page not found.'
+      },
       'publishers': {
         'title': 'Dataset Publishers'
       },
@@ -28,6 +31,9 @@ const resources = {
       'home': {
         'featured': 'Conjuntos de Datos Destacados',
         'topics': 'Temas de Conjuntos de Datos'
+      },
+      'not_found': {
+        'title': 'Página no encontrada.'
       },
       'publishers': {
         'title': 'Publicadores de Conjuntos de Datos',
