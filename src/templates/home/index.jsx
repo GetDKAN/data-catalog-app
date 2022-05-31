@@ -7,6 +7,8 @@ import {
   IconListItem,
   StatBlock
 } from "@civicactions/data-catalog-components";
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
@@ -16,12 +18,17 @@ const Home = () => {
   const [themes, setThemes] = React.useState([]);
   const [items, setItems] = React.useState([]);
   const [fDatasets, setFDatasets] = React.useState([])
-
+  const [stats, setStats] = React.useState(copy.stats)
+  const { t, i18n } = useTranslation();
 
   React.useEffect(() => {
     async function getDatasets() {
       const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
       setDatasets(data);
+
+      let updatedStats = JSON.parse(JSON.stringify(stats));
+      updatedStats[2].title = data.length;
+      setStats(updatedStats);
     }
     async function getThemes() {
       const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/theme/items`)
@@ -60,12 +67,12 @@ const Home = () => {
             <IconList
                 items={items}
                 component={IconListItem}
-                paneTitle="Dataset Topics"
+                paneTitle={t('home.topics')}
                 className="opendata-icon-list"
             />
         </div>
         <Blocks
-            items={copy.stats}
+            items={stats}
             component={StatBlock}
             containerClass=""
             blockClass="StatBlock"

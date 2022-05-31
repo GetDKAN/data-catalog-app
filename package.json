@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.5.0",
+    "@civicactions/data-catalog-components": "^1.13.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
@@ -16,10 +16,14 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
+    "i18next": "^21.6.16",
+    "i18next-browser-languagedetector": "^6.1.4",
     "node-sass": "^4.14.1",
+    "prop-types": "^15.8.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
+    "react-i18next": "^11.16.7",
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
     "swagger-ui-react": "3.25.0"
@@ -29,9 +33,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

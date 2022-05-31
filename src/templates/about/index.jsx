@@ -1,12 +1,17 @@
 import React from "react";
 import { Announcement } from "@civicactions/data-catalog-components";
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 
-const About = ({ path }) => (
+const About = ({ path }) => {
+  const { t, i18n } = useTranslation();
+
+  return (
     <Layout title="About">
         <div className={`dc-page ${config.container}`}>
-            <h1>About this site</h1>
+            <h1>{t('about.title')}</h1>
             <div className="dc-page-content row">
                 <div class="col-md-9 col-sm-12">
                     <p>This is the default state of the DKAN data catalog.</p>
@@ -23,6 +28,7 @@ const About = ({ path }) => (
             </div>
         </div>
     </Layout>
-);
+  );
+};
 
 export default About;
