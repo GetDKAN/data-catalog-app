@@ -45,7 +45,7 @@ const Home = () => {
 
       setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
     }
-  }, [datasets])
+  }, [datasets, stats])
 
   React.useEffect(() => {
     setItems(themes.map(x => {
