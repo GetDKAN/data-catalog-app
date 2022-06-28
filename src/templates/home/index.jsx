@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import {
   Blocks,
   Hero,
@@ -8,20 +9,39 @@ import {
   StatBlock
 } from "@civicactions/data-catalog-components";
 import '../../i18n';
-import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../components/FeaturedDatasets';
+
 import copy from "../../assets/copy.json";
+import UrbanismoIcon from 'ionicons/dist/svg/business-outline.svg';
+import CulturaIcon from 'ionicons/dist/svg/color-palette-outline.svg';
+import DemografiaIcon from 'ionicons/dist/svg/bar-chart-outline.svg';
+import DeporteIcon from 'ionicons/dist/svg/bicycle-outline.svg';
+import TransicionEnergeticaIcon from 'ionicons/dist/svg/flash-outline.svg';
+import MedioAmbienteEnergeticaIcon from 'ionicons/dist/svg/leaf-outline.svg';
+import SectorPublicoIcon from 'ionicons/dist/svg/globe-outline.svg';
+import EducacionIcon from 'ionicons/dist/svg/school-outline.svg';
 
 const Home = () => {
-  const [datasets, setDatasets] = React.useState(null);
-  const [themes, setThemes] = React.useState([]);
-  const [items, setItems] = React.useState([]);
-  const [fDatasets, setFDatasets] = React.useState([])
-  const [stats, setStats] = React.useState(copy.stats)
+  const [datasets, setDatasets] = useState(null);
+  const [themes, setThemes] = useState([]);
+  const [items, setItems] = useState([]);
+  const [fDatasets, setFDatasets] = useState([])
+  const [stats, setStats] = useState(copy.stats)
   const { t, i18n } = useTranslation();
 
-  React.useEffect(() => {
+  const themeIcons = {
+    'Cultura': CulturaIcon,
+    'Educación': EducacionIcon,
+    'Demografía': DemografiaIcon,
+    'Deporte': DeporteIcon,
+    'Sector Público': SectorPublicoIcon,
+    'Medio Ambiente': MedioAmbienteEnergeticaIcon,
+    'Transición Energética': TransicionEnergeticaIcon,
+    'Urbanismo': UrbanismoIcon
+  }
+
+  useEffect(() => {
     async function getDatasets() {
       const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
       setDatasets(data);
@@ -45,15 +65,17 @@ const Home = () => {
 
       setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
     }
-  }, [datasets, stats])
+  }, [datasets])
 
-  React.useEffect(() => {
+  useEffect(() => {
     setItems(themes.map(x => {
       let item = {
         identifier: x.identifier,
         ref: `search?theme=${x.data}`,
         title: x.data,
-        size: "100"
+        size: "100",
+        image: themeIcons[x.data],
+        color: 'FF0000'
       };
       return item;
     }))
