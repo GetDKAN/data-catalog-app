@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from "@reach/router";
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './templates/home';
 import About from './templates/about';
 import SearchTemplate from './templates/search';
@@ -8,7 +8,6 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
-import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,16 +18,15 @@ library.add(fab, fas);
 
 function App() {
   return (
-    <Router>
-      <NotFound default />
-      <Home path="/" />
-      <About path="/about"/>
-      <Publishers path="/publishers" />
-      <SearchTemplate path="/search" />
-      <ApiDocsFull path="/api" />
-      <Dataset path="/dataset/:id" />
-      <ApiDocsSpecific path="/dataset/:id/api" />
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/search" element={<SearchTemplate />} />
+      <Route path="/publishers" element={<Publishers />} />
+      <Route path="/api" element={<ApiDocsFull />} />
+      <Route path="/dataset/:id" element={<Dataset />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

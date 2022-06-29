@@ -1,0 +1,4 @@
+@use "uswds-core" with (
+  $theme-font-path: "~@uswds/uswds/dist/fonts",
+  $theme-image-path: "~@uswds/uswds/dist/img",
+)

@@ -1,9 +1,8 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link } from '@reach/router';
-import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
-import config from "../../assets/config.json";
-import links from "../../assets/menu.json";
+import { Link } from 'react-router-dom';
+import PrimaryHeader from '../PrimaryHeader';
+import Footer from '../Footer';
 
 const Layout = ({
   children,
@@ -21,19 +20,17 @@ const Layout = ({
           "lang": "en"
         }}
       />
-      <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
-      <NavBar
-        navItems={links.main.map(item => (
-          <Link activeClassName="active" to={item.url}>
-            {item.label}
-          </Link>
-        ))}
-        customClasses={config.container}
-      />
-      <main>
-        {children}
-      </main>
-      <Footer links={links} customClasses={config.container} />
+      <PrimaryHeader />
+      <div className="usa-section">
+        <div className="grid-container">
+          <div className="grid-row grid-gap">
+            <main id="main-content">
+              {children}
+            </main>
+          </div>
+        </div>
+      </div>
+     <Footer />
     </div>
   );
 };
