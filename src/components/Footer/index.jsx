@@ -84,7 +84,7 @@ const Footer = () => {
               <a
                 className="usa-footer__primary-link"
                 href="http://opensourceopendata.org/">
-                  Open Source Open Date
+                  Open Source Open Data
               </a>
             </li>
           </ul>
