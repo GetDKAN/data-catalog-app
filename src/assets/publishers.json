@@ -1,19 +1,50 @@
 [
   {
-    "name": "State Economic Council",
-    "description": "The State Economic Council is responsible for increasing economic development of the state by collecting statistics and performing analysis on the labor force, workforce and employer demographics, generational trends, etc.",
-    "searchUrl":"/search/?publisher__name=State Economic Council"
+    "name": "Ayuntamiento de Cádiz",
+    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
+    "description": "Nuestra organización administrativa se apoya en las Áreas. Éstas se distribuyen en atención a las competencias que la Alcaldía delega en cada Teniente de Alcalde o Concejal. De esta forma, la organización no es algo estático, sino dinámico. Algunas de estas Áreas pueden desaparecer si las competencias que la conforman son absorbidas por distintas Delegaciones o crearse otras si el Ayuntamiento asume nuevos servicios.",
+    "searchUrl":"/search/?publisher__name=Ayuntamiento de Cádiz"
   },
   {
-    "name": "National Health Council",
-    "imageUrl": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/clipboard.png",
-    "description": "National Health Council is a working group that performs research and prepares reports to inform treatment and prevention programs nationally.",
-    "searchUrl":"/search/?publisher__name=National Health Council"
+    "name": "Delegación de Enseñanza",
+    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
+    "description": "Desde la Delegación Municipal de Enseñanza se llevan a cabo actividades destinadas a la población escolar.",
+    "searchUrl":"/search/?publisher__name=Delegación de Enseñanza"
   },
   {
-    "name": "Committee on International Affairs",
-    "imageUrl": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/map.png",
-    "description": "The Committee on International Affairs is a working group to identify opportunities to learn from and collaborate with government and organizations across the globe.",
-    "searchUrl":"/search/?publisher__name=Committee on International Affairs"
+    "name": "Fundación Municipal de Cultura",
+    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
+    "description": "El objetivo de la Fundación Municipal de Cultura es ofrecer a los gaditanos un servicio que combine calidad y variedad, organizando actividades para todos los sectores sociales, de forma que la inmensa mayoría de la población encuentre un espacio propio en la programación..",
+    "searchUrl":"/search/?publisher__name=Fundación Municipal de Cultura"
+  },
+  {
+    "name": "Fundación Municipal de la Mujer",
+    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
+    "description": "La Fundación Municipal de la Mujer trabaja diariamente con diferentes programas y actuaciones destinadas a eliminar todos los obstáculos que se interponen en el avance de las mujeres, erradicar la violencia de género y terminar con la LGTBIfobia en la ciudad de Cádiz.",
+    "searchUrl":"/search/?publisher__name=Fundación Municipal de la Mujer"
+  },
+  {
+    "name": "IFEF",
+    "imageUrl": "https://www.ifef.es/fomento/templates/fomento03/images/logo.jpg",
+    "description": "El Instituto de Fomento, Empleo y Formación del Ayuntamiento de Cádiz (IFEF) tiene la finalidad de aplicar una estrategia local que agilice y modernice las políticas de empleo y formación y el fomento del espíritu empresarial, para de esta manera contribuir al desarrollo económico y social de nuestra ciudad.",
+    "searchUrl":"/search/?publisher__name=IFEF"
+  },
+  {
+    "name": "IMD",
+    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/logos/IMD_logo_color.svg",
+    "description": "El Instituto Municipal del Deporte es un organismo autónomo del Ayuntamiento de Cádiz, adscrito a la Concejalía de Deporte, con personalidad jurídica y patrimonio propios , para la gestión directa de las actuaciones deportivas en el ámbito territorial de la ciudad de Cádiz, actuando bajo la tutela del Ayuntamiento, a quien corresponde velar porque se alcancen los fines esenciales previstos en los estatutos.",
+    "searchUrl":"/search/?publisher__name=IMD"
+  },
+  {
+    "name": "Aguas de Cádiz",
+    "imageUrl": "https://www.aguasdecadiz.es/wp-content/uploads/2017/04/logo_web.png",
+    "description": "Empresa Municipal, en forma de Sociedad Anónima de capital íntegramente público, a través de la cual el Excmo. Ayuntamiento de Cádiz presta, por el procedimiento de gestión directa, los servicios públicos locales que constituyen su objeto social.",
+    "searchUrl":"/search/?publisher__name=Aguas de Cádiz"
+  },
+  {
+    "name": "Eléctrica de Cádiz",
+    "imageUrl": "https://comercializadora.electricadecadiz.es/media/1/logos/logo-sudo-dark.png",
+    "description": "Nuestra misión es conseguir los mejores precios que existan en cada momento en el mercado liberalizado y poder ofertarles a los clientes de nuestra comercializadora los precios más competitivos. Comercializadora Eléctrica de Cádiz S. A., con mayoría de capital gaditano tiene como premisa fundamental atender a sus clientes de la ciudad de Cádiz, así como a todo el territorio nacional.",
+    "searchUrl":"/search/?publisher__name=Eléctrica de Cádiz"
   }
 ]

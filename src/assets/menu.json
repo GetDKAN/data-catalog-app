@@ -1,22 +1,22 @@
 {
   "main": [
     {
-      "label": "Home",
+      "label": "Inicio",
       "url": "/",
       "target": "_top"
     },
     {
-      "label": "Datasets",
+      "label": "Catálogo de datos",
       "url": "/search",
       "target": "_top"
     },
     {
-      "label": "Publishers",
+      "label": "Publicadores",
       "url": "/publishers",
       "target": "_top"
     },
     {
-      "label": "About",
+      "label": "Datos abiertos",
       "url": "/about",
       "target": "_top"
     },
@@ -28,43 +28,54 @@
   ],
   "footer1": [
     {
-      "label": "Documentation",
-      "url": "https://docs.getdkan.com",
-      "target": "_blank"
+      "label": "Inicio",
+      "url": "/",
+      "target": "_top"
     },
     {
-      "label": "Visit Demo",
-      "url": "https://demo.getdkan.com",
-      "target": "_blank"
+      "label": "Catálogo de datos",
+      "url": "/search",
+      "target": "_top"
     },
     {
-      "label": "Download",
-      "url": "https://github.com/getdkan/dkan"
+      "label": "Publicadores",
+      "url": "/publishers",
+      "target": "_top"
     },
     {
-      "label": "CivicActions",
-      "url": "https://civicactions.com",
-      "target": "_blank"
+      "label": "Datos abiertos",
+      "url": "/about",
+      "target": "_top"
+    },
+    {
+      "label": "API",
+      "url": "/api",
+      "target": "_top"
     }
   ],
   "footer2": [
     {
-      "label": "Project Open Data",
-      "url": "https://project-open-data.cio.gov"
+      "label": "Transparencia",
+      "url": "https://transparencia.cadiz.es"
     },
     {
-      "label": "DCAT",
-      "url": "https://www.w3.org/TR/vocab-dcat/",
+      "label": "Institucional",
+      "url": "https://institucional.cadiz.es",
       "target": "_blank"
     },
     {
-      "label": "Drupal",
-      "url": "https://drupal.org",
+      "label": "Aviso Legal",
+      "url": "https://transparencia.cadiz.es/aviso-legal",
       "target": "_blank"
     },
     {
-      "label": "Open Source Open Data",
-      "url": "http://opensourceopendata.org",
+      "label": "Política de privacidad",
+      "url": "https://transparencia.cadiz.es/politica-de-privacidad",
+      "target": "_blank"
+    },
+    {
+      "label": "Política de cookies",
+      "url": "https://transparencia.cadiz.es/politica-de-cookies",
       "target": "_blank"
     }
   ]
