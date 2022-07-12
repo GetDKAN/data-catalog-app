@@ -2,9 +2,9 @@
 $backgroundColor:   #f9fafb;
 $borderColor:       #e8ebf0;
 $borderRadius:      4px;
-$primaryDark:       #162e51; // blueDark.
-$primary:           #0978bc; // blue.
-$primaryLight:      #27AAE1; // blueLight.
+$primaryDark:       #1E2E2D; // blueDark.
+$primary:           #20B3AA; // blue.
+$primaryLight:      #A0DBD7; // blueLight.
 $primaryDust:       #dce4ef; // blueDust.
 $secondaryDark:     #EAC200; // yellowDark.
 $secondary:         #FFD666; // yellow.
@@ -17,7 +17,7 @@ $headingColor:      #162e51;
 $textColor:         #3B3B3B;
 $linkColor:         #0978bc;
 $linkHoverColor:    #162e51;
-$navBarBackgroundColor: #0978bc;
+$navBarBackgroundColor: $primary;
 $navBarLink:        #FFFFFF;
 $navBarLinkActive:  #FFFFFF;
 $navBarLinkHoverBack:   #023756;
@@ -27,7 +27,7 @@ $navBarLinkActiveHover: #FFFFFF;
 $heroBackgroundColor: #0978bc;;
 $heroTextColor:     #FFFFFF;
 $heroHeadingColor:  #FFFFFF;
-$footerBackgroundColor: #162e51;
+$footerBackgroundColor: $primaryDark;
 $footerText:        #FFFFFF;
 $footerLink:        #FFFFFF;
 $footerLinkHover:   #FFFFFF;
