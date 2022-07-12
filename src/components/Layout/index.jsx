@@ -1,9 +1,10 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { Link } from '@reach/router';
-import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
+import { Header, NavBar } from "@civicactions/data-catalog-components";
 import config from "../../assets/config.json";
 import links from "../../assets/menu.json";
+import CustomFooter from "../Custom/Footer";
 
 const Layout = ({
   children,
@@ -13,7 +14,7 @@ const Layout = ({
   return (
     <div className="App">
       <Helmet
-        title={`${title} - DKAN Demo`}
+        title={`${title} - Datos Abiertos Ayuntamiento de Cádiz`}
         description={description}
         generator="DKAN 2 (https://github.com/GetDKAN/dkan)"
         defer={false}
@@ -21,7 +22,7 @@ const Layout = ({
           "lang": "en"
         }}
       />
-      <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
+      <Header logo={config.logo} site={config.site} slogan={config.slogan} customClasses={config.container}  />
       <NavBar
         navItems={links.main.map(item => (
           <Link activeClassName="active" to={item.url}>
@@ -33,7 +34,7 @@ const Layout = ({
       <main>
         {children}
       </main>
-      <Footer links={links} customClasses={config.container} />
+      <CustomFooter links={links} customClasses={config.container} />
     </div>
   );
 };

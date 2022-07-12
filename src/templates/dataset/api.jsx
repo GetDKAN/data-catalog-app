@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import { Link } from "@reach/router";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   ApiDocs,
   Organization
 } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
 import orgs from "../../assets/publishers";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 import Layout from "../../components/Layout";
 
 const ApiDocsSpecific = ({ id, location }) => {
   const { state } = location;
-  const [item, setItem] = React.useState(state && state.dataset ? state.dataset : {});
-  const [loading, setLoading] = React.useState(true);
-  React.useEffect(() => {
+  const [item, setItem] = useState(state && state.dataset ? state.dataset : {});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
     if(state && state.dataset) {
       setLoading(false);
     } else {
