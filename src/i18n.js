@@ -30,7 +30,7 @@ const resources = {
       },
       'home': {
         'featured': 'Conjuntos de Datos Destacados',
-        'topics': 'Temas de Conjuntos de Datos'
+        'topics': 'Categorías de Conjuntos de Datos'
       },
       'not_found': {
         'title': 'Página no encontrada.'

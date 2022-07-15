@@ -23,6 +23,7 @@ import SaludIcon from 'ionicons/dist/svg/medkit-outline.svg';
 import SectorPublicoIcon from 'ionicons/dist/svg/globe-outline.svg';
 import SociedadBienestarIcon from 'ionicons/dist/svg/people-outline.svg';
 import EducacionIcon from 'ionicons/dist/svg/school-outline.svg';
+import EconomiaIcon from 'ionicons/dist/svg/cash-outline.svg';
 
 const Home = () => {
   const [datasets, setDatasets] = useState(null);
@@ -36,6 +37,7 @@ const Home = () => {
 
   const themeIcons = {
     'Cultura': CulturaIcon,
+    'Economía': EconomiaIcon,
     'Educación': EducacionIcon,
     'Demografía': DemografiaIcon,
     'Deporte': DeporteIcon,

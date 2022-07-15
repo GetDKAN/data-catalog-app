@@ -6,12 +6,6 @@
     "searchUrl":"/search/?publisher__name=Ayuntamiento de Cádiz"
   },
   {
-    "name": "Delegación de Enseñanza",
-    "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
-    "description": "Desde la Delegación Municipal de Enseñanza se llevan a cabo actividades destinadas a la población escolar.",
-    "searchUrl":"/search/?publisher__name=Delegación de Enseñanza"
-  },
-  {
     "name": "Fundación Municipal de Cultura",
     "imageUrl": "https://raw.githubusercontent.com/aytodecadiz/.github/main/profile/logo.svg",
     "description": "El objetivo de la Fundación Municipal de Cultura es ofrecer a los gaditanos un servicio que combine calidad y variedad, organizando actividades para todos los sectores sociales, de forma que la inmensa mayoría de la población encuentre un espacio propio en la programación..",
@@ -28,6 +22,12 @@
     "imageUrl": "https://www.ifef.es/fomento/templates/fomento03/images/logo.jpg",
     "description": "El Instituto de Fomento, Empleo y Formación del Ayuntamiento de Cádiz (IFEF) tiene la finalidad de aplicar una estrategia local que agilice y modernice las políticas de empleo y formación y el fomento del espíritu empresarial, para de esta manera contribuir al desarrollo económico y social de nuestra ciudad.",
     "searchUrl":"/search/?publisher__name=IFEF"
+  },
+  {
+    "name": "Procasa",
+    "imageUrl": "https://www.procasacadiz.es/wp-media/uploads/2018/12/images.png",
+    "description": "El Ayuntamiento de Cádiz creó en 1992 la Sociedad Municipal \"Promoción y Gestión de Viviendas de Cádiz, S.A. (PROCASA)\". El Consistorio gestiona la política municipal de vivienda a través de esta empresa.",
+    "searchUrl":"/search/?publisher__name=Procasa"
   },
   {
     "name": "IMD",
