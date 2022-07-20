@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
+    "html-to-react": "1.4.7",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
