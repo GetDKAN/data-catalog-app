@@ -1,0 +1,50 @@
+// https://codeburst.io/how-to-create-a-simple-css-loading-spinner-make-it-accessible-e5c83c2e464c
+
+@keyframes spinner {
+  0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+       transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.spinner.-loaded {
+  opacity: 0;
+  transition: opacity linear 0.1s;
+  height: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.spinner {
+  height: inherit;
+  opacity: 1;
+  position: relative;
+  transition: opacity linear 0.1s;
+  &::before {
+      animation: 2s linear infinite spinner;
+      border: solid 3px #eee;
+      border-bottom-color: #EF6565;
+      border-radius: 50%;
+      content: "";
+      height: 40px;
+      left: 50%;
+      opacity: inherit;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      transform-origin: center;
+      width: 40px;
+      will-change: transform;
+  }
+}

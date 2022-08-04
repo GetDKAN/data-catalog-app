@@ -2,11 +2,11 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './templates/home';
 import About from './templates/about';
-import SearchTemplate from './templates/search';
+import DatasetSearch from './templates/DatasetSearch';
 import ApiDocsFull from './templates/api';
 import NotFound from './templates/not_found';
-import Dataset from './templates/dataset';
-import ApiDocsSpecific from './templates/dataset/api';
+import DatasetPage from './templates/DatasetPage';
+import ApiDocsSpecific from './templates/DatasetPage/api';
 import Publishers from './templates/publishers';
 import './theme/index.scss';
 
@@ -21,10 +21,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/search" element={<SearchTemplate />} />
+      <Route path="/search" element={<DatasetSearch />} />
       <Route path="/publishers" element={<Publishers />} />
       <Route path="/api" element={<ApiDocsFull />} />
-      <Route path="/dataset/:id" element={<Dataset />} />
+      <Route path="/dataset/:id" element={<DatasetPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

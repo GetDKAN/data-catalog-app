@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import { useMetastoreDataset } from "@civicactions/data-catalog-services";
+import { useMetastoreDataset, useDatastore } from "@civicactions/data-catalog-services";
 import Layout from '../../components/Layout';
+import ResourcePreview from "../../components/ResourcePreview";
+import DatasetTags from '../../components/DatasetTags';
+import AdditionalInformation from '../../components/AdditionalInformation';
 // import config from "../../assets/config";
 // import ResourceTemplate from "../../components/Resource";
-// import { Spinner } from 'reactstrap';
 // import {
 //   Text,
 //   Organization,
@@ -16,7 +18,7 @@ import Layout from '../../components/Layout';
 // } from "@civicactions/data-catalog-components";
 // import orgs from "../../assets/publishers";
 
-const Dataset = () => {
+const DatasetPage = () => {
   // const { state } = location;
   // const [item, setItem] = useState(state && state.dataset ? state.dataset : {})
   // const [hasWindow, checkForWindow] = useState(false);
@@ -116,8 +118,9 @@ const Dataset = () => {
   //   valuesT3.homepage = `<a href="${item.landingPage}">${item.landingPage}</a>`;
   // }
   const params = useParams();
-  const { dataset } = useMetastoreDataset(params.id, "https://demo.getdkan.org/api/1", {});
-  console.log(params)
+  const { dataset } = useMetastoreDataset(params.id, process.env.REACT_APP_ROOT_URL, {});
+  const { keyword } = dataset;
+  const resource = useDatastore([params.id, 0], process.env.REACT_APP_ROOT_URL, {})
   return (
     <Layout title={`Dataset - `}>
       <div className="usa-prose">
@@ -125,29 +128,15 @@ const Dataset = () => {
         <p dangerouslySetInnerHTML={{__html: dataset.description}} />
       </div>
       <div>
-        <h2>Downloads</h2>
+        <h2>Resources</h2>
         {dataset.distribution && dataset.distribution.length
-          && (
-            <ul className="usa-card-group">
-              {dataset.distribution.map((dist) => (
-                <li key={dist.identifier} className="usa-card">
-                  <div className="usa-card__container">
-                    <div className="usa-card__header">
-                      <h2 className="usa-card__heading">{dist.data.title}</h2>
-                    </div>
-                    <div className="usa-card__body">
-                      <span className="usa-tag">{dist.data.format}</span>
-                    </div>
-                    <div className="usa-card__footer">
-                      <a href={dist.data.downloadURL} className="usa-button">Download {dist.data.title}</a>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )
+          && (dataset.distribution.map((dist) =>{
+            return <ResourcePreview dist={dist} key={dist.identifier} />
+          }))
         }
       </div>
+      <DatasetTags tags={keyword} />
+      <AdditionalInformation metadata={dataset}/>
       {/* <div className={`dc-dataset-page ${config.container}`}>
 
             <div className="row">
@@ -191,4 +180,21 @@ const Dataset = () => {
   );
 };
 
-export default Dataset;
+export default DatasetPage;
+ // <ul className="usa-card-group">
+            //   {dataset.distribution.map((dist) => (
+            //     <li key={dist.identifier} className="usa-card">
+            //       <div className="usa-card__container">
+            //         <div className="usa-card__header">
+            //           <h2 className="usa-card__heading">{dist.data.title}</h2>
+            //         </div>
+            //         <div className="usa-card__body">
+            //           <span className="usa-tag">{dist.data.format}</span>
+            //         </div>
+            //         <div className="usa-card__footer">
+            //           <a href={dist.data.downloadURL} className="usa-button">Download {dist.data.title}</a>
+            //         </div>
+            //       </div>
+            //     </li>
+            //   ))}
+            // </ul>
