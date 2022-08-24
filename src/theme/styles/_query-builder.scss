@@ -1,0 +1,10 @@
+.dkan-query-builder--row {
+  display: flex;
+  justify-content: space-between;
+  div {
+    width: 100%;
+  }
+  .dkan-query-builder--row-operator {
+    margin: 0 16px;
+  }
+}

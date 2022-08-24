@@ -5,10 +5,15 @@
 // @import "./fonts/rubik-cufonfonts-webfont/style.css";
 // @import "./styles/general.scss";
 
-@import "./styles/spinner"
 
-// // Component styles.
-// @import "./styles/filedownload.scss";
+
+
+// Component styles.
+@import "./styles/spinner";
+@import "./styles/filedownload.scss";
+@import "./styles/dataset-search";
+@import "./styles/resource";
+@import "./styles/query-builder";
 // @import "./styles/iconlist.scss";
 // @import "./styles/iconlistitem.scss";
 // @import "./styles/menu.scss";
@@ -17,16 +22,16 @@
 // @import "./styles/resource.scss";
 // @import "./styles/searchinput.scss";
 // @import "./styles/searchlistitem.scss";
-// @import "./styles/searchfacets.scss";
+@import "./styles/searchfacets";
 // @import "./styles/tags.scss";
 // @import "./styles/table.scss";
 // @import "./styles/topicwrapper.scss";
 
 // // Template styles.
 // @import "./styles/featureddatasets.scss";
-// @import "./styles/dataset.scss";
+@import "./styles/dataset";
 // @import "./styles/datatable.scss";
-// @import "./styles/header.scss";
+@import "./styles/header";
 // @import "./styles/hero.scss";
 // @import "./styles/footer.scss";
 // @import "./styles/navbar.scss";

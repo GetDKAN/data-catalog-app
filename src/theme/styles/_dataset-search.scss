@@ -1,0 +1,34 @@
+@import "../variables";
+.dkan-dataset-search--fulltext-container {
+  display: flex;
+  align-items: end;
+  max-width: 68ex;
+}
+
+.dkan-dataset-search--fulltext-input-container {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.dkan-dataset-search-result--topic-list {
+  li {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 5px 0;
+  }
+  svg {
+    margin-right: 6px;
+    fill: $linkColor;
+  }
+}
+
+.dkan-dataset-search-result--heading {
+  a {
+    color: $headingColor;
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

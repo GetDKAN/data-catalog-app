@@ -34,7 +34,7 @@ context('Home', () => {
     regionLinks.forEach((text) => cy.findByRole('heading', { name: text }));
   })
 
-  it.skip('When on the home page I can see the elements on the leftnav footer menu', () => {
+  it('When on the home page I can see the elements on the leftnav footer menu', () => {
     const footerLinks = [
       'Documentation',
       // 'Visit Demo',

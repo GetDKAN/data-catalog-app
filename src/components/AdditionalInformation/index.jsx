@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AdditionalInformation = ({metadata}) => {
-  console.log(metadata)
   const dateOptions = { year:"numeric", month:"short", day:"numeric"};
   const { issued, identifier, publisher, modified, license, contactPoint, accessLevel } = metadata;
 

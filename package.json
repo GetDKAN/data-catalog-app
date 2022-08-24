@@ -2,14 +2,16 @@
   "name": "@civicactions/data-catalog-app",
   "version": "1.0.3",
   "private": false,
-  "homepage": "frontend/build",
+  "homepage": "/",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^2.0.0",
+    "@civicactions/data-catalog-components": "^2.1.0",
     "@civicactions/data-catalog-services": "^1.6.0-alpha.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@tanstack/react-query": "^4.2.1",
+    "@tanstack/react-table": "^8.5.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -17,12 +19,14 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
+    "qs": "^6.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^5.2.1",
     "react-js-pagination": "^3.0.3",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^4.0.3",
+    "react-text-truncate": "^0.19.0",
     "sass": "^1.53.0",
     "swagger-ui-react": "3.25.0"
   },
@@ -31,9 +35,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

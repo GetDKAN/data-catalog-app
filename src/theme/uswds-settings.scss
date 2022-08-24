@@ -1,4 +1,8 @@
 @use "uswds-core" with (
   $theme-font-path: "~@uswds/uswds/dist/fonts",
   $theme-image-path: "~@uswds/uswds/dist/img",
+  // Makes the site full width instead of 1024px
+  // $theme-grid-container-max-width: full,
+  $theme-show-compile-warnings: false,
+  $theme-show-notifications: false,
 )

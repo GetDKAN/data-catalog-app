@@ -1,6 +1,5 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link } from 'react-router-dom';
 import PrimaryHeader from '../PrimaryHeader';
 import Footer from '../Footer';
 
@@ -21,14 +20,10 @@ const Layout = ({
         }}
       />
       <PrimaryHeader />
-      <div className="usa-section">
-        <div className="grid-container">
-          <div className="grid-row grid-gap">
-            <main id="main-content">
-              {children}
-            </main>
-          </div>
-        </div>
+      <div className="default-container">
+        <main id="main-content" className="main-content padding-top-2">
+          {children}
+        </main>
       </div>
      <Footer />
     </div>
