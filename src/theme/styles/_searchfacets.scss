@@ -1,0 +1,41 @@
+@import "../variables";
+
+.dc-dataset-search--facets {
+  padding: 0;
+}
+
+.dc-dataset-search--facet-option {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 400;
+  padding: 8px 0;
+  max-width: 100%;
+  min-height: 32px;
+  position: relative;
+  label {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  input {
+    left: -999em;
+    opacity: 0;
+    position: absolute;
+  }
+  svg {
+    vertical-align: middle;
+    margin-right: 15px;
+    height: 24px;
+    width: 24px;
+    &.fa-square {
+      color: $grayLight;
+    }
+    &.fa-check-square {
+      color: $primary;
+    }
+  }
+}
