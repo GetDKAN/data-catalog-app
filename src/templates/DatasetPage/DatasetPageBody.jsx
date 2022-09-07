@@ -10,7 +10,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 
 const DatasetPageBody = ({id}) => {
-  const { isLoading, error, data, isFetching } = useQuery(
+  const { isLoading, error, data } = useQuery(
     ["datasetPage", id], () => getDataset(process.env.REACT_APP_ROOT_URL, id)
   )
   if (isLoading) return <Spinner loading={isLoading} />;

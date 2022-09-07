@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
-import orgs from "../../assets/publishers";
+// import orgs from "../../assets/publishers";
 
 const Publishers = () => {
   return (

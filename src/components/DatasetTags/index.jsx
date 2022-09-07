@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MetadataKeyword } from '../../types/Metadata.types'
 
-const DatasetTags = ({tags}) => {
+type DatasetTagsType = {
+  tags: Array<MetadataKeyword>;
+}
+
+const DatasetTags = ({tags}: DatasetTagsType) => {
   if(Array.isArray(tags)) {
     return (
       <div>
@@ -21,7 +26,6 @@ const DatasetTags = ({tags}) => {
               </li>
             ))}
           </ul>
-
         }
     </div>
     )

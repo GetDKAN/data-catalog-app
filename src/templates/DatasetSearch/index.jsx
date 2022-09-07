@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import axios from 'axios';
 import qs from 'qs';
 import TextTruncate from 'react-text-truncate';
@@ -24,9 +24,13 @@ function getUniqueFormats(dist_array) {
   return unique;
 };
 
+type DatasetSearchType = {
+  additionalParams: any;
+}
+
 
 //new Date().toLocaleDateString('en-us', dateOptions)
-const DatasetSearch = ({additionalParams}) => {
+const DatasetSearch = ({additionalParams}: DatasetSearchType) => {
   // const location = useLocation();
   const queryClient = new QueryClient()
   return (

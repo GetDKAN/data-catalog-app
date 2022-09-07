@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Spinner = ({loading, contentLoadingText, contentLoadedText}) => {
+type SpinnerType = {
+  loading: boolean;
+  contentLoadingText: string;
+  contentLoadedText: string;
+}
+
+const Spinner = ({loading, contentLoadingText, contentLoadedText}: SpinnerType) => {
   return (
     <div className={`spinner ${!loading ? "-loaded" : ""}`} role="alert" aria-live="assertive">
       <p className="visually-hidden">

@@ -1,7 +1,12 @@
 import React from 'react';
 import FormatIcon from '../../assets/FormatIcons';
+import { DatasetDistributionData } from '../../types/Metadata.types';
 
-const ResourceDownload = ({data}) => {
+type ResourceDownloadType = {
+  data: DatasetDistributionData
+}
+
+const ResourceDownload = ({data}: ResourceDownloadType) => {
   const { title, downloadURL, format} = data;
   return (
     <div className="dc-file-download">

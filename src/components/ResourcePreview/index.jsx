@@ -22,7 +22,7 @@ const ResourcePreview = ({
   const [tableCompact, setTableCompact] = React.useState(false)
   const [tableBorderless, setTableBoarderless] = React.useState(false)
   const [quickFilterOpen, setQuickFilterOpen] = React.useState(false)
-  const { isLoading, error, data, isFetching } = useQuery(
+  const { isLoading, error, data } = useQuery(
     [`resource_${dataset_id}_${dist_index}`, dataset_id, dist_index, limit],
       () => getResourceByIndex(process.env.REACT_APP_ROOT_URL, dataset_id, dist_index, limit)
   )

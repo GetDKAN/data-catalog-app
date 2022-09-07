@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // import { Button } from '@cmsgov/design-system';
 
 const Pagination = ({ totalPages, currentPage, buttonAction }) => {
@@ -54,27 +54,27 @@ const Pagination = ({ totalPages, currentPage, buttonAction }) => {
 
   function buildPreSiblings() {
     let preSiblings = [];
-    let remainingSpots = 0;
+    // let remainingSpots = 0;
     if (currentPage === 4) {
-      remainingSpots = 1;
+      // remainingSpots = 1;
       preSiblings.push({ id: '2', text: 2 });
     }
     if (currentPage > 4) {
-      remainingSpots = 1;
+      // remainingSpots = 1;
       preSiblings.push({ id: 'predots', text: '...' });
     }
     if (currentPage > 4 && currentPage >= totalPages - 2) {
-      remainingSpots = 1;
+      // remainingSpots = 1;
       preSiblings.push({ id: totalPages - 4, text: totalPages - 4 });
     }
 
     if (currentPage > 4 && currentPage >= totalPages - 1) {
-      remainingSpots = 1;
+      // remainingSpots = 1;
       preSiblings.push({ id: totalPages - 3, text: totalPages - 3 });
     }
 
     if (currentPage > 4 && currentPage === totalPages) {
-      remainingSpots = 1;
+      // remainingSpots = 1;
       preSiblings.push({ id: totalPages - 2, text: totalPages - 2 });
     }
 
