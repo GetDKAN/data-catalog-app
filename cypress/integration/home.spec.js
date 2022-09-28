@@ -1,6 +1,6 @@
 context('Home', () => {
   beforeEach(() => {
-    cy.visit("/")
+    cy.visit("/search")
   })
 
   it('I should see a logo in the header region', () => {
@@ -30,7 +30,7 @@ context('Home', () => {
       'Gold Prices in London 1950-2008 (Monthly)',
       'Afghanistan Election Districts',
     ];
-    
+
     regionLinks.forEach((text) => cy.findByRole('heading', { name: text }));
   })
 
@@ -45,7 +45,9 @@ context('Home', () => {
       'Drupal',
       'Open Source Open Data',
     ];
-    footerLinks.forEach((text) => cy.findByRole('link', { name: text }))
+    cy.get('.dc-footer').within(() => {
+      footerLinks.forEach((text) => cy.findByRole('link', { name: text }).should('exist'))
+    })
   })
 
 })
