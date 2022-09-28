@@ -19,6 +19,7 @@ jobs:
           command: |
             cd .. &&  mv project frontend
             mkdir project
+
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
@@ -31,7 +32,13 @@ jobs:
             dktl frontend:build
             dktl drush config-set frontend.config build_folder '/build' -y
             dktl drush config-set frontend.config frontend_path '/frontend' -y
-            dktl frontend:test
+            cd src
+            mkdir tests
+            mv frontend/cypress tests/cypress
+            mv frontend/cypress.json tests
+
+
+            dktl project:test-cypress
       - store_artifacts:
           path: src/frontend/cypress/screenshots
       - store_artifacts:
