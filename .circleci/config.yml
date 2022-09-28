@@ -30,8 +30,6 @@ jobs:
             mv ../frontend src
             dktl frontend:install
             dktl frontend:build
-            dktl drush config-set frontend.config build_folder '/build' -y
-            dktl drush config-set frontend.config frontend_path '/frontend' -y
             cd src
             mkdir tests
             mv frontend/cypress tests/cypress
