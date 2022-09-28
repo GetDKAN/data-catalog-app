@@ -1,6 +1,6 @@
 context('Home', () => {
   beforeEach(() => {
-    cy.visit("/search")
+    cy.visit("/")
   })
 
   it('I should see a logo in the header region', () => {
