@@ -6,7 +6,7 @@ jobs:
       image: ubuntu-2004:current
     environment:
       TEST_RESULTS: /tmp/test-results
-      DKTL_VERSION: "4.2.4"
+      DKTL_VERSION: "4.2.11"
     steps:
       - checkout
       - run:
@@ -36,8 +36,6 @@ jobs:
             mkdir tests
             mv frontend/cypress tests/cypress
             mv frontend/cypress.json tests
-
-
             dktl project:test-cypress
       - store_artifacts:
           path: src/frontend/cypress/screenshots
