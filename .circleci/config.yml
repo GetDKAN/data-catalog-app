@@ -34,6 +34,7 @@ jobs:
             mkdir tests
             mv frontend/cypress tests/cypress
             mv frontend/cypress.json tests
+            mv frontend/package.json tests
             dktl project:test-cypress
       - store_artifacts:
           path: src/frontend/cypress/screenshots
