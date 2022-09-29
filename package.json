@@ -1,6 +1,6 @@
 {
   "name": "@civicactions/data-catalog-app",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
@@ -10,18 +10,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@reach/router": "^1.3.3",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
-    "node-sass": "^4.14.1",
+    "html-to-react": "1.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
+    "sass": "^1.55.0",
     "swagger-ui-react": "3.25.0"
   },
   "scripts": {
@@ -48,6 +46,9 @@
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
     "@testing-library/dom": "^7.16.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "eslint-plugin-cypress": "^2.11.1"
   }
 }
