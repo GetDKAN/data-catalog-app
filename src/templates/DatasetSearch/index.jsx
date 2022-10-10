@@ -52,7 +52,7 @@ const DatasetSearch = ({additionalParams}: DatasetSearchType) => {
 function getSearchData(selectedTopics, selectedTags, fulltext) {
   return axios({
     method: "GET",
-    url: `https://demo.getdkan.org/api/1/search`,
+    url: `${process.env.REACT_APP_ROOT_URL}/search`,
     params: {
       theme: selectedTopics.length ? selectedTopics.join(",") : null,
       keyword: selectedTags.length ? selectedTags.join(",") : null,
