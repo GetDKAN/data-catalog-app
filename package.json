@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.13.0",
+    "@civicactions/data-catalog-components": "^1.14.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
@@ -16,7 +16,6 @@
     "i18next": "^21.6.16",
     "i18next-browser-languagedetector": "^6.1.4",
     "ionicons": "^6.0.2",
-    "node-sass": "^4.14.1",
     "prop-types": "^15.8.1",
     "html-to-react": "1.3.4",
     "react": "^16.13.1",
