@@ -3,10 +3,10 @@ jobs:
   build:
     parallelism: 1
     machine:
-      image: circleci/classic:latest
+      image: ubuntu-2004:current
     environment:
       TEST_RESULTS: /tmp/test-results
-      DKTL_VERSION: "4.2.4"
+      DKTL_VERSION: "4.2.11"
     steps:
       - checkout
       - run:
@@ -19,6 +19,7 @@ jobs:
           command: |
             cd .. &&  mv project frontend
             mkdir project
+
       - run:
           name: Create DKAN site with frontend; run tests
           command: |
@@ -29,8 +30,6 @@ jobs:
             mv ../frontend src
             dktl frontend:install
             dktl frontend:build
-            dktl drush config-set frontend.config build_folder '/build' -y
-            dktl drush config-set frontend.config frontend_path '/frontend' -y
             dktl frontend:test
       - store_artifacts:
           path: src/frontend/cypress/screenshots
