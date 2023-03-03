@@ -7,6 +7,8 @@ import {
   IconListItem,
   StatBlock
 } from "@civicactions/data-catalog-components";
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
@@ -16,7 +18,7 @@ const Home = () => {
   const [themes, setThemes] = React.useState([]);
   const [items, setItems] = React.useState([]);
   const [fDatasets, setFDatasets] = React.useState([])
-
+  const { t, i18n } = useTranslation();
 
   React.useEffect(() => {
     async function getDatasets() {
@@ -60,7 +62,7 @@ const Home = () => {
             <IconList
                 items={items}
                 component={IconListItem}
-                paneTitle="Dataset Topics"
+                paneTitle={t('home.topics')}
                 className="opendata-icon-list"
             />
         </div>
