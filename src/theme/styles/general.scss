@@ -3,6 +3,9 @@
 html {
   /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
   font-size: 62.5%;
+  body {
+    background-image: none;
+  }
 }
 
 body {
