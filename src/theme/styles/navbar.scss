@@ -1,5 +1,9 @@
 @import "../variables";
 
+ul.mr-auto.nav {
+    margin-top: 0;
+}
+
 .dc-main-navigation {
     background-color: $navBarBackgroundColor;
     position: relative;
