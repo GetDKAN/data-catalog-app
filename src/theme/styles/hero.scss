@@ -38,12 +38,13 @@
     flex-wrap: nowrap;
     input {
       margin-right: 1em;
+      width: 80%;
     }
     button {
       border: none;
       background-color: $secondary;
       color: $primaryDark;
-      height: 34px;
+      height: 3.2rem;
       padding: 0 30px;
       font-weight: bold;
       font-size: 1.6rem;
