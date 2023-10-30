@@ -6,13 +6,16 @@ This is a REACT frontend designed to utilize the latest stable version of [DKAN 
 
 This application serves as a starter app, or example of how to use the [data-catalog-components](https://github.com/GetDKAN/data-catalog-components) library to easily create open data catalogs.
 
+## Requirements
+- Node ^16
+
 ## Auto Set Up
-1) Follow the [DKAN Tools](https://github.com/GetDKAN/dkan-tools) README to stand up the backend. Include the `--demo` flag to have the frontend installed and example pages built as well.
+1) Follow the [DKAN DDEV add-on](https://github.com/GetDKAN/dkan-ddev-addon) steps for [starting a new project](https://getdkan.github.io/dkan-ddev-addon/getting-started.html).
 
 ## Manual Set Up
 If you have a backend already running and just need the frontend:
 
-1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-react.git frontend``. The DKAN Tools library is structured to run commands in a folder named `frontend` so frontend repos could be swapped if needed.
+1) Clone this repository in your **docroot** ``git clone https://github.com/getdkan/data-catalog-app frontend``. The DKAN DDEV add-on is structured to run commands in a folder named `frontend` so frontend repos could be swapped if needed.
 1) Install the dependencies with [npm](https://www.npmjs.com/):
    1) ``cd frontend``
    1) ``npm install`` or ``yarn install``
