@@ -20,6 +20,7 @@
     "react-js-pagination": "^3.0.3",
     "react-scripts": "3.4.1",
     "sass": "^1.55.0",
+    "swagger-client": "3.18.5",
     "swagger-ui-react": "3.25.0"
   },
   "scripts": {
