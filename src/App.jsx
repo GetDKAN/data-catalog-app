@@ -10,6 +10,7 @@ import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
 import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
+import { UserState } from "./config/User/UserState";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -19,16 +20,18 @@ library.add(fab, fas);
 
 function App() {
   return (
-    <Router>
-      <NotFound default />
-      <Home path="/" />
-      <About path="/about"/>
-      <Publishers path="/publishers" />
-      <SearchTemplate path="/search" />
-      <ApiDocsFull path="/api" />
-      <Dataset path="/dataset/:id" />
-      <ApiDocsSpecific path="/dataset/:id/api" />
-    </Router>
+    <UserState>
+      <Router>
+        <NotFound default />
+        <Home path="/" />
+        <About path="/about"/>
+        <Publishers path="/publishers" />
+        <SearchTemplate path="/search" />
+        <ApiDocsFull path="/api" />
+        <Dataset path="/dataset/:id" />
+        <ApiDocsSpecific path="/dataset/:id/api" />
+      </Router>
+    </UserState>
   );
 }
 
