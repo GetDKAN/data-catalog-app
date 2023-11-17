@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
 import config from "../../assets/config.json";
 import links from "../../assets/menu.json";
@@ -24,7 +24,7 @@ const Layout = ({
       <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
       <NavBar
         navItems={links.main.map(item => (
-          <Link activeClassName="active" to={item.url}>
+          <Link to={item.url}>
             {item.label}
           </Link>
         ))}

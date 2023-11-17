@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
 import {
@@ -20,7 +20,7 @@ const ApiDocsSpecific = ({ id, location }) => {
     if(state && state.dataset) {
       setLoading(false);
     } else {
-      axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
+      axios.get(`${import.meta.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
       .then((res) => {
         setItem(res.data);
         setLoading(false);
@@ -75,7 +75,7 @@ const ApiDocsSpecific = ({ id, location }) => {
             <h1>{item.title}</h1>
             <ApiDocs
               endpoint={
-                `${process.env.REACT_APP_ROOT_URL}` +
+                `${import.meta.env.REACT_APP_ROOT_URL}` +
                 "/metastore/schemas/dataset/items/" +
                 id +
                 "/docs"

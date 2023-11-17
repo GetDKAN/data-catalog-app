@@ -20,11 +20,11 @@ const Home = () => {
 
   React.useEffect(() => {
     async function getDatasets() {
-      const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
+      const {data} = await axios.get(`${import.meta.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
       setDatasets(data);
     }
     async function getThemes() {
-      const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/theme/items`)
+      const {data} = await axios.get(`${import.meta.env.REACT_APP_ROOT_URL}/metastore/schemas/theme/items`)
       setThemes(data);
     }
     if (datasets === null) {

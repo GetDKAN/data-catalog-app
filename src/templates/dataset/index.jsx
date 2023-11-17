@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
@@ -25,7 +25,7 @@ const Dataset = ({id, location}) => {
       checkForWindow(true);
     }
     async function getItem() {
-      const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
+      const { data } = await axios.get(`${import.meta.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
     }
     if (!state || !state.dataset) {

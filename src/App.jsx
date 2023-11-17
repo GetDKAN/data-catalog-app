@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from "@reach/router";
+import { Router } from "react-router-dom";
 import Home from './templates/home';
 import About from './templates/about';
 import SearchTemplate from './templates/search';
@@ -8,7 +8,7 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
-import '@civicactions/data-catalog-components/dist/index.css';
+//import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
