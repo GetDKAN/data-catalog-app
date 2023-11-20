@@ -12,7 +12,7 @@ const SearchTemplate = ({path}) => {
     <div className={`dc-page ${config.container}`}>
         <h1>Datasets</h1>
         <Search
-          searchEndpoint={`${import.meta.env.REACT_APP_ROOT_URL}/search`}
+          searchEndpoint={`${import.meta.env.VITE_REACT_APP_ROOT_URL}/search`}
           defaultFacets={defaultFacets}
           sortOptions={sortOptions}
           setSearchUrl={true}

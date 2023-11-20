@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Loader from "react-loader-advanced";
-import LoadingSpin from "react-loading-spin";
+import { Link, useParams, useLocation } from "react-router-dom";
+import { Spinner } from "reactstrap";
 import {
   ApiDocs,
   Organization
@@ -12,7 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Layout from "../../components/Layout";
 
-const ApiDocsSpecific = ({ id, location }) => {
+const ApiDocsSpecific = () => {
+  const { id } = useParams();
+  let location = useLocation();
   const { state } = location;
   const [item, setItem] = React.useState(state && state.dataset ? state.dataset : {});
   const [loading, setLoading] = React.useState(true);
@@ -20,7 +21,7 @@ const ApiDocsSpecific = ({ id, location }) => {
     if(state && state.dataset) {
       setLoading(false);
     } else {
-      axios.get(`${import.meta.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
+      axios.get(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
       .then((res) => {
         setItem(res.data);
         setLoading(false);
@@ -42,16 +43,10 @@ const ApiDocsSpecific = ({ id, location }) => {
   return (
     <Layout title="Dataset API">
     <div className={`dc-dataset-page ${config.container}`}>
-       <Loader
-          backgroundStyle={{ backgroundColor: "#f9fafb" }}
-          foregroundStyle={{ backgroundColor: "#f9fafb" }}
-          show={loading}
-          message={
-            <LoadingSpin width={"3px"} primaryColor={"#007BBC"} />
-          }
-        >
-      <div className="row">
-
+       {loading ? (
+        <Spinner color="primary" />
+       ) : (
+        <div className="row">
           <div className="col-md-3 col-sm-12">
             {renderOrg}
             <div className="dc-block-wrapper">
@@ -75,16 +70,16 @@ const ApiDocsSpecific = ({ id, location }) => {
             <h1>{item.title}</h1>
             <ApiDocs
               endpoint={
-                `${import.meta.env.REACT_APP_ROOT_URL}` +
+                `${import.meta.env.VITE_REACT_APP_ROOT_URL}` +
                 "/metastore/schemas/dataset/items/" +
                 id +
                 "/docs"
               }
             />
           </div>
+        </div>
+       )}
 
-      </div>
-      </Loader>
     </div>
     </Layout>
   );
