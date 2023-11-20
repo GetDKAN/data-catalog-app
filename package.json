@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^10.0.1",
     "@vitejs/plugin-react": "^4.2.0",
     "reactstrap": "^9.2.1",
     "sass": "^1.69.5",
