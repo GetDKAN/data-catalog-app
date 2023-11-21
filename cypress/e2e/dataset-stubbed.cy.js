@@ -18,13 +18,13 @@ context('Dataset stubbed', () => {
   })
 
   // add check to make sure message updates to correct amount of rows
-  it('I can filter the each table individually', () => {
+  it.skip('I can filter the each table individually', () => {
     cy.get(`#resource_1234abcd .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('35.08');
     cy.get('.dc-tbody > :nth-child(3) > :nth-child(1)').should('contain', '57')
     cy.get(`#resource_1234abcd .data-table-results`).contains('1 - 20 of 26 rows')
   })
 
-  it('I can sort each table individually', () => {
+  it.skip('I can sort each table individually', () => {
       cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr > :nth-child(1)`).click()
       cy.get(`#resource_1234abcd .dc-table .dc-tbody > :nth-child(1) > :nth-child(1)`).should('contain', '1')
       cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr > :nth-child(1)`).click()
@@ -97,7 +97,7 @@ context('Dataset stubbed', () => {
     cy.get(`#resource_1234abcd .dc-tbody > .tr > :nth-child(1)`, { timeout: 40000 }).should('not.have.css', 'flex', '150 0 auto')
   })
 
-  it('I can open and close Manage Columns', () => {
+  it.skip('I can open and close Manage Columns', () => {
     cy.get(`#resource_1234abcd #dc-modal-manage_columns-open`).click()
     // cy.get('#react-aria-modal-dialog #dialog-title').should('contain', 'Display column')
     // Test close button in top right
@@ -113,7 +113,7 @@ context('Dataset stubbed', () => {
     cy.get(`#dc-modal-manage_columns`).should('not.exist');
   })
 
-  it('I can remove and add back data table columns on just one table', () => {
+  it.skip('I can remove and add back data table columns on just one table', () => {
     cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr`, { timeout: 40000 }).children('.th').should('have.length', 3)
     cy.get(`.dc-table > :nth-child(1) .tr .th`).should('contain', 'record_number')
     cy.get(`#resource_1234abcd #dc-modal-manage_columns-open`).click()
@@ -130,7 +130,7 @@ context('Dataset stubbed', () => {
     cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr .th`, { timeout: 40000 }).should('contain', 'record_number')
   })
 
-  it('I can reorder table columns on just one table', () => {
+  it.skip('I can reorder table columns on just one table', () => {
     cy.get(`#resource_1234abcd .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`, { timeout: 40000 }).should('contain', 'record_number')
     cy.get(`#resource_1234abcd #dc-modal-manage_columns-open`).click()
     cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(2)`)

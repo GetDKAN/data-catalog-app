@@ -10,16 +10,16 @@ Cypress.Commands.add('stubMetadata', () => {
 
 Cypress.Commands.add('stubDatatable', () => {
   cy.fixture('datasetSqlCount').then((res) => {
-    cy.intercept(/.*\[SELECT COUNT\(\*\) FROM .*/, res)
-    cy.intercept(/.*\[SELECT COUNT\(\*\) FROM .*price.*/, () => ([{expression: "26"}]))
+    cy.intercept(/.*\[SELECT%20COUNT\(\*\)%20FROM%20.*/, res)
+    cy.intercept(/.*\[SELECT%20COUNT\(\*\)%20FROM%20.*price.*/, () => ([{expression: "26"}]))
   })
   cy.fixture('datasetSqlResults').then((res) => {
-    cy.intercept(/.*\[SELECT \* FROM .*LIMIT 20.*/, res.slice(0, 20));
-    cy.intercept(/.*\[SELECT \* FROM .*LIMIT 50.*/, res.slice(0, 50))
-    cy.intercept(/.*\[SELECT \* FROM .*LIMIT 100.*/, res.slice(0, 100))
-    cy.intercept(/.*\[SELECT \* FROM .*price =.*/, res.filter((item) => item.price == '35.08'))
-    cy.intercept(/.*\[SELECT \* FROM .*ORDER BY record_number ASC.*/, res.slice(0, 20))
-    cy.intercept(/.*\[SELECT \* FROM .*ORDER BY record_number DESC.*/, res.reverse().slice(0, 20))
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%2020.*/, res.slice(0, 20));
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%2050.*/, res.slice(0, 50))
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%20100.*/, res.slice(0, 100))
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*price%20=.*/, res.filter((item) => item.price == '35.08'))
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*ORDER%20BY%20record_number ASC.*/, res.slice(0, 20))
+    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*ORDER%20BY%20record_number DESC.*/, res.reverse().slice(0, 20))
   })
 });
 

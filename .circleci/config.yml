@@ -39,6 +39,7 @@ jobs:
             ddev status
             ddev dkan-init --force
             ddev dkan-site-install
+            ddev dkan-sample-content
             ddev dkan-frontend-install
             rm -r docroot/frontend
             mv ../frontend docroot/frontend

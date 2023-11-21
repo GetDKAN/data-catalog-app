@@ -5,7 +5,7 @@ import { Search, SearchSidebar, SearchContent } from "@civicactions/data-catalog
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
 
-const SearchTemplate = ({path}) => {
+const SearchTemplate = () => {
   const location = useLocation();
   return (
     <Layout title="Search">
@@ -16,7 +16,7 @@ const SearchTemplate = ({path}) => {
           defaultFacets={defaultFacets}
           sortOptions={sortOptions}
           setSearchUrl={true}
-          path={path}
+          path={location.pathname}
           location={location}
           normalize={normalizeItems}
         >
