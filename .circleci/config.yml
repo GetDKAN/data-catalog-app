@@ -29,10 +29,10 @@ jobs:
         description: 'Branch of getdkan/recommended-project to use.'
         default: '10.1.x-dev'
         type: string
-      upgrade:
-        description: 'If true, will install the latest stable DKAN version and test upgrade'
-        default: false
-        type: boolean
+      addon_branch:
+        description: 'Repo branch name for the dkan-ddev-addon you want to test against.'
+        default: 'main'
+        type: string
     steps:
       - checkout
       - install-ddev  
