@@ -1,37 +1,68 @@
-version: 2
+version: '2.1'
+orbs:
+  docker: circleci/docker@2.2.0
+
+commands:
+  install-ddev:
+    steps:
+      - run:
+          name: Install DDev
+          command: |
+            set -e
+            sudo rm -rf /etc/apt/sources.list.d/heroku.list
+            sudo apt-get update
+            sudo apt-get install ca-certificates
+            curl https://apt.fury.io/drud/gpg.key | sudo apt-key add -
+            echo "deb https://apt.fury.io/drud/ * *" | sudo tee -a /etc/apt/sources.list.d/ddev.list
+            sudo apt update && sudo apt install -y ddev
 jobs:
   build:
     parallelism: 1
     machine:
       image: ubuntu-2004:current
-    environment:
-      TEST_RESULTS: /tmp/test-results
-      DKTL_VERSION: "4.2.11"
+    parameters:
+      php_version:
+        description: 'PHP major.minor for DDev to use.'
+        default: '8.1'
+        type: string
+      dkan_recommended_branch:
+        description: 'Branch of getdkan/recommended-project to use.'
+        default: '10.1.x-dev'
+        type: string
+      upgrade:
+        description: 'If true, will install the latest stable DKAN version and test upgrade'
+        default: false
+        type: boolean
     steps:
       - checkout
-      - run:
-          name: Install DKTL
-          command: |
-            git clone -b $DKTL_VERSION https://github.com/GetDKAN/dkan-tools.git ~/dkan-tools
-            echo "export PATH=~/dkan-tools/bin:$PATH" >> $BASH_ENV
+      - install-ddev  
       - run:
           name: Set up dirs
           command: |
             cd .. &&  mv project frontend
             mkdir project
-
       - run:
-          name: Create DKAN site with frontend; run tests
+          name: Build site codebase
           command: |
-            dktl init --dkan=2.x-dev
-            dktl make
-            dktl install
-            dktl install:sample
-            mv ../frontend src
-            dktl frontend:install
-            dktl frontend:build
-            dktl frontend:test
+            which ddev
+            ddev --version
+            ddev config --project-name test-$CIRCLE_WORKFLOW_JOB_ID --project-type drupal9 --docroot docroot --create-docroot
+            ddev get https://github.com/GetDKAN/dkan-ddev-addon/archive/refs/heads/<< parameters.addon_branch >>.tar.gz
+            bash -c 'echo COMPOSER_AUTH=$COMPOSER_AUTH' > .ddev/.env
+            # Modify config to use our PHP version.
+            sed -i 's/^php_version.*$/php_version: "<< parameters.php_version >>"/' .ddev/config.dkan.yaml
+            ddev restart
+            ddev status
+            ddev dkan-init --project-version << parameters.dkan_recommended_branch>> --force
+            ddev dkan-site-install
+            mv ../frontend docroot/frontend
+            ddev dkan-frontend-build
+      - run:
+          name: Run Cypress tests
+          command: |
+            npx cypress run
+        
       - store_artifacts:
-          path: src/frontend/cypress/screenshots
+          path: dkan/cypress/screenshots
       - store_artifacts:
-          path: src/frontend/cypress/videos
+          path: dkan/cypress/videos
