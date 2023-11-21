@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/frontend/build/static/",
     "test": "vitest",
     "preview": "vite preview",
     "sass": "sass ./src/theme/index.scss ./src/theme/index.css"

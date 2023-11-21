@@ -6,6 +6,19 @@ export default defineConfig(() => {
     build: {
       outDir: 'build/static',
       manifest: true,
+      rollupOptions: {
+        output: {
+          entryFileNames: `js/[name].js`,
+          chunkFileNames: `js/chunks/[name].[hash].js`,
+          assetFileNames: ({name}) => {           
+            if (/\.css$/.test(name ?? '')) {
+                return `css/[name].[ext]`;   
+            }
+            // default value
+            return 'media/[name].[ext]';
+          },
+        },
+      }
     },
     plugins: [react()],
     server: {
