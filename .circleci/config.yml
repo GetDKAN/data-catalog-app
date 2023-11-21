@@ -42,7 +42,7 @@ jobs:
             cd .. &&  mv project frontend
             mkdir project
       - run:
-          name: Build site codebase
+          name: Build and run Cypress tests
           command: |
             which ddev
             ddev --version
@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Run Cypress tests
           command: |
-            npx cypress run
+            cd docroot/frontend && npx cypress run
         
       - store_artifacts:
           path: dkan/cypress/screenshots
