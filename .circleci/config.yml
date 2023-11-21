@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Run Cypress tests
           command: |
-            cd docroot/frontend && npx cypress run
+            cd docroot/frontend && npx cypress run --config baseURL='https://test-$CIRCLE_WORKFLOW_JOB_ID.ddev.site'
         
       - store_artifacts:
           path: dkan/cypress/screenshots
