@@ -29,7 +29,7 @@ jobs:
             cd .. &&  mv project frontend
             mkdir project
       - run:
-          name: Build Frontend into a full DKAN
+          name: Build Frontend into a full DKAN site
           command: |
             which ddev
             ddev --version
@@ -39,6 +39,8 @@ jobs:
             ddev status
             ddev dkan-init --force
             ddev dkan-site-install
+            ddev dkan-frontend-install
+            rm -r docroot/frontend
             mv ../frontend docroot/frontend
             cd docroot/frontend && npm install
             cd ../../
