@@ -20,19 +20,6 @@ jobs:
     parallelism: 1
     machine:
       image: ubuntu-2004:current
-    parameters:
-      php_version:
-        description: 'PHP major.minor for DDev to use.'
-        default: '8.1'
-        type: string
-      dkan_recommended_branch:
-        description: 'Branch of getdkan/recommended-project to use.'
-        default: '10.1.x-dev'
-        type: string
-      addon_branch:
-        description: 'Repo branch name for the dkan-ddev-addon you want to test against.'
-        default: 'main'
-        type: string
     steps:
       - checkout
       - install-ddev  
@@ -42,18 +29,15 @@ jobs:
             cd .. &&  mv project frontend
             mkdir project
       - run:
-          name: Build and run Cypress tests
+          name: Build Frontend into a full DKAN
           command: |
             which ddev
             ddev --version
             ddev config --project-name test-$CIRCLE_WORKFLOW_JOB_ID --project-type drupal9 --docroot docroot --create-docroot
-            ddev get https://github.com/GetDKAN/dkan-ddev-addon/archive/refs/heads/<< parameters.addon_branch >>.tar.gz
-            bash -c 'echo COMPOSER_AUTH=$COMPOSER_AUTH' > .ddev/.env
-            # Modify config to use our PHP version.
-            sed -i 's/^php_version.*$/php_version: "<< parameters.php_version >>"/' .ddev/config.dkan.yaml
+            ddev get getdkan/ddev-dkan
             ddev restart
             ddev status
-            ddev dkan-init --project-version << parameters.dkan_recommended_branch>> --force
+            ddev dkan-init --force
             ddev dkan-site-install
             mv ../frontend docroot/frontend
             cd docroot/frontend && npm install
