@@ -56,6 +56,8 @@ jobs:
             ddev dkan-init --project-version << parameters.dkan_recommended_branch>> --force
             ddev dkan-site-install
             mv ../frontend docroot/frontend
+            cd docroot/frontend && npm install
+            cd ../../
             ddev dkan-frontend-build
       - run:
           name: Run Cypress tests
