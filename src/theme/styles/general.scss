@@ -2,7 +2,6 @@
 
 html {
   /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
-  font-size: 62.5%;
   body {
     background-image: none;
   }
@@ -13,7 +12,6 @@ body {
   background-image: none;
   color: $textColor;
   font-family: $fontText;
-  font-size: 1.6rem;
 
   a, input, button, textarea {
     transition: all 0.2s linear;

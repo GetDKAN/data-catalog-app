@@ -1,32 +1,31 @@
 {
   "name": "@civicactions/data-catalog-app",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.5.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "@reach/router": "^1.3.3",
-    "axios": "^0.21.1",
+    "@civicactions/data-catalog-components": "1.16.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.2",
     "bootstrap": "^4.4.1",
     "excerpts": "^0.0.3",
-    "html-to-react": "1.3.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
+    "html-to-react": "1.7.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.3",
-    "react-scripts": "3.4.1",
-    "sass": "^1.55.0",
-    "swagger-ui-react": "3.25.0"
+    "react-router-dom": "^6.10.0",
+    "swagger-ui-react": "^4.15.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build --base=/frontend/build/static/",
+    "test": "vitest",
+    "preview": "vite preview",
+    "sass": "sass ./src/theme/index.scss ./src/theme/index.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,11 +43,11 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/cypress": "^6.0.0",
-    "@testing-library/dom": "^7.16.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "eslint-plugin-cypress": "^2.11.1"
+    "@testing-library/cypress": "^10.0.1",
+    "@vitejs/plugin-react": "^4.2.0",
+    "reactstrap": "^9.2.1",
+    "sass": "^1.69.5",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.2"
   }
 }
