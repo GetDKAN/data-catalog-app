@@ -1,6 +1,6 @@
 # Data Catalog App
 
-The React frontend is build with [Vite](https://vitejs.dev/).
+The React frontend is built with [Vite](https://vitejs.dev/).
 
 This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend.
 
