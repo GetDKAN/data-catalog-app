@@ -120,43 +120,42 @@ const Dataset = () => {
   return (
     <Layout title={`Dataset - ${item.title}`}>
       <div className={`dc-dataset-page ${config.container}`}>
-       
-            <div className="row">
-              <div className="col-md-3 col-sm-12">
-                {renderOrg}
-                <div className="dc-block-wrapper">
-                  The information on this page is also available via the{" "}
-                  <Link
-                    to={`/dataset/${item.identifier}/api`}
-                    state={{ dataset: {...item} }}
-                  >
-                    API
-                  </Link>.
-                </div>
-              </div>
-              <div className="col-md-9 col-sm-12">
-              {Object.keys(item).length
-                ?(
-                <div>
-                  <h1>{item.title}</h1>
-                {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
-                <Text value={item.description} />
-                {(hasWindow && item.distribution) &&
-                  item.distribution.map(dist => {
-                    return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
-                  })}
-                <Tags tags={tag} path="/search?keyword=" label="Tags" />
-                <Table
-                  configuration={labelsT3}
-                  data={valuesT3}
-                  tableclass="metadata"
-                /></div>
-                ):( <div className="row">
-                <Spinner color="primary" />
-              </div>
-            )}
-              </div>
+        <div className="row">
+          <div className="col-md-3 col-sm-12">
+            {renderOrg}
+            <div className="dc-block-wrapper">
+              The information on this page is also available via the{" "}
+              <Link
+                to={`/dataset/${item.identifier}/api`}
+                state={{ dataset: {...item} }}
+              >
+                API
+              </Link>.
             </div>
+          </div>
+          <div className="col-md-9 col-sm-12">
+          {Object.keys(item).length
+            ?(
+            <div>
+              <h1>{item.title}</h1>
+            {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
+            <Text value={item.description} />
+            {(hasWindow && item.distribution) &&
+              item.distribution.map(dist => {
+                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
+              })}
+            <Tags tags={tag} path="/search?keyword=" label="Tags" />
+            <Table
+              configuration={labelsT3}
+              data={valuesT3}
+              tableclass="metadata"
+            /></div>
+            ):( <div className="row">
+            <Spinner color="primary" />
+          </div>
+        )}
+          </div>
+        </div>
       </div>
       </Layout>
   );
