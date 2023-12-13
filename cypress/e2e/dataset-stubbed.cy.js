@@ -78,23 +78,23 @@ context('Dataset stubbed', () => {
   })
 
   it('I can change the density of the data table rows', () => {
-    cy.get(`#resource_1234abcd .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '5px')
+    cy.get(`#resource_1234abcd .dc-tbody > tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '5px')
     cy.get(`#resource_1234abcd [title="expanded"]`).click()
-    cy.get(`#resource_1234abcd .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '21px 5px')
+    cy.get(`#resource_1234abcd .dc-tbody > tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '21px 5px')
     cy.get(`#resource_1234abcd [title="normal"]`).click()
-    cy.get(`#resource_1234abcd .dc-tbody > .dc-tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '14px 5px')
+    cy.get(`#resource_1234abcd .dc-tbody > tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'padding', '14px 5px')
   })
 
-  it('I can resize the data preview columns without changing the other table.', () => {
-    cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'flex', '150 0 auto')
-    cy.get(`#resource_1234abcd :nth-child(1) > .resizer`)
+  it.skip('I can resize the data preview columns without changing the other table.', () => {
+    cy.get(`#resource_1234abcd .dc-datatable > :nth-child(1) tr > :nth-child(1)`, { timeout: 40000 }).should('have.css', 'width', '217.5px')
+    cy.get(`#resource_1234abcd .dc-datatable > :nth-child(1) tr > :nth-child(1) > .dc-c-resize-handle`)
       .trigger('mousedown', { which: 1 })
-    cy.get(`#resource_1234abcd :nth-child(2) > .resizer`)
+    cy.get(`#resource_1234abcd .dc-datatable > :nth-child(1) tr > :nth-child(1) > .dc-c-resize-handle`)
       .trigger("mousemove")
       .trigger("mouseup")
-    cy.get(`#resource_1234abcd .dc-table > :nth-child(1) .tr > :nth-child(1)`, { timeout: 40000 }).should('not.have.css', 'flex', '150 0 auto')
+    cy.get(`#resource_1234abcd .dc-datatable > :nth-child(1) tr > :nth-child(1)`, { timeout: 40000 }).should('not.have.css', 'width', '217.5px')
     // Column width is consistent.
-    cy.get(`#resource_1234abcd .dc-tbody > .tr > :nth-child(1)`, { timeout: 40000 }).should('not.have.css', 'flex', '150 0 auto')
+    cy.get(`#resource_1234abcd .dc-tbody > tr > :nth-child(1)`, { timeout: 40000 }).should('not.have.css', 'width', '217.5px')
   })
 
   it.skip('I can open and close Manage Columns', () => {

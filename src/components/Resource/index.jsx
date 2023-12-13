@@ -1,9 +1,7 @@
 import React from "react";
 import {
   Resource,
-  DataTable,
   FileDownload,
-  DataTableHeader
 } from "@civicactions/data-catalog-components";
 
 const ResourceTemplate = ({ resource }) => {
@@ -21,19 +19,13 @@ const ResourceTemplate = ({ resource }) => {
         ? (
           <Resource
             apiURL={rootURL}
-            identifier={resource.identifier}
+            id={resource.identifier}
             resource={resource}
             showDBColumnNames={true}
-          >
-            <FileDownload
-              title={resource.data.title}
-              label={resource.data.downloadURL}
-              format={format}
-              downloadURL={downloadURL ? downloadURL : accessURL}
-            />
-            <DataTableHeader />
-            <DataTable />
-          </Resource>
+            format={format}
+            downloadURL={downloadURL}
+            accessURL={accessURL}
+          />
         )
         : (
           <FileDownload
