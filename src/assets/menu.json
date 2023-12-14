@@ -29,12 +29,7 @@
   "footer1": [
     {
       "label": "Documentation",
-      "url": "https://docs.getdkan.com",
-      "target": "_blank"
-    },
-    {
-      "label": "Visit Demo",
-      "url": "https://demo.getdkan.com",
+      "url": "https://dkan.readthedocs.io/en/latest/index.html",
       "target": "_blank"
     },
     {
@@ -60,11 +55,6 @@
     {
       "label": "Drupal",
       "url": "https://drupal.org",
-      "target": "_blank"
-    },
-    {
-      "label": "Open Source Open Data",
-      "url": "https://opensourceopendata.org",
       "target": "_blank"
     }
   ]

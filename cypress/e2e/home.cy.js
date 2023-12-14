@@ -37,13 +37,11 @@ context('Home', () => {
   it('When on the home page I can see the elements on the leftnav footer menu', () => {
     const footerLinks = [
       'Documentation',
-      'Visit Demo',
       'Download',
       'CivicActions',
       'Project Open Data',
       'DCAT',
       'Drupal',
-      'Open Source Open Data',
     ];
     cy.get('.dc-footer').within(() => {
       footerLinks.forEach((text) => cy.findByRole('link', { name: text }).should('exist'))
