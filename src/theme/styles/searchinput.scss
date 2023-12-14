@@ -1,6 +1,6 @@
 @import "../variables";
 
-.dc-search-input.form-group {
+.dc-search-input {
   display: flex;
 
   input[type="text"] {
@@ -40,7 +40,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .dc-search-input.form-group {
+  .dc-search-input {
     position: relative;
     top: auto;
     right: auto;

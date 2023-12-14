@@ -22,8 +22,8 @@ const About = () => (
                     </Announcement>
                 </div>
             </div>
+            <h2>App version:</h2>
             <div className="dc-page-content row">
-                <h2>App version:</h2>
                 <div className="col-12">
                     <p>data-catalog-app: {version}</p>
                     <p>data-catalog-components: {dependencies["@civicactions/data-catalog-components"]}</p>

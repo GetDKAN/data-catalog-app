@@ -41,14 +41,16 @@
     }
     p {
       margin: 0 2em 1em 0;
+      &:last-child {
+        line-height: 2rem;
+      }
     }
     .social {
-      margin: 1em 0 0 0;
+      margin: 1em 0 0 1em;
       svg {
         font-size: 25px;
         fill: #FFFFFF;
         opacity: 0.5;
-        margin: 0 1em 1em 0;
         &:hover {
           opacity: 1;
         }
