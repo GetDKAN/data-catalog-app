@@ -2,16 +2,18 @@
 
 html {
   /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
+  font-size:62.5%;
   body {
     background-image: none;
   }
 }
 
-body {
+html body {
   background-color: $backgroundColor;
   background-image: none;
   color: $textColor;
-  font-family: $fontText;
+  font-family: $fontText !important;
+  font-size: 1.6rem !important;
 
   a, input, button, textarea {
     transition: all 0.2s linear;
@@ -29,9 +31,9 @@ body {
     font-family: $fontHeading;
     font-weight: 700;
   }
-  h1 { font-size: 2.0rem }
-  h2 { font-size: 1.7rem; }
-  h3 { font-size: 1.3rem; }
+  h1 { font-size: 3.0rem }  // 30px
+  h2 { font-size: 2.4rem; } // 24px
+  h3 { font-size: 2.0rem; } // 20px
 
   table {
     background-color: white;
@@ -41,6 +43,7 @@ body {
     border-color: $borderColor;
   }
   .form-control {
+    font-size: 1.6rem;
     margin-bottom: 15px;
   }
 }
