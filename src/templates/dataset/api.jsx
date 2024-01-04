@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Spinner } from "reactstrap";
 import {
   ApiDocs,
@@ -8,38 +8,32 @@ import {
 import config from "../../assets/config";
 import orgs from "../../assets/publishers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 import Layout from "../../components/Layout";
+import { useQuery } from '@tanstack/react-query';
 
 const ApiDocsSpecific = () => {
   const { id } = useParams();
-  let location = useLocation();
-  const { state } = location;
-  const [item, setItem] = React.useState(state && state.dataset ? state.dataset : {});
-  const [loading, setLoading] = React.useState(true);
-  React.useEffect(() => {
-    if(state && state.dataset) {
-      setLoading(false);
-    } else {
-      axios.get(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`)
-      .then((res) => {
-        setItem(res.data);
-        setLoading(false);
-      })
+  const {loading, data} = useQuery({
+    queryKey: ['metastoreAPI', id],
+    queryFn: () => {
+      return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`).then(
+        (res) => res.json(),
+      )
     }
-  }, [id, state])
+  });
+  const item = data ? data : {};
 
+  const orgName = "publisher" in item && item.publisher.data ? item.publisher.data.name : "";
+  const orgDetails = orgs.filter(org => orgName === org.name);
+  const orgImage = orgDetails.length && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
+  const orgDesc = orgDetails.length && orgDetails[0].description ? orgDetails[0].description : "";
+  let renderOrg;
+  if(orgDetails.length > 0 && orgDetails[0].imageUrl) {
+    renderOrg = <Organization name={orgName} imageUrl={orgImage} description={orgDesc}/>;
+  } else {
+    renderOrg = <Organization name={orgName} description={orgDesc}/>;
+  }
 
-    const orgName = "publisher" in item && item.publisher.data ? item.publisher.data.name : "";
-    const orgDetails = orgs.filter(org => orgName === org.name);
-    const orgImage = orgDetails.length && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-    const orgDesc = orgDetails.length && orgDetails[0].description ? orgDetails[0].description : "";
-    let renderOrg;
-    if(orgDetails.length > 0 && orgDetails[0].imageUrl) {
-      renderOrg = <Organization name={orgName} imageUrl={orgImage} description={orgDesc}/>;
-    } else {
-      renderOrg = <Organization name={orgName} description={orgDesc}/>;
-    }
   return (
     <Layout title="Dataset API">
     <div className={`dc-dataset-page ${config.container}`}>

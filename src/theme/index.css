@@ -1172,9 +1172,16 @@ ul.mr-auto.nav {
   padding: 30px;
   margin-bottom: 25px;
 }
-.dc-search-sidebar-options select {
-  border-color: #e8ebf0;
-  border-radius: 4px;
+.dc-search-sidebar-options #dc-search-list-sort button {
+  width: 100%;
+  text-align: left;
+}
+.dc-search-sidebar-options #dc-search-list-sort button span {
+  width: calc(100% - 1rem);
+  display: inline-block;
+}
+.dc-search-sidebar-options #dc-search-list-sort .dropdown-menu {
+  width: 100%;
 }
 .dc-search-sidebar-options .toggle-block {
   margin-top: 0;

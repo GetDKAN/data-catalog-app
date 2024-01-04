@@ -1,5 +1,5 @@
-import React from "react";
-import axios from 'axios';
+import React, {useEffect} from "react";
+import { useQuery } from '@tanstack/react-query';
 import {
   Blocks,
   Hero,
@@ -12,36 +12,32 @@ import FeaturedDatasets from '../../components/FeaturedDatasets';
 import copy from "../../assets/copy.json";
 
 const Home = () => {
-  const [datasets, setDatasets] = React.useState(null);
-  const [themes, setThemes] = React.useState([]);
-  const [items, setItems] = React.useState([]);
-  const [fDatasets, setFDatasets] = React.useState([])
-
-
-  React.useEffect(() => {
-    async function getDatasets() {
-      const {data} = await axios.get(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
-      setDatasets(data);
+  const datasets = useQuery({
+    queryKey: ['datasets'],
+    queryFn: () => {
+      return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`).then(
+        (res) => res.json(),
+      )
     }
-    async function getThemes() {
-      const {data} = await axios.get(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/theme/items`)
-      setThemes(data);
-    }
-    if (datasets === null) {
-      getDatasets()
-      getThemes();
-    }
-    if (datasets) {
-      const orderedDatasets = datasets.sort(function(a,b) {
-        return a.title - b.title;
-      });
+  }).data;
 
-      setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
+  const themes = useQuery({
+    queryKey: ['themes'],
+    queryFn: () => {
+      return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/theme/items`).then(
+        (res) => res.json(),
+      )
     }
-  }, [datasets])
+  }).data;
 
-  React.useEffect(() => {
-    setItems(themes.map(x => {
+  const orderedDatasets = (datasets && datasets.length) ? datasets.sort(function(a,b) {
+    return a.title - b.title;
+  }): [];
+
+  const fDatasets = orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets;
+
+  const items = (themes && themes.length) ? 
+    themes.map(x => {
       let item = {
         identifier: x.identifier,
         ref: `search?theme=${x.data}`,
@@ -49,8 +45,7 @@ const Home = () => {
         size: "100"
       };
       return item;
-    }))
-  }, [themes])
+    }) : [];
 
   return (
     <Layout title="Home">
