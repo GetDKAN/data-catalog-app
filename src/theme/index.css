@@ -1185,6 +1185,7 @@ ul.mr-auto.nav {
 .dc-search-sidebar-options #dc-search-list-sort button span {
   width: calc(100% - 1rem);
   display: inline-block;
+  font-size: 1.6rem;
 }
 .dc-search-sidebar-options #dc-search-list-sort .dropdown-menu {
   width: 100%;
