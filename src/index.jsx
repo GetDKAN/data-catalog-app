@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './config/queryClient';
+import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.css';
-import '@civicactions/data-catalog-components/dist/index.css'
 
 import Home from './templates/home';
 import About from './templates/about';
