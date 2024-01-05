@@ -11,7 +11,7 @@ const ResourceTemplate = ({ resource }) => {
 
   const downloadURL = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('downloadURL') ? resource.data.downloadURL : '';
   const accessURL = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('accessURL') ? resource.data.accessURL : downloadURL;
-  const rootURL = `${import.meta.env.VITE_REACT_APP_ROOT_URL}/`;
+  const rootURL = `${import.meta.env.VITE_REACT_APP_ROOT_URL}`;
 
   return (
     <div id={`resource_${resource.identifier}`}>

@@ -42,7 +42,8 @@ context('Search stubbed', () => {
     const sortFilter = 'Sort by:';
     cy.findByLabelText('Health Care (3)').should('exist');
     cy.findByLabelText(sortFilter).should('exist');
-    cy.findByLabelText(sortFilter).select('title');
+    cy.findByRole('button', {name: 'Date'}).click();
+    cy.findByRole('menuitem', {name: 'Alphabetical'}).click();
     //expand tests for sort
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts');

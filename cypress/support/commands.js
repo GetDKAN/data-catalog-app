@@ -14,12 +14,7 @@ Cypress.Commands.add('stubDatatable', () => {
     cy.intercept(/.*\[SELECT%20COUNT\(\*\)%20FROM%20.*price.*/, () => ([{expression: "26"}]))
   })
   cy.fixture('datasetSqlResults').then((res) => {
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%2020.*/, res.slice(0, 20));
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%2050.*/, res.slice(0, 50))
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*LIMIT%20100.*/, res.slice(0, 100))
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*price%20=.*/, res.filter((item) => item.price == '35.08'))
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*ORDER%20BY%20record_number ASC.*/, res.slice(0, 20))
-    cy.intercept(/.*\[SELECT%20\*%20FROM%20.*ORDER%20BY%20record_number DESC.*/, res.reverse().slice(0, 20))
+    cy.intercept(/.*\/datastore\/query.*/, res)
   })
 });
 
