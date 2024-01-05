@@ -25,7 +25,7 @@ const Dataset = () => {
     }
   }, [id]);
 
-  const {loading, data} = useQuery({
+  const {data} = useQuery({
     queryKey: ['metastoreDataset', id],
     queryFn: () => {
       return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`).then(
@@ -116,7 +116,6 @@ const Dataset = () => {
     labelsT3.homepage = { label: "Homepage URL" };
     valuesT3.homepage = `<a href="${item.landingPage}">${item.landingPage}</a>`;
   }
-
   return (
     <Layout title={`Dataset - ${item.title}`}>
       <div className={`dc-dataset-page ${config.container}`}>
@@ -151,7 +150,7 @@ const Dataset = () => {
               tableclass="metadata"
             /></div>
             ):( <div className="row">
-            <Spinner color="primary" />
+            <Spinner color="primary" className="m-auto"/>
           </div>
         )}
           </div>
