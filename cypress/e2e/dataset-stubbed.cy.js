@@ -18,9 +18,10 @@ context('Dataset stubbed', () => {
   })
 
   // add check to make sure message updates to correct amount of rows
-  it.skip('I can filter the each table individually', () => {
-    cy.get(`#resource_1234abcd .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('35.08');
-    cy.get('.dc-tbody > :nth-child(3) > :nth-child(1)').should('contain', '57')
+  it('I can filter the each table individually', () => {
+    cy.get(`#resource_1234abcd .dc-datatable > thead > .tr > th:nth-child(3) input`).type('35.08');
+    cy.get('.dc-tbody > :nth-child(3) > :nth-child(1)').should('contain', '57');
+    cy.wait(500);
     cy.get(`#resource_1234abcd .data-table-results`).contains('1 - 20 of 26 rows')
   })
 

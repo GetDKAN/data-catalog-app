@@ -7,7 +7,7 @@ context('Search stubbed', () => {
   });
 
   // FULLTEXT FILTER
-  it.skip('I can use the text input filter', () => {
+  it('I can use the text input filter', () => {
     cy.stubSearchResults('/search');
     const placholder = 'Type your search term here';
     const filteredFacets = [
@@ -72,7 +72,7 @@ context('Search stubbed', () => {
   });
 
   // TAG FILTER
-  it.skip('I can use the tag filter', () => {
+  it('I can use the tag filter', () => {
     cy.stubSearchResults('/search');
     cy.get('.dc-search-results-message').contains('10 datasets found');
     cy.get(searchList).children().its('length').should('eq', 10);
@@ -85,6 +85,7 @@ context('Search stubbed', () => {
     cy.findByText('Finance and Budgeting (3)').should('exist');
     cy.findByRole('heading', {name: 'London Deprivation Index'}).should('exist');
     cy.findByRole('heading', {name: 'US National Foreclosure Statistics January 2012'}).should('exist');
+    cy.findByRole('button', {name: 'Show 9 more'}).click();
     // Click united kingdom
     cy.wait(500)
     cy.findByText('United Kingdom (1)').click();
