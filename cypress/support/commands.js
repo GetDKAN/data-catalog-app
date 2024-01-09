@@ -15,10 +15,10 @@ Cypress.Commands.add('stubMetadata', () => {
 });
 
 Cypress.Commands.add('stubDatatable', () => {
-  cy.intercept(/.*\/datastore\/query\/1234abcd\?.*35\.08.*/, { fixture: 'datasetSqlFilteredResults.json'});
-  cy.intercept(/.*\/datastore\/query.*offset=0$/, { fixture: 'datasetSqlResults.json'});
+  cy.intercept(/.*\/datastore\/query\/1234abcd\?.*35\.08.*/, { fixture: 'dataset/datasetSqlFilteredResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0$/, { fixture: 'dataset/datasetSqlResults.json'});
 
-  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*asc$/, { fixture: 'datasetSqlResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*asc$/, { fixture: 'dataset/datasetSqlResults.json'});
   cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*desc$/, { fixture: 'dataset/datasetResultsSorted.json'});
 });
 
