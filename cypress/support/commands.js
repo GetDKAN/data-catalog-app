@@ -15,13 +15,11 @@ Cypress.Commands.add('stubMetadata', () => {
 });
 
 Cypress.Commands.add('stubDatatable', () => {
-  cy.fixture('datasetSqlCount').then((res) => {
-    cy.intercept(/.*\[SELECT%20COUNT\(\*\)%20FROM%20.*/, res)
-    cy.intercept(/.*\[SELECT%20COUNT\(\*\)%20FROM%20.*price.*/, () => ([{expression: "26"}]))
-  })
-  cy.fixture('datasetSqlResults').then((res) => {
-    cy.intercept(/.*\/datastore\/query.*/, res)
-  })
+  cy.intercept(/.*\/datastore\/query\/1234abcd\?.*35\.08.*/, { fixture: 'datasetSqlFilteredResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0$/, { fixture: 'datasetSqlResults.json'});
+
+  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*asc$/, { fixture: 'datasetSqlResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*desc$/, { fixture: 'dataset/datasetResultsSorted.json'});
 });
 
 Cypress.Commands.add('stubSearchResults', (path) => {
