@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
@@ -17,23 +17,23 @@ import orgs from "../../assets/publishers";
 
 const Dataset = () => {
   const { id } = useParams();
-  let location = useLocation();
-  const { state } = location;
-  const [item, setItem] = useState(state && state.dataset ? state.dataset : {})
   const [hasWindow, checkForWindow] = useState(false);
-
+  
   useEffect(() => {
     if (window !== undefined) {
       checkForWindow(true);
     }
-    async function getItem() {
-      const { data } = await axios.get(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
-      setItem(data);
+  }, [id]);
+
+  const {data} = useQuery({
+    queryKey: ['metastoreDataset', id],
+    queryFn: () => {
+      return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`).then(
+        (res) => res.json(),
+      )
     }
-    if (!state || !state.dataset) {
-      getItem();
-    }
-  }, [id, state]);
+  });
+  const item = data ? data : {};
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
@@ -116,7 +116,6 @@ const Dataset = () => {
     labelsT3.homepage = { label: "Homepage URL" };
     valuesT3.homepage = `<a href="${item.landingPage}">${item.landingPage}</a>`;
   }
-
   return (
     <Layout title={`Dataset - ${item.title}`}>
       <div className={`dc-dataset-page ${config.container}`}>
@@ -151,7 +150,7 @@ const Dataset = () => {
               tableclass="metadata"
             /></div>
             ):( <div className="row">
-            <Spinner color="primary" />
+            <Spinner color="primary" className="m-auto"/>
           </div>
         )}
           </div>
