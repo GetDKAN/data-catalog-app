@@ -1,0 +1,188 @@
+{
+  "count": 26,
+  "schema": {
+    "1234abcd": {
+      "fields": {
+
+        "record_number":{
+          "type":"text",
+          "description":""
+        },
+        "date":{
+          "type":"text",
+          "description":"CMS Certification Number (CCN)"
+        },
+        "price":{
+          "type":"text",
+          "description":"Facility Name"
+        }
+      }
+    },
+    "2a6924b6-f8bb-5c85-93d8-1744fa1e2093": {
+      "fields": {
+
+        "record_number":{
+          "type":"text",
+          "description":""
+        },
+        "date":{
+          "type":"text",
+          "description":"CMS Certification Number (CCN)"
+        },
+        "price":{
+          "type":"text",
+          "description":"Facility Name"
+        }
+      }
+    },
+    "18665dfe-b31e-5ccf-9325-97c9833c6804": {
+      "fields": {
+
+        "record_number":{
+          "type":"text",
+          "description":""
+        },
+        "date":{
+          "type":"text",
+          "description":"CMS Certification Number (CCN)"
+        },
+        "price":{
+          "type":"text",
+          "description":"Facility Name"
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "record_number": "53",
+      "date": "1954-05-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "55",
+      "date": "1954-07-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "57",
+      "date": "1954-09-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "58",
+      "date": "1954-10-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "98",
+      "date": "1958-02-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "112",
+      "date": "1959-04-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "135",
+      "date": "1961-03-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "136",
+      "date": "1961-04-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "148",
+      "date": "1962-04-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "149",
+      "date": "1962-05-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "156",
+      "date": "1962-12-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "158",
+      "date": "1963-02-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "161",
+      "date": "1963-05-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "162",
+      "date": "1963-06-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "165",
+      "date": "1963-09-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "166",
+      "date": "1963-10-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "167",
+      "date": "1963-11-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "168",
+      "date": "1963-12-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "169",
+      "date": "1964-01-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "170",
+      "date": "1964-02-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "171",
+      "date": "1964-03-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "172",
+      "date": "1964-04-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "173",
+      "date": "1964-05-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "174",
+      "date": "1964-06-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "175",
+      "date": "1964-07-01",
+      "price": "35.08"
+    },
+    {
+      "record_number": "176",
+      "date": "1964-08-01",
+      "price": "35.08"
+    }
+  ]
+}

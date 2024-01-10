@@ -1,134 +1,144 @@
 {
-  "facets": [
-    {
-      "type": "theme",
-      "name": "Transportation",
-      "total": "1"
-    },
-    {
-      "type": "theme",
-      "name": "City Planning",
-      "total": "3"
-    },
-    {
-      "type": "theme",
-      "name": "Finance and Budgeting",
-      "total": "3"
-    },
-    {
-      "type": "theme",
-      "name": "Public Safety",
-      "total": "1"
-    },
-    {
-      "type": "theme",
-      "name": "Health Care",
-      "total": "3"
-    },
-    {
-      "type": "keyword",
-      "name": "bike-lanes",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "streets",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "infrastructure",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "foreclosures",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "economy",
-      "total": "3"
-    },
-    {
-      "type": "keyword",
-      "name": "affordable-housing",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "housing-markets",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "crime",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "city",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "health",
-      "total": "3"
-    },
-    {
-      "type": "keyword",
-      "name": "asthma",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "demographics",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "election",
-      "total": "2"
-    },
-    {
-      "type": "keyword",
-      "name": "politics",
-      "total": "2"
-    },
-    {
-      "type": "keyword",
-      "name": "transparency",
-      "total": "2"
-    },
-    {
-      "type": "keyword",
-      "name": "price",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "time-series",
-      "total": "1"
-    },
-    {
-      "type": "keyword",
-      "name": "country-afghanistan",
-      "total": "1"
-    },
-    {
-      "type": "publisher__name",
-      "name": "State Economic Council",
-      "total": "5"
-    },
-    {
-      "type": "publisher__name",
-      "name": "National Health Council",
-      "total": "3"
-    },
-    {
-      "type": "publisher__name",
-      "name": "Committee on International Affairs",
-      "total": "2"
-    }
-  ]
+  "theme": {
+    "facets": [
+      {
+        "type": "theme",
+        "name": "Transportation",
+        "total": "1"
+      },
+      {
+        "type": "theme",
+        "name": "City Planning",
+        "total": "3"
+      },
+      {
+        "type": "theme",
+        "name": "Finance and Budgeting",
+        "total": "3"
+      },
+      {
+        "type": "theme",
+        "name": "Public Safety",
+        "total": "1"
+      },
+      {
+        "type": "theme",
+        "name": "Health Care",
+        "total": "3"
+      }
+    ]
+  },
+  "keyword": {
+    "facets": [
+      {
+        "type": "keyword",
+        "name": "bike-lanes",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "streets",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "infrastructure",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "foreclosures",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "economy",
+        "total": "3"
+      },
+      {
+        "type": "keyword",
+        "name": "affordable-housing",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "housing-markets",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "crime",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "city",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "health",
+        "total": "3"
+      },
+      {
+        "type": "keyword",
+        "name": "asthma",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "demographics",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "election",
+        "total": "2"
+      },
+      {
+        "type": "keyword",
+        "name": "politics",
+        "total": "2"
+      },
+      {
+        "type": "keyword",
+        "name": "transparency",
+        "total": "2"
+      },
+      {
+        "type": "keyword",
+        "name": "price",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "time-series",
+        "total": "1"
+      },
+      {
+        "type": "keyword",
+        "name": "country-afghanistan",
+        "total": "1"
+      }
+    ]
+  },
+  "publisher": {
+    "facets": [
+      {
+        "type": "publisher__name",
+        "name": "State Economic Council",
+        "total": "5"
+      },
+      {
+        "type": "publisher__name",
+        "name": "National Health Council",
+        "total": "3"
+      },
+      {
+        "type": "publisher__name",
+        "name": "Committee on International Affairs",
+        "total": "2"
+      }
+    ]
+  }
 }
