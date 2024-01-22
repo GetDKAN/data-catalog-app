@@ -22,6 +22,7 @@ If you have a backend already running and just need the frontend:
 1) Run the server: ``npm start`` or ``yarn start``
    1) Your site is now running at ``http://localhost:3000``
 1) Build the public files ``npm run build``
+1) To complete the setup like the auto setup, setup the DKAN JS Frontend module that comes with the DKAN core installation. Steps can be found here: [DKAN JS Frontend Module](https://github.com/GetDKAN/dkan/tree/2.x/modules/dkan_js_frontend).
 
 ## Set up of an independent front-end (with no backend)
 
