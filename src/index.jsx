@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './config/queryClient';
 import '@civicactions/data-catalog-components/dist/index.css';
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
+  },
+  {
+    path: "/home",
+    element: <Navigate replace to="/" />
   },
   {
     path: "/about",
@@ -43,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/dataset/:id/api",
     element: <ApiDocsSpecific />
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 
