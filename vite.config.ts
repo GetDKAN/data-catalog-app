@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(() => {
@@ -10,9 +10,9 @@ export default defineConfig(() => {
         output: {
           entryFileNames: `js/[name].js`,
           chunkFileNames: `js/chunks/[name].[hash].js`,
-          assetFileNames: ({name}) => {           
+          assetFileNames: ({name}) => {
             if (/\.css$/.test(name ?? '')) {
-                return `css/[name].[ext]`;   
+                return `css/[name].[ext]`;
             }
             // default value
             return 'media/[name].[ext]';
@@ -20,7 +20,10 @@ export default defineConfig(() => {
         },
       }
     },
-    plugins: [react()],
+    plugins: [
+      react(),
+      splitVendorChunkPlugin(),
+    ],
     server: {
       port: 3000,
       proxy: {
