@@ -1,81 +1,96 @@
-import React from "react";
-import axios from 'axios';
+import React, { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   Blocks,
   Hero,
   IconList,
   IconListItem,
-  StatBlock
+  StatBlock,
 } from "@civicactions/data-catalog-components";
-import '../../i18n';
-import { useTranslation } from 'react-i18next';
-import Layout from '../../components/Layout';
-import FeaturedDatasets from '../../components/FeaturedDatasets';
+import "../../i18n";
+import { useTranslation } from "react-i18next";
+import Layout from "../../components/Layout";
+import FeaturedDatasets from "../../components/FeaturedDatasets";
 import copy from "../../assets/copy.json";
 
 const Home = () => {
-  const [datasets, setDatasets] = React.useState(null);
-  const [themes, setThemes] = React.useState([]);
-  const [items, setItems] = React.useState([]);
-  const [fDatasets, setFDatasets] = React.useState([])
   const { t, i18n } = useTranslation();
+  const datasets = useQuery({
+    queryKey: ["datasets"],
+    queryFn: () => {
+      return fetch(
+        `${
+          import.meta.env.VITE_REACT_APP_ROOT_URL
+        }/metastore/schemas/dataset/items?show-reference-ids`
+      ).then((res) => res.json());
+    },
+  }).data;
 
-  React.useEffect(() => {
-    async function getDatasets() {
-      const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items?show-reference-ids`)
-      setDatasets(data);
-    }
-    async function getThemes() {
-      const {data} = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/theme/items`)
-      setThemes(data);
-    }
-    if (datasets === null) {
-      getDatasets()
-      getThemes();
-    }
-    if (datasets) {
-      const orderedDatasets = datasets.sort(function(a,b) {
-        return a.title - b.title;
-      });
+  const themes = useQuery({
+    queryKey: ["themes"],
+    queryFn: () => {
+      return fetch(
+        `${
+          import.meta.env.VITE_REACT_APP_ROOT_URL
+        }/metastore/schemas/theme/items`
+      ).then((res) => res.json());
+    },
+  }).data;
 
-      setFDatasets(orderedDatasets.length > 3 ? orderedDatasets.slice(orderedDatasets.length -3, orderedDatasets.length) : orderedDatasets);
-    }
-  }, [datasets])
+  const orderedDatasets =
+    datasets && datasets.length
+      ? datasets.sort(function (a, b) {
+          return a.title - b.title;
+        })
+      : [];
 
-  React.useEffect(() => {
-    setItems(themes.map(x => {
-      let item = {
-        identifier: x.identifier,
-        ref: `search?theme=${x.data}`,
-        title: x.data,
-        size: "100"
-      };
-      return item;
-    }))
-  }, [themes])
+  const fDatasets =
+    orderedDatasets.length > 3
+      ? orderedDatasets.slice(
+          orderedDatasets.length - 3,
+          orderedDatasets.length
+        )
+      : orderedDatasets;
+
+  const items =
+    themes && themes.length
+      ? themes.map((x) => {
+          let item = {
+            identifier: x.identifier,
+            ref: `search?theme=${x.data}`,
+            title: x.data,
+            size: "100",
+          };
+          return item;
+        })
+      : [];
 
   return (
     <Layout title="Home">
-        <div className="home-page">
-        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} gradient={'rgb(22, 46, 81), rgb(9, 120, 188)'} />
+      <div className="home-page">
+        <Hero
+          title={copy.hero[0].title}
+          intro={copy.hero[0].intro}
+          gradient={"rgb(22, 46, 81), rgb(9, 120, 188)"}
+        />
         <div className="container">
-            <IconList
-                items={items}
-                component={IconListItem}
-                paneTitle={t('home.topics')}
-                className="opendata-icon-list"
-            />
+          <IconList
+            items={items}
+            component={IconListItem}
+            paneTitle={t("home.topics")}
+            className="opendata-icon-list"
+          />
         </div>
         <Blocks
-            items={copy.stats}
-            component={StatBlock}
-            containerClass=""
-            blockClass="StatBlock"
+          items={copy.stats}
+          component={StatBlock}
+          containerClass=""
+          blockClass="StatBlock"
         />
         <FeaturedDatasets datasets={fDatasets} />
-        </div>
+      </div>
     </Layout>
   );
-}
+};
 
 export default Home;

@@ -1,9 +1,7 @@
 import React from "react";
 import {
   Resource,
-  DataTable,
   FileDownload,
-  DataTableHeader
 } from "@civicactions/data-catalog-components";
 
 const ResourceTemplate = ({ resource }) => {
@@ -13,7 +11,7 @@ const ResourceTemplate = ({ resource }) => {
 
   const downloadURL = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('downloadURL') ? resource.data.downloadURL : '';
   const accessURL = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('accessURL') ? resource.data.accessURL : downloadURL;
-  const rootURL = `${process.env.REACT_APP_ROOT_URL}/`;
+  const rootURL = `${import.meta.env.VITE_REACT_APP_ROOT_URL}`;
 
   return (
     <div id={`resource_${resource.identifier}`}>
@@ -21,19 +19,13 @@ const ResourceTemplate = ({ resource }) => {
         ? (
           <Resource
             apiURL={rootURL}
-            identifier={resource.identifier}
+            id={resource.identifier}
             resource={resource}
             showDBColumnNames={true}
-          >
-            <FileDownload
-              title={resource.data.title}
-              label={resource.data.downloadURL}
-              format={format}
-              downloadURL={downloadURL ? downloadURL : accessURL}
-            />
-            <DataTableHeader />
-            <DataTable />
-          </Resource>
+            format={format}
+            downloadURL={downloadURL}
+            accessURL={accessURL}
+          />
         )
         : (
           <FileDownload

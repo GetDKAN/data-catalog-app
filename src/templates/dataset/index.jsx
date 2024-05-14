@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import { Link } from '@reach/router';
+import { useQuery } from '@tanstack/react-query';
+import { Link, useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
@@ -15,23 +15,25 @@ import {
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
-const Dataset = ({id, location}) => {
-  const { state } = location;
-  const [item, setItem] = useState(state && state.dataset ? state.dataset : {})
+const Dataset = () => {
+  const { id } = useParams();
   const [hasWindow, checkForWindow] = useState(false);
-
+  
   useEffect(() => {
     if (window !== undefined) {
       checkForWindow(true);
     }
-    async function getItem() {
-      const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
-      setItem(data);
+  }, [id]);
+
+  const {data} = useQuery({
+    queryKey: ['metastoreDataset', id],
+    queryFn: () => {
+      return fetch(`${import.meta.env.VITE_REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`).then(
+        (res) => res.json(),
+      )
     }
-    if (!state || !state.dataset) {
-      getItem();
-    }
-  }, [id, state]);
+  });
+  const item = data ? data : {};
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
@@ -114,47 +116,45 @@ const Dataset = ({id, location}) => {
     labelsT3.homepage = { label: "Homepage URL" };
     valuesT3.homepage = `<a href="${item.landingPage}">${item.landingPage}</a>`;
   }
-
   return (
     <Layout title={`Dataset - ${item.title}`}>
       <div className={`dc-dataset-page ${config.container}`}>
-       
-            <div className="row">
-              <div className="col-md-3 col-sm-12">
-                {renderOrg}
-                <div className="dc-block-wrapper">
-                  The information on this page is also available via the{" "}
-                  <Link
-                    to={`/dataset/${item.identifier}/api`}
-                    state={{ dataset: {...item} }}
-                  >
-                    API
-                  </Link>.
-                </div>
-              </div>
-              <div className="col-md-9 col-sm-12">
-              {Object.keys(item).length
-                ?(
-                <div>
-                  <h1>{item.title}</h1>
-                {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
-                <Text value={item.description} />
-                {(hasWindow && item.distribution) &&
-                  item.distribution.map(dist => {
-                    return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
-                  })}
-                <Tags tags={tag} path="/search?keyword=" label="Tags" />
-                <Table
-                  configuration={labelsT3}
-                  data={valuesT3}
-                  tableclass="metadata"
-                /></div>
-                ):( <div className="row">
-                <Spinner color="primary" />
-              </div>
-            )}
-              </div>
+        <div className="row">
+          <div className="col-md-3 col-sm-12">
+            {renderOrg}
+            <div className="dc-block-wrapper">
+              The information on this page is also available via the{" "}
+              <Link
+                to={`/dataset/${item.identifier}/api`}
+                state={{ dataset: {...item} }}
+              >
+                API
+              </Link>.
             </div>
+          </div>
+          <div className="col-md-9 col-sm-12">
+          {Object.keys(item).length
+            ?(
+            <div>
+              <h1>{item.title}</h1>
+            {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
+            <Text value={item.description} />
+            {(hasWindow && item.distribution) &&
+              item.distribution.map(dist => {
+                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
+              })}
+            <Tags tags={tag} path="/search?keyword=" label="Tags" />
+            <Table
+              configuration={labelsT3}
+              data={valuesT3}
+              tableclass="metadata"
+            /></div>
+            ):( <div className="row">
+            <Spinner color="primary" className="m-auto"/>
+          </div>
+        )}
+          </div>
+        </div>
       </div>
       </Layout>
   );

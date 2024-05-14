@@ -15,6 +15,8 @@ const Publishers = () => {
       <h1>{t('publishers.title')}</h1>
       <div>
         <p>
+          If you need to separate users and datasets into smaller collections,
+          add the <a href="https://www.drupal.org/project/group">Group module</a>.
           Groups allow you to classify datasets that share a common
           publisher or organizational group (i.e. Parks and Recreation
           Department, Department of Education). Behind the scenes, Groups

@@ -1,24 +1,33 @@
 # Data Catalog App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The React frontend is built with [Vite](https://vitejs.dev/).
 
 This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend.
 
 This application serves as a starter app, or example of how to use the [data-catalog-components](https://github.com/GetDKAN/data-catalog-components) library to easily create open data catalogs.
 
-## Auto Set Up
-1) Follow the [DKAN Tools](https://github.com/GetDKAN/dkan-tools) README to stand up the backend. Include the `--demo` flag to have the frontend installed and example pages built as well.
+## Requirements
+- Node ^16
 
-## Manual Set Up
+## Auto Set Up within a DKAN site
+1) Follow the [DKAN DDEV add-on](https://github.com/GetDKAN/ddev-dkan) steps for [starting a new project](https://getdkan.github.io/ddev-dkan/getting-started.html).
+
+## Manual Set Up in a DKAN site
 If you have a backend already running and just need the frontend:
 
-1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-react.git frontend``. The DKAN Tools library is structured to run commands in a folder named `frontend` so frontend repos could be swapped if needed.
+1) Clone this repository in your **docroot** ``git clone https://github.com/getdkan/data-catalog-app frontend``. The DKAN DDEV add-on is structured to run commands in a folder named `frontend` so frontend repos could be swapped if needed.
 1) Install the dependencies with [npm](https://www.npmjs.com/):
    1) ``cd frontend``
    1) ``npm install`` or ``yarn install``
 1) Run the server: ``npm start`` or ``yarn start``
    1) Your site is now running at ``http://localhost:3000``
 1) Build the public files ``npm run build``
+1) To complete the setup like the auto setup, setup the DKAN JS Frontend module that comes with the DKAN core installation. Steps can be found here: [DKAN JS Frontend Module](https://github.com/GetDKAN/dkan/tree/2.x/modules/dkan_js_frontend).
+
+## Set up of an independent front-end (with no backend)
+
+1) Run `npm install`
+2) Run `npm run start` to view the app in development mode at `localhost:3000`.
 
 ## Structure of the app
 
@@ -26,7 +35,7 @@ This is meant to be a blueprint for your frontend, from which you can make minor
 
     ├── cypress           # Integration tests
     ├── build             # The output of the build process
-    ├── public            # The base files that the app builds with, like `index.html`
+    ├── public            # Base files that the app builds with
     ├── src               # This directory will contain all of the source code
     |   ├── assets        # Place to store images and content/config files
     |   ├── components    # Configure your page structure with the layout component
@@ -47,7 +56,7 @@ This is meant to be a blueprint for your frontend, from which you can make minor
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm run start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -55,57 +64,24 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm run test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches [vitest](https://vitest.dev/) and runs any found test files. The demo app does not currently contain any Vitest / Jest tests.
 
-### `yarn build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run preview`
 
-### `yarn eject`
+Runs the React site in production mode, independently from drupal.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running Cypress Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run Cypress tests on a local React-only install of this repo, ensure the app is running at `localhost:3000`. In a separate terminal, use `npx cypress run --config baseUrl="http://localhost:3000"`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If the frontend is installed within a DKAN site, navigate to the `frontend` folder containing your installation of this repo. Ensure your full site is running, and take note of its URL (PROJECT_NAME.ddev.site), where `PROJECT_NAME` is variable. Run tests using `npx cypress run --config baseUrl="YOUR_DDEV_URL"`, using your project URL for the baseUrl argument

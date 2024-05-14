@@ -1,63 +1,71 @@
 import '@testing-library/cypress/add-commands';
+import searchFacets from '../fixtures/searchFacets.json';
+import searchTextFacets from '../fixtures/facets/goldFulltext.json';
+import economyKeywordFacets from "../fixtures/facets/economyKeyword.json";
+import economyUKKeywordFacets from "../fixtures/facets/economyUkKeyword.json";
+import cityPlanningFacets from "../fixtures/facets/cityPlanningTheme.json";
+import ukKeywordFacets from "../fixtures/facets/ukKeyword.json";
 
 Cypress.Commands.add('stubDatastoreImportInfo', () => {
-  cy.server();
-  cy.route(/.*\/datastore\/imports.*/, 'fx:datastoreImportInfo')
+  cy.intercept(/.*\/datastore\/imports.*/, 'fx:datastoreImportInfo')
 });
 
 Cypress.Commands.add('stubMetadata', () => {
-  cy.server();
-  cy.route(/.*\/metastore\/schemas\/dataset\/items\/1234-abcd\?.*/, 'fx:datasetMetadata')
+  cy.intercept(/.*\/metastore\/schemas\/dataset\/items\/1234-abcd\?.*/, { fixture: 'datasetMetadata.json' })
 });
 
 Cypress.Commands.add('stubDatatable', () => {
-  cy.server();
-  cy.fixture('datasetSqlCount').then((res) => {
-    cy.route(/.*\[SELECT COUNT\(\*\) FROM .*/, res)
-    cy.route(/.*\[SELECT COUNT\(\*\) FROM .*price.*/, () => ([{expression: "26"}]))
-  })
-  cy.fixture('datasetSqlResults').then((res) => {
-    cy.route(/.*\[SELECT \* FROM .*LIMIT 20.*/, res.slice(0, 20));
-    cy.route(/.*\[SELECT \* FROM .*LIMIT 50.*/, res.slice(0, 50))
-    cy.route(/.*\[SELECT \* FROM .*LIMIT 100.*/, res.slice(0, 100))
-    cy.route(/.*\[SELECT \* FROM .*price =.*/, res.filter((item) => item.price == '35.08'))
-    cy.route(/.*\[SELECT \* FROM .*ORDER BY record_number ASC.*/, res.slice(0, 20))
-    cy.route(/.*\[SELECT \* FROM .*ORDER BY record_number DESC.*/, res.reverse().slice(0, 20))
-  })
+  cy.intercept(/.*\/datastore\/query\/1234abcd\?.*35\.08.*/, { fixture: 'dataset/datasetSqlFilteredResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0$/, { fixture: 'dataset/datasetSqlResults.json'});
+
+  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*asc$/, { fixture: 'dataset/datasetSqlResults.json'});
+  cy.intercept(/.*\/datastore\/query.*offset=0.*&sorts.*desc$/, { fixture: 'dataset/datasetResultsSorted.json'});
 });
 
 Cypress.Commands.add('stubSearchResults', (path) => {
-  cy.server();
   // RESULTS
-  cy.fixture('searchResults').then((res) => {
     // DEFAULT URL
-    cy.route(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort_order=desc&facets=0).*$/, res).as('resultsDefault');
-    cy.route(/^(?=.*fulltext=gold)(?=.*facets=0).*$/, 'fx:results/goldFulltext.json').as('resultsFulltext');
-    cy.route(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=0).*$/, 'fx:results/titleSort.json').as('resultsSortTitle');
-    cy.route(/^(?=.*&theme=City Planning)(?=.*facets=0).*$/, 'fx:results/cityPlanningTheme.json').as('resultsTheme');
-    cy.route(/^(?=.*keyword=economy)(?=.*facets=0).*$/, 'fx:results/economyKeyword.json').as('resultsKeywordEconomy');
-    cy.route(/^(?=.*keyword=economy,United Kingdom)(?=.*facets=0).*$/, 'fx:results/economyUkKeyword.json').as('resultsKeywordEconomyUK');
-    cy.route(/^(?=.*keyword=United Kingdom)(?=.*facets=0).*$/, 'fx:results/ukKeyword.json').as('resultsKeywordUK');
-    cy.route(/^(?=.*publisher__name=Advisory Council for Infectious Disease)(?=.*facets=0).*$/, 'fx:results/advisoryPublisher.json').as('resultsPubslisher');
-    cy.route(/^(?=.*page-size=5)(?=.*facets=0).*$/, 'fx:results/pageSize.json').as('resultsPageSize');
-    cy.route(/^(?=.*page=2&page-size=5)(?=.*facets=0).*$/, 'fx:results/page2.json').as('resultsPage2');
-  });
+  cy.intercept(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort-order=desc&facets=0).*$/, { fixture: 'searchResults.json'});
+  cy.intercept(/^(?=.*fulltext=gold)(?=.*facets=0).*$/, { fixture: 'results/goldFulltext.json'});
+  cy.intercept(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=0).*$/, { fixture: 'results/titleSort.json'});
+  cy.intercept(/^(?=.*&theme=City%20Planning)(?=.*facets=0).*$/, {fixture: 'results/cityPlanningTheme.json'});
+  cy.intercept(/^(?=.*keyword=economy)(?=.*facets=0).*$/, {fixture: 'results/economyKeyword.json'});
+  cy.intercept(/^(?=.*keyword=economy,United%20Kingdom)(?=.*facets=0).*$/, { fixture: 'results/economyUkKeyword.json'});
+  cy.intercept(/^(?=.*keyword=United%20Kingdom)(?=.*facets=0).*$/, {fixture: 'results/ukKeyword.json'});
+  cy.intercept(/^(?=.*publisher__name=Advisory%20Council%20for%20Infectious%20Disease)(?=.*facets=0).*$/, {fixture: 'results/advisoryPublisher.json'}).as('resultsPubslisher');
+  cy.intercept(/^(?=.*page-size=5)(?=.*facets=0).*$/, { fixture: 'results/pageSize.json'});
+  cy.intercept(/^(?=.*page=2&page-size=5)(?=.*facets=0).*$/, { fixture: 'results/page2.json'});
 
   // FACETS
-  cy.fixture('searchFacets').then((res) => {
-    // DEFAULT URL
-    cy.fixture('searchFacets.json').as('searchFacets')
-    cy.route(/^(?=.*search\/facets\?)(?=.*fulltext=&page=1&page-size=10&sort=modified&sort_order=desc).*$/, '@searchFacets').as('facetDefault');
-    cy.route(/^(?=.*search\/facets\?)(?=.*fulltext=gold).*$/, 'fx:facets/goldFulltext.json').as('facetFulltext');
-    cy.route(/^(?=.*search\/facets\?)(?=.*&sort=title).*$/, '@searchFacets').as('facetSortTitle');
-    cy.route(/^(?=.*search\/facets\?)(?=.*theme=City Planning).*$/, 'fx:facets/cityPlanningTheme.json').as('facetTheme');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*keyword=economy&).*$/, 'fx:facets/economyKeyword.json').as('facetKeywordEconomy');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*keyword=economy,United Kingdom).*$/, 'fx:facets/economyUkKeyword.json').as('facetKeywordEconomyUK');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*keyword=United Kingdom).*$/, 'fx:facets/ukKeyword.json').as('facetKeywordUK');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*publisher__name=Advisory Council for Infectious Disease).*$/, 'fx:facets/advisoryPublisher.json').as('facetPublisher');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*page-size=5).*$/, '@searchFacets').as('facetPageSize');
-    cy.route('GET', /^(?=.*search\/facets\?)(?=.*page=2&page-size=5).*$/, '@searchFacets').as('facetPage2');
-  })
+  cy.intercept(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort-order=desc&facets=theme).*$/, searchFacets.theme);
+  cy.intercept(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort-order=desc&facets=keyword).*$/, searchFacets.keyword);
+  cy.intercept(/^(?=.*search\?fulltext=&page=1&page-size=10&sort=modified&sort-order=desc&facets=publisher__name).*$/, searchFacets.publisher);
+  cy.intercept(/^(?=.*fulltext=gold)(?=.*facets=theme).*$/, searchTextFacets.theme);
+  cy.intercept(/^(?=.*fulltext=gold)(?=.*facets=keyword).*$/, searchTextFacets.keyword);
+  cy.intercept(/^(?=.*fulltext=gold)(?=.*facets=publisher).*$/, searchTextFacets.publisher);
+  cy.intercept(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=theme).*$/, searchFacets.theme);
+  cy.intercept(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=keyword).*$/, searchFacets.keyword);
+  cy.intercept(/^(?=.*fulltext=&page=1&page-size=10&sort=title)(?=.*facets=publisher__name).*$/, searchFacets.publisher);
+  cy.intercept(/^(?=.*&theme=City%20Planning)(?=.*facets=theme).*$/, cityPlanningFacets.theme);
+  cy.intercept(/^(?=.*&theme=City%20Planning)(?=.*facets=keyword).*$/, cityPlanningFacets.keyword);
+  cy.intercept(/^(?=.*&theme=City%20Planning)(?=.*facets=publisher).*$/, cityPlanningFacets.publisher);
+  cy.intercept('GET', /^(?=.*keyword=economy)(?=.*facets=theme).*$/, economyKeywordFacets.theme);
+  cy.intercept('GET', /^(?=.*keyword=economy)(?=.*facets=keyword).*$/, economyKeywordFacets.keyword);
+  cy.intercept('GET', /^(?=.*keyword=economy)(?=.*facets=publisher).*$/, economyKeywordFacets.publisher);
+  cy.intercept('GET', /^(?=.*keyword=economy,United%20Kingdom)(?=.*facets=theme).*$/, economyUKKeywordFacets.theme);
+  cy.intercept('GET', /^(?=.*keyword=economy,United%20Kingdom)(?=.*facets=keyword).*$/, economyUKKeywordFacets.keyword);
+  cy.intercept('GET', /^(?=.*keyword=economy,United%20Kingdom)(?=.*facets=publisher).*$/, economyUKKeywordFacets.publisher);
+  cy.intercept('GET', /^(?=.*keyword=United%20Kingdom)(?=.*facets=theme).*$/, ukKeywordFacets.theme);
+  cy.intercept('GET', /^(?=.*keyword=United%20Kingdom)(?=.*facets=keyword).*$/, ukKeywordFacets.keyword);
+  cy.intercept('GET', /^(?=.*keyword=United%20Kingdom)(?=.*facets=publisher).*$/, ukKeywordFacets.publisher);
+  cy.intercept('GET', /^(?=.*publisher__name=Advisory%20Council%20for%20Infectious%20Disease)(?=.*facets=.*).*$/, {fixture: 'facets/advisoryPublisher.json'});
+  cy.intercept('GET', /^(?=.*page-size=5)(?=.*facets=theme).*$/, searchFacets.theme);
+  cy.intercept('GET', /^(?=.*page-size=5)(?=.*facets=keyword).*$/, searchFacets.keyword);
+  cy.intercept('GET', /^(?=.*page-size=5)(?=.*facets=publisher__name).*$/, searchFacets.publisher);
+  cy.intercept('GET', /^(?=.*page=2&page-size=5)(?=.*facets=theme).*$/, searchFacets.theme);
+  cy.intercept('GET', /^(?=.*page=2&page-size=5)(?=.*facets=keyword).*$/, searchFacets.keyword);
+  cy.intercept('GET', /^(?=.*page=2&page-size=5)(?=.*facets=publisher).*$/, searchFacets.publisher);
+
   cy.visit(path)
 });
 

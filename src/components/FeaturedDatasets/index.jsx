@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import excerpts from 'excerpts';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 import { Text } from "@civicactions/data-catalog-components";
 import '../../i18n';
 import { useTranslation } from 'react-i18next';

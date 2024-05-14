@@ -6,9 +6,20 @@
   border-radius: $borderRadius;
   padding: 30px;
   margin-bottom: 25px;
-  select {
-    border-color: $borderColor;
-    border-radius: $borderRadius;
+
+  #dc-search-list-sort {
+    button {
+    width: 100%;
+    text-align: left;
+      span {
+        width: calc(100% - 1rem);
+        display: inline-block;
+        font-size: 1.6rem;
+      }
+    }
+    .dropdown-menu {
+      width: 100%;
+    }
   }
   .toggle-block {
     margin-top: 0;

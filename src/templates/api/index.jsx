@@ -8,7 +8,7 @@ const ApiDocsFull = ({ path }) => (
   <div className={`dc-page ${config.container}`}>
     <div className="page-content">
       {typeof window !== `undefined` && (
-        <ApiDocs endpoint={process.env.REACT_APP_ROOT_URL} />
+        <ApiDocs endpoint={import.meta.env.VITE_REACT_APP_ROOT_URL} />
       )}
     </div>
   </div>
