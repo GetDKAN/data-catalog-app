@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Link, NavLink } from 'react-router-dom';
-import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
+import { Link } from 'react-router-dom';
+// import { Header, NavBar, Footer } from "@civicactions/data-catalog-components";
 import config from "../../assets/config.json";
 import links from "../../assets/menu.json";
 
@@ -21,7 +21,7 @@ const Layout = ({
           "lang": "en"
         }}
       />
-      <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
+      {/* <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
       <NavBar
         navItems={links.main.map(item => (
           <NavLink to={item.url}>
@@ -29,11 +29,11 @@ const Layout = ({
           </NavLink>
         ))}
         customClasses={config.container}
-      />
+      /> */}
       <main>
         {children}
       </main>
-      <Footer links={links} customClasses={config.container} />
+      {/* <Footer links={links} customClasses={config.container} /> */}
     </div>
   );
 };

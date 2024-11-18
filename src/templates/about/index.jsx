@@ -1,5 +1,5 @@
 import React from "react";
-import { Announcement } from "@civicactions/data-catalog-components";
+// import { Announcement } from "@civicactions/data-catalog-components";
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import { version, dependencies } from '../../../package.json';
@@ -17,9 +17,9 @@ const About = () => (
                     </p>
                 </div>
                 <div className="col-md-3 col-sm-12">
-                    <Announcement variation="info" heading="Note">
+                    {/* <Announcement variation="info" heading="Note">
                     <p>Update this about page before publishing.</p>
-                    </Announcement>
+                    </Announcement> */}
                 </div>
             </div>
             <h2>App version:</h2>
