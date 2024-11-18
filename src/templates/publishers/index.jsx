@@ -1,5 +1,5 @@
 import React from 'react';
-import { PublisherList } from "@civicactions/data-catalog-components";
+// import { PublisherList } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
 import Layout from '../../components/Layout';
 import orgs from "../../assets/publishers";
@@ -22,7 +22,7 @@ const Publishers = () => {
           publishing data to the same site.
         </p>
 
-        <PublisherList items = {orgs} />
+        {/* <PublisherList items = {orgs} /> */}
 
       </div>
     </div>

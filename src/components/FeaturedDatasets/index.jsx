@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import excerpts from 'excerpts';
 import { Link } from 'react-router-dom';
-import { Text } from "@civicactions/data-catalog-components";
+// import { Text } from "@civicactions/data-catalog-components";
 import config from "../../assets/config";
 import './featureddatasets.scss';
 
@@ -10,7 +10,7 @@ const FeaturedDatasets = ({ datasets }) => {
   return (
     <div className={`dc-featured-datasets ${config.container}`}>
       <h2 className="dc-featured-title">Featured Datasets</h2>
-      <ol>
+      {/* <ol>
         {datasets.map((item) => (
           <li>
             <Link to={`dataset/${item.identifier}`} key={item.identifier}>
@@ -21,7 +21,7 @@ const FeaturedDatasets = ({ datasets }) => {
             </Text>
           </li>
         ))}
-      </ol>
+      </ol> */}
     </div>
   );
 };
