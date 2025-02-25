@@ -1,13 +1,12 @@
-import React from "react";
 // import { Announcement } from "@civicactions/data-catalog-components";
-import Layout from '../../components/Layout';
-import config from "../../assets/config";
-import { version, dependencies } from '../../../package.json';
+import Layout from '../components/Layout';
+// import config from "../../assets/config";
+import { version, dependencies } from '../../package.json';
 
 const About = () => (
     <Layout title="About">
-        <div className={`dc-page ${config.container}`}>
-            <h1>About this site</h1>
+        <div>
+            <h1 className="text-2xl">About this site</h1>
             <div className="dc-page-content row">
                 <div className="col-md-9 col-sm-12">
                     <p>This is the default state of the DKAN data catalog.</p>
