@@ -1,20 +1,26 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useLocation } from "react-router-dom"
-import { defaultFacets, sortOptions } from '../../config/search';
 import { SearchAPIWrapper, SearchAPIContext } from "@civicactions/data-catalog-components";
-import Layout from "../../components/Layout";
-import config from "../../assets/config";
+import Layout from "../components/Layout";
+import SearchListItem from "../components/SearchListItem";
+import SearchFacets from '../components/SearchFacets';
 
 const SearchTemplate = () => {
   const location = useLocation();
-  
   return (
     <Layout title="Search">
-      <div className={`dc-page ${config.container}`}>
-        <h1>Datasets</h1>
+      <div>
+        <h1 className="text-2xl">Datasets</h1>
         <SearchAPIWrapper rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}>
           <SearchInput />
-          <DatasetList />
+          <div className="grid grid-cols-4 gap-4">
+            <div className="px-4">
+              <SearchFacets />
+            </div>
+            <div className="col-span-3 pr-4">
+              <DatasetList />
+            </div>
+          </div>
         </SearchAPIWrapper>
       </div>
     </Layout>
@@ -38,10 +44,13 @@ const DatasetList = () => {
   if (searchData.status === 'pending' || searchData.data.length > 0) {
     return (<div>loading</div>)
   }
+  console.log(searchData)
   return (
     <ul>
       {Object.keys(searchData.data.results).map((key) => (
-        <DatasetListItem key={searchData.data.results[key].identifier} item={searchData.data.results[key]} />
+        <li key={searchData.data.results[key].identifier}>
+          <SearchListItem item={searchData.data.results[key]} />
+        </li>
       ))}
     </ul>
   );
