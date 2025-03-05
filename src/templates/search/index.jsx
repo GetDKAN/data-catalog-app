@@ -18,6 +18,7 @@ const SearchTemplate = () => {
           sortOptions={sortOptions}
           setSearchUrl={true}
           path={location.pathname}
+          location={location}
         />
     </div>
     </Layout>

@@ -4,11 +4,11 @@ context('Dataset stubbed', () => {
     cy.stubMetadata();
     cy.stubDatatable();
     cy.stubDatastoreImportInfo();
-    cy.visit('/dataset/1234-abcd')
+    cy.visit('/dataset/fb3525f2-d32a-451e-8869-906ed41f7695')
   })
 
   it('I see the title and description', () => {
-    cy.get('h1').should('have.text', 'Asthma Prevalence')
+    cy.get('h1').should('have.text', 'Stubbed Dataset')
     cy.get('.col-md-9').contains('This table contains the estimated percent of California adults (18 and older)')
   })
 

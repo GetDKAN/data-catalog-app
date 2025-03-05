@@ -11,7 +11,7 @@ Cypress.Commands.add('stubDatastoreImportInfo', () => {
 });
 
 Cypress.Commands.add('stubMetadata', () => {
-  cy.intercept(/.*\/metastore\/schemas\/dataset\/items\/1234-abcd\?.*/, { fixture: 'datasetMetadata.json' })
+  cy.intercept(/.*\/metastore\/schemas\/dataset\/items\/fb3525f2-d32a-451e-8869-906ed41f7695\?.*/, { fixture: 'datasetMetadata.json' })
 });
 
 Cypress.Commands.add('stubDatatable', () => {
