@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { SearchAPIContext } from "@civicactions/data-catalog-components";
 import SearchFacetList from './SearchFacetList';
+import { SearchPageContext } from "../common/contexts";
 
 const SearchFacets = () => {
-  const searchData = useContext(SearchAPIContext);
+  const searchData = useContext(SearchPageContext);
   const facetsObject: any = {};
   if(searchData?.data?.facets) {
     searchData.data.facets.forEach((facet) => {

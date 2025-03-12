@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './config/queryClient';
-
+import { ThemeContext } from "./common/contexts";
 import Home from './templates/Home';
 import SearchTemplate from './templates/Search';
 import About from "./templates/About";
-// import ApiDocsFull from './templates/api';
+import Api from './templates/Api';
 import NotFound from './templates/NotFound';
 import Dataset from './templates/Dataset';
 // import ApiDocsSpecific from './templates/dataset/api';
@@ -33,10 +34,10 @@ const router = createBrowserRouter([
     path: "/search",
     element: <SearchTemplate />
   },
-  // {
-  //   path: "/api",
-  //   element: <ApiDocsFull />
-  // },
+  {
+    path: "/api",
+    element: <Api />
+  },
   {
     path: "/dataset/:id",
     element: <Dataset />
@@ -50,7 +51,8 @@ const router = createBrowserRouter([
     element: <NotFound />,
   },
 ]);
-const rootDiv = document.getElementById("root")!;
+const rootDiv = document.getElementById("root");
+
 
 createRoot(rootDiv).render(
   <QueryClientProvider client={queryClient}>

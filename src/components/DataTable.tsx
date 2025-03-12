@@ -15,10 +15,8 @@ const DataTable = ({distributionId}) => {
   let results = datastore?.results ? datastore.results : [];
   let columns = [];
   const fields = datastore?.schema[distributionId]?.fields;
-  console.log(fields)
   if(fields && Object.keys(fields).length > 0) {
     columns = Object.keys(fields).map((key) => {
-      console.log(key)
       return columnHelper.accessor(key, {
         cell: info => info.getValue(),
       })
@@ -30,7 +28,6 @@ const DataTable = ({distributionId}) => {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-  console.log(datastore)
   return (
     <div>
       <table className="table-auto">

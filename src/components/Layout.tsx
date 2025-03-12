@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({children, title}: LayoutProps) => {
   return (
-    <div>
+    <div className="bg-stone-100">
       <Helmet
         title={`${title} - DKAN Demo`}
         defer={false}

@@ -5,6 +5,7 @@ import DatasetHeader from '../components/DatasetHeader';
 import MetadataTable from '../components/MetadataTable';
 import Distributions from '../components/Distributions';
 import KeywordTags from '../components/KeywordTags';
+import DatasetPublisherInfo from '../components/DatasetPublisherInfo';
 
 const Dataset = () => {
   const { id } = useParams();
@@ -16,9 +17,7 @@ const Dataset = () => {
       >
         <div className="grid grid-cols-4 gap-4">
           <div className="px-4">
-            <div>
-              Publisher info
-            </div>
+            <DatasetPublisherInfo />
           </div>
           <div className="col-span-3 pr-4">
             <DatasetHeader />
