@@ -1,5 +1,6 @@
-// import { PublisherList } from "@civicactions/data-catalog-components";
 import Layout from '../components/Layout';
+import PublisherCard from '../components/PublisherCard';
+import publishers from '../assets/publishers.json';
 
 const Publishers = () => {
   return (
@@ -18,7 +19,9 @@ const Publishers = () => {
             important for large sites that may have several working groups
             publishing data to the same site.
           </p>
-          {/* <PublisherList items = {orgs} /> */}
+          <div className="flex justify-between">
+            {publishers.map((publisher) => <PublisherCard key={publisher.searchUrl} publisher={publisher} />)}
+          </div>
         </div>
       </div>
     </Layout>

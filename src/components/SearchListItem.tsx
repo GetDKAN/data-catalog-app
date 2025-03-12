@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { SearchApiResult } from "../types/searchApiResult.types";
+import { truncateDescription } from "../common/functions";
 
 interface SearchListItemProps {
   item: SearchApiResult;
@@ -7,7 +8,6 @@ interface SearchListItemProps {
 
 const SearchListItem = ({item}: SearchListItemProps) => {
   const { title, theme, description, identifier } = item;
-  console.log(item)
   return (
     <div className="mb-8">
       <h2 className="font-bold text-lg">
@@ -19,7 +19,7 @@ const SearchListItem = ({item}: SearchListItemProps) => {
         <span key={t}>{t}</span>
       ))}
       <div>
-        {description}
+        {truncateDescription(description, 250)}
       </div>
     </div>
   );

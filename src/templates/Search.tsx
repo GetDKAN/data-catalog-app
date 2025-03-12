@@ -1,9 +1,17 @@
-import { useContext } from 'react';
 import { useLocation } from "react-router-dom"
-import { SearchAPIWrapper, SearchAPIContext } from "@civicactions/data-catalog-components";
+import { SearchAPIWrapper } from "@civicactions/data-catalog-components";
+import { SearchPageContext } from '../common/contexts';
 import Layout from "../components/Layout";
-import SearchListItem from "../components/SearchListItem";
 import SearchFacets from '../components/SearchFacets';
+import FulltextSearchInput from '../components/FulltextSearchInput';
+import SearchPageSizeSelect from '../components/SearchPageSizeSelect';
+import SearchSortSelect from '../components/SearchSortSelect';
+import SearchDatasetList from '../components/SearchDatasetList';
+import SearchPagination from '../components/SearchPagination';
+
+function getSortOrder(sort) {
+  return sort === "title" ? "asc" : "desc";
+}
 
 const SearchTemplate = () => {
   const location = useLocation();
@@ -11,14 +19,26 @@ const SearchTemplate = () => {
     <Layout title="Search">
       <div>
         <h1 className="text-2xl">Datasets</h1>
-        <SearchAPIWrapper rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}>
-          <SearchInput />
+        <SearchAPIWrapper
+          customQueryKey="searchpage"
+          location={location}
+          CustomContext={SearchPageContext}
+          rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}
+          options={{
+            facetKeys: ["publisher__name", "theme", "keyword"],
+            getSortOrder: getSortOrder
+          }}
+        >
+          <FulltextSearchInput />
           <div className="grid grid-cols-4 gap-4">
             <div className="px-4">
               <SearchFacets />
             </div>
             <div className="col-span-3 pr-4">
-              <DatasetList />
+              <SearchSortSelect />
+              <SearchDatasetList />
+              <SearchPageSizeSelect />
+              <SearchPagination />
             </div>
           </div>
         </SearchAPIWrapper>
@@ -29,36 +49,3 @@ const SearchTemplate = () => {
 
 export default SearchTemplate;
 
-const SearchInput = () => {
-  const searchData = useContext(SearchAPIContext);
-  return(
-    <div>
-      <input type='text' onChange={(e) => searchData.setFulltextFn(e.target.value)} value={searchData.fulltext} />
-      <button onClick={() => searchData.searchFn()} >Search</button>
-    </div>
-  );
-}
-
-const DatasetList = () => {
-  const searchData = useContext(SearchAPIContext);
-  if (searchData.status === 'pending' || searchData.data.length > 0) {
-    return (<div>loading</div>)
-  }
-  console.log(searchData)
-  return (
-    <ul>
-      {Object.keys(searchData.data.results).map((key) => (
-        <li key={searchData.data.results[key].identifier}>
-          <SearchListItem item={searchData.data.results[key]} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-
-const DatasetListItem = ({item}) => {
-  return(
-    <li>{item.title}</li>
-  );
-}
