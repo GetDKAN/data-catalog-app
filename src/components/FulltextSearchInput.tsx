@@ -11,11 +11,14 @@ const FulltextSearchInput = () => {
     event.preventDefault()
     searchData.search()
   }
-
+  const identifier = "fulltext-search"
   return(
-    <form className="flex items-center" onSubmit={(event) => handleSubmit(event)}>
-      <input className={textInputClasses} type='text' onChange={(e) => fulltext.set(e.target.value)} value={fulltext.value} />
-      <button className={buttonClasses} type="submit" >Search</button>
+    <form className="relative md:my-6 px-2" onSubmit={(event) => handleSubmit(event)}>
+      <input id={identifier} className={textInputClasses.input} type='search' onChange={(e) => fulltext.set(e.target.value)} value={fulltext.value} />
+      <button className={`${buttonClasses} ${textInputClasses.button}`} type="submit" >Search</button>
+      <label htmlFor={identifier} className={textInputClasses.label}>
+        Search
+      </label>
     </form>
   );
 }

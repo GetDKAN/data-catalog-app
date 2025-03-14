@@ -21,7 +21,7 @@ const Header = () => {
           <span>Your slogan here.</span>
         </div>
       </div>
-      <div className="bg-sky-800 flex">
+      <div className="bg-sky-900 flex">
         <nav className="flex text-white px-4">
           {links.map((link) => (
             <NavLink

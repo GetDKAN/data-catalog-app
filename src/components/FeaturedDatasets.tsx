@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Link } from "react-router-dom";
-import { FeaturedDatasetContext } from '../templates/Home';
+import { FeaturedDatasetContext } from '../common/contexts';
 import { truncateDescription } from '../common/functions';
+import { cardClasses } from '../theme/tailwindClasses';
 
 const FeaturedDatasets = () => {
   const searchData = useContext(FeaturedDatasetContext);
@@ -13,14 +14,16 @@ const FeaturedDatasets = () => {
         {results && Object.keys(results).map((key) => {
           const result = searchData.data.results[key];
           return (
-            <li key={result.identifier}>
-              <h3 className="font-bold text-xl">
-                <Link to={`/dataset/${result.identifier}`}>
-                  {result.title}
-                </Link>
-              </h3>
-              <div>
-                {truncateDescription(result.description, 150)}
+            <li className={cardClasses} key={result.identifier}>
+              <div className="p-6 min-w-3xs">
+                <h3 className="font-bold text-xl">
+                  <Link to={`/dataset/${result.identifier}`}>
+                    {result.title}
+                  </Link>
+                </h3>
+                <div>
+                  {truncateDescription(result.description, 150)}
+                </div>
               </div>
             </li>
           );

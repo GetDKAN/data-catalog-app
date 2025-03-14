@@ -12,9 +12,6 @@ const SearchDatasetList = () => {
 
   return (
     <div>
-      {data?.total
-        && (<span className="my-3 block">{data.total} datasets found</span>)
-      }
       <ul>
         {results && Object.keys(results).map((key) => (
           <li key={searchData.data.results[key].identifier}>
