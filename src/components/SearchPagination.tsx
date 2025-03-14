@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import ReactPaginate from 'react-paginate';
 import { SearchPageContext } from "../common/contexts";
+import { paginationClasses } from "../theme/tailwindClasses";
 
 const SearchPagination = () => {
   const searchData = useContext(SearchPageContext);
@@ -15,17 +16,18 @@ const SearchPagination = () => {
     <div>
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
-        containerClassName="flex"
-        pageLinkClassName="p-2"
-        pageClassName="border mx-2"
-        nextClassName="hidden"
-        previousClassName="hidden"
+        containerClassName={paginationClasses.container}
+        pageLinkClassName={paginationClasses.link}
+        activeLinkClassName={paginationClasses.current}
+        pageClassName=""
+        nextClassName={paginationClasses.link}
+        previousClassName={paginationClasses.link}
       />
     </div>
   )

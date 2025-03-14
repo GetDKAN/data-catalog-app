@@ -11,30 +11,32 @@ const Dataset = () => {
   const { id } = useParams();
   return(
     <Layout title="Dataset">
-      <MetadataWrapper
-        rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}
-        id={id}
-      >
-        <div className="grid grid-cols-4 gap-4">
-          <div className="px-4">
-            <DatasetPublisherInfo />
+      <div className="container px-6 m-auto pt-6">
+        <MetadataWrapper
+          rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}
+          id={id}
+        >
+          <div className="grid grid-cols-4 gap-4">
+            <div className="px-4">
+              <DatasetPublisherInfo />
+            </div>
+            <div className="col-span-3 pr-4">
+              <DatasetHeader />
+              <Distributions />
+              <KeywordTags />
+              <MetadataTable />
+            </div>
           </div>
-          <div className="col-span-3 pr-4">
-            <DatasetHeader />
-            <Distributions />
-            <KeywordTags />
-            <MetadataTable />
+          <div>
+            
+            {/* 
+            <DownloadLinks />
+            
+            <Tags />
+            */}
           </div>
-        </div>
-        <div>
-          
-          {/* 
-          <DownloadLinks />
-          
-          <Tags />
-          */}
-        </div>
-      </MetadataWrapper>
+        </MetadataWrapper>
+      </div>
     </Layout>
   );
 }

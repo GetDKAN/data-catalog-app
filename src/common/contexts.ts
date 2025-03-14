@@ -6,3 +6,5 @@ export const ThemeContext = createContext({
   current: "tailwind",
   set: null
 });
+
+export const FeaturedDatasetContext = createContext();

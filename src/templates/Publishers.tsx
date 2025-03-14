@@ -5,7 +5,7 @@ import publishers from '../assets/publishers.json';
 const Publishers = () => {
   return (
     <Layout title="Dataset Publishers">
-      <div>
+      <div className="container px-6 m-auto pt-6">
         <h1 className="text-2xl">Dataset Publishers</h1>
         <div>
           <p>

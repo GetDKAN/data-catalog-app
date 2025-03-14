@@ -8,17 +8,15 @@ import SearchPageSizeSelect from '../components/SearchPageSizeSelect';
 import SearchSortSelect from '../components/SearchSortSelect';
 import SearchDatasetList from '../components/SearchDatasetList';
 import SearchPagination from '../components/SearchPagination';
-
-function getSortOrder(sort) {
-  return sort === "title" ? "asc" : "desc";
-}
+import SearchResultsFound from "../components/SearchResultsFound";
+import { getSortOrder } from "../common/functions";
 
 const SearchTemplate = () => {
   const location = useLocation();
   return (
     <Layout title="Search">
-      <div>
-        <h1 className="text-2xl">Datasets</h1>
+      <div className="container px-6 m-auto pt-6">
+        <h1 className="text-3xl">Datasets</h1>
         <SearchAPIWrapper
           customQueryKey="searchpage"
           location={location}
@@ -29,16 +27,28 @@ const SearchTemplate = () => {
             getSortOrder: getSortOrder
           }}
         >
-          <FulltextSearchInput />
-          <div className="grid grid-cols-4 gap-4">
-            <div className="px-4">
+          
+          <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+            <div className="col-span-4">
               <SearchFacets />
             </div>
-            <div className="col-span-3 pr-4">
-              <SearchSortSelect />
+            <div className="col-span-4 lg:col-span-8">
+              <div className="flex sm:flex-col md:flex-row justify-between items-center sm:items-start md:items-center">
+                <SearchResultsFound />
+                <div className="flex sm:flex-col md:flex-row">
+                  <SearchSortSelect />
+                  <SearchPageSizeSelect />
+                </div>
+              </div>
+              <div className="md:px-2 mb-3 border-b-1 mb-5 ">
+                <FulltextSearchInput />
+              </div>
+              
               <SearchDatasetList />
-              <SearchPageSizeSelect />
-              <SearchPagination />
+              <div className="flex items-center justify-center">
+                <SearchPagination />
+              </div>
+              
             </div>
           </div>
         </SearchAPIWrapper>

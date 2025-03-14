@@ -26,9 +26,13 @@ function createTitle(facetType: string) {
 
 const SearchFacetList = ({facets, type}: SearchFacetListProps) => {
   return(
-    <div className="mb-4">
-      <h2 className="font-bold text-lg">{createTitle(type)}</h2>
-      <ul>
+    <details className="py-4 group" open>
+      <summary
+        className="border-b-1 [&::-webkit-details-marker]:hidden relative pr-8 font-medium text-lg list-none cursor-pointer focus-visible:outline-none transition-colors duration-300 group-hover:text-slate-900 "
+      >
+        <span className="px-2">{createTitle(type)}</span>
+      </summary>
+      <ul className="mt-4 px-2">
         {facets.map((facet) => {
           return(
             <li key={facet.name}>
@@ -37,7 +41,7 @@ const SearchFacetList = ({facets, type}: SearchFacetListProps) => {
           );
         })}
       </ul>
-    </div>
+    </details>
   );
 }
 
