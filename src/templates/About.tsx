@@ -1,6 +1,4 @@
-// import { Announcement } from "@civicactions/data-catalog-components";
 import Layout from '../components/Layout';
-// import config from "../../assets/config";
 import { version, dependencies } from '../../package.json';
 
 const About = () => (
