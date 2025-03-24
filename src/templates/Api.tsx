@@ -1,4 +1,8 @@
+import SwaggerUI from 'swagger-ui-react';
+import { SpanOpenAPIVersion, SpanVersionStamp } from '@civicactions/swagger-ui-layout';
 import Layout from '../components/Layout';
+
+console.log(import.meta.env.VITE_REACT_APP_ROOT_URL)
 
 const Api = ({  }) => (
   <Layout title="API Documentation">
@@ -6,9 +10,14 @@ const Api = ({  }) => (
       <h1 className="text-2xl">API</h1>
       <div>
         <div>
-          {/* {typeof window !== `undefined` && (
-            <ApiDocs endpoint={import.meta.env.VITE_REACT_APP_ROOT_URL} />
-          )} */}
+          {typeof window !== `undefined` && (
+             <SwaggerUI
+              url={`${import.meta.env.VITE_REACT_APP_ROOT_URL}`}
+              docExpansion={'list'}
+              defaultModelsExpandDepth={-1}
+              plugins={[SpanOpenAPIVersion, SpanVersionStamp]}
+            />
+          )}
         </div>
       </div>
     </div>
