@@ -9,10 +9,16 @@ const KeywordTags = () => {
     return null;
   }
   return (
-    <div>
-      <h2>Keywords</h2>
+    <div className="py-6">
+      <h2 className="font-bold text-lg mb-2">Tags</h2>
       <ul>
-        {keywords.map((keyword) => <li key={keyword.identifier}>{keyword.data}</li>)}
+        {keywords.map((keyword) => (
+          <li
+            className="inline-flex items-center justify-center gap-1 rounded bg-sky-900 px-1.5 text-white mr-2"
+            key={keyword.identifier}>
+            {keyword.data}
+          </li>
+        ))}
       </ul>
     </div>
   )

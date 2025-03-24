@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { MetadataContext } from "@civicactions/data-catalog-components";
+import ThemeBadge from "./ThemeBadge";
 
 const ThemeTags = () => {
   const metadataContext = useContext(MetadataContext);
@@ -10,7 +11,11 @@ const ThemeTags = () => {
   }
   return (
     <ul>
-      {themes.map((theme) => <li key={theme.identifier}>{theme.data}</li>)}
+      {themes.map((theme) => (
+        <li key={theme.identifier}>
+          <ThemeBadge theme={theme.data} />
+        </li>
+      ))}
     </ul>
  )
 }

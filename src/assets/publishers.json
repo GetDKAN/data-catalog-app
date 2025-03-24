@@ -1,6 +1,7 @@
 [
   {
     "name": "State Economic Council",
+    "imageUrl": "https://s3.amazonaws.com/dkan-default-content-files/files/group.png",
     "description": "The State Economic Council is responsible for increasing economic development of the state by collecting statistics and performing analysis on the labor force, workforce and employer demographics, generational trends, etc.",
     "searchUrl":"/search/?publisher__name=State Economic Council"
   },

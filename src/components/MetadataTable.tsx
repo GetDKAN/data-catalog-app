@@ -11,7 +11,7 @@ const MetadataTable = () => {
   const tdClasses: string = "border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400";
   return (
     <div>
-      <h2 className="font-bold text-lg">Additional Information</h2>
+      <h2 className="font-bold text-lg mb-4">Additional Information</h2>
       <table className="table-auto">
         <thead>
           <tr>

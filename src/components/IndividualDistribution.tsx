@@ -1,25 +1,28 @@
-import { useContext } from "react";
-import { MetadataContext, DatastoreWrapper } from "@civicactions/data-catalog-components";
+import { DatastoreWrapper } from "@civicactions/data-catalog-components";
 import DataTable from "./DataTable";
+import DatatableRowCount from "./DatatableRowCount";
+import DistributionDownload from "./DistributionDownload";
+import DatatableLimitSelect from "./DatatableLimitSelect";
+import DistributionPagination from "./DistributionPagination";
+import DatatableFilters from "./DatatableFilters";
 
-
-const IndividualDistribution = ({distribution}) => {
-  const metadataContext = useContext(MetadataContext);
-  const metadata = metadataContext.metadata;
-  const distributions = metadata?.distribution;
-  const index = distributions.findIndex((dist) => dist.identifier === distribution.identifier);
-  const isCSV = distributions[index].data.mediaType === "text/csv";
+const IndividualDistribution = ({distribution, index, metadata}) => {
+  const isCSV = distribution.data.mediaType === "text/csv";
   return(
     <div>
       {distribution.data?.title && (
-        <h3>{distribution.data.title}</h3>
+        <h2 className="font-bold text-lg mb-4">{distribution.data.title}</h2>
       )}
-      <a href={`${distribution.data?.downloadURL}`}>{distribution.data?.downloadURL}</a>
+      
       {isCSV && (
-        <DatastoreWrapper id={metadata.identifier} dist_index={index} rootUrl={'https://demo.getdkan.org/api/1'}>
+        <DatastoreWrapper id={metadata.identifier} dist_id={distribution.identifier} dist_index={index} rootUrl={'https://dkan-dev.ddev.site/api/1'}>
+          <DistributionDownload distribution={distribution} />
+          <DatatableLimitSelect />
+          <DatatableRowCount />
+          <DatatableFilters />
           <DataTable distributionId={distribution.identifier} />
+          <DistributionPagination />
         </DatastoreWrapper>
-        
       )}
     </div>
   );
