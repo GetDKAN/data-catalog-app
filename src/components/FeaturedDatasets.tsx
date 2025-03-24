@@ -10,7 +10,7 @@ const FeaturedDatasets = () => {
   return(
     <div className="flex flex-col items-center max-w-2xl m-auto">
       <h2 className="text-2xl font-bold my-4">Recent datasets</h2>
-      <ul className="flex">
+      <ul className="flex flex-wrap lg:flex-nowrap">
         {results && Object.keys(results).map((key) => {
           const result = searchData.data.results[key];
           return (

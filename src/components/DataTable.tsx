@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { DatastoreContext } from "@civicactions/data-catalog-components";
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 
@@ -13,16 +13,22 @@ const DataTable = ({distributionId}) => {
   const columnHelper = createColumnHelper<any>()
 
   let results = datastore?.results ? datastore.results : [];
-  let columns = [];
+
   const fields = datastore?.schema[distributionId]?.fields;
-  if(fields && Object.keys(fields).length > 0) {
-    columns = Object.keys(fields).map((key) => {
-      return columnHelper.accessor(key, {
-        cell: info => info.getValue(),
-      })
-    })
-  }
   
+  const columns = useMemo(() => {
+    let newCols = []
+    if(fields && Object.keys(fields).length > 0) {
+    
+      newCols = Object.keys(fields).map((key) => {
+        return columnHelper.accessor(key, {
+          cell: info => info.getValue(),
+        })
+      })
+      
+    }
+    return newCols;
+  }, [fields])
   const table = useReactTable({
     data: results,
     columns,

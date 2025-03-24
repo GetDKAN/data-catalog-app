@@ -11,11 +11,10 @@ const Distributions = () => {
   }
   return(
     <div>
-      <h2>distributions</h2>
       <ul>
-        {distributions.map((dist) => (
+        {distributions.map((dist, index) => (
           <li key={dist.identifier}>
-            <IndividualDistribution distribution={dist} metadata={metadata} />
+            <IndividualDistribution distribution={dist} index={index} metadata={metadata} />
           </li>
         ))}
       </ul>
