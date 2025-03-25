@@ -17,8 +17,10 @@ const IndividualDistribution = ({distribution, index, metadata}) => {
       {isCSV && (
         <DatastoreWrapper id={metadata.identifier} dist_id={distribution.identifier} dist_index={index} rootUrl={'https://dkan-dev.ddev.site/api/1'}>
           <DistributionDownload distribution={distribution} />
-          <DatatableLimitSelect />
-          <DatatableRowCount />
+          <div className="flex justify-between">
+            <DatatableRowCount />
+            <DatatableLimitSelect />
+          </div>
           <DatatableFilters />
           <DataTable distributionId={distribution.identifier} />
           <DistributionPagination />

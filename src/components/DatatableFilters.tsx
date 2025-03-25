@@ -75,29 +75,29 @@ const DatatableFilters = () => {
 
   return(
     <div className="mb-4">
+      <div className="mb-4">
       {formOpen
-        ? (<button className={buttonClasses} type="button" onClick={() => resetFilters(true)}>close</button>)
+        ? (<button className={buttonClasses} type="button" onClick={() => resetFilters(true)}>Close</button>)
         : (<button className={buttonClasses} type="button" onClick={() => setFormOpen(true)}>+ Add new filter</button>)
       }
-      {}
+      </div>
       {filters.length > 0
         && (<button className={buttonClasses} type="button" onClick={() => setFilters([])}>Remove all filters</button>)
       }
       {formOpen
         &&(
           <form onSubmit={(event) => handleSubmit(event)}>
-            
-            <fieldset className="flex">
-              <div>
+            <fieldset className="flex bg-white rounded shadow-md px-2 py-3">
+              <div className="relative mr-2">
                 <select
                   id={`property_select_${id}`}
                   className={selectClasses.input}
                   value={tempProperty}
                   onChange={(event) => setTempProperty(event?.target.value)}
                 >
-                  <option value="">Column</option>
+                  <option value="">Choose column</option>
                   {Object.keys(localSchema).map((key) => (
-                    <option value={key}>
+                    <option key={key} value={key}>
                       {localSchema[key]?.description
                         ? localSchema[key]?.description
                         : key
@@ -110,21 +110,21 @@ const DatatableFilters = () => {
                   Column
                 </label>
               </div>
-              <div>
+              <div className="relative w-40 mr-2">
                 <select
                   id={`operator_select_${id}`}
                   className={selectClasses.input}
                   value={tempOperator}
                   onChange={(event) => setTempOperator(event?.target.value)}
                 >
-                  <option value="">Operator</option>
+                  <option value="">Choose operator</option>
                   <option value="=">=</option>
                 </select>
                 <label htmlFor={`operator_select_${id}`} className={selectClasses.label}>
                   Operator
                 </label>
               </div>
-              <div>
+              <div className="relative mr-2">
                 <input
                   id={`value_input_${id}`}
                   type="text"
@@ -133,7 +133,7 @@ const DatatableFilters = () => {
                   value={tempValue}
                 />
                 <label htmlFor={`value_input_${id}`} className={textInputClasses.label}>
-                  Search
+                  Value
                 </label>
               </div>
               <button className={`${buttonClasses} mr-2`} disabled={!canAddFilter()} type="button" onClick={() => addFilter(false)}>Add another filter</button>

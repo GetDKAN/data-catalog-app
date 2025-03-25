@@ -35,7 +35,7 @@ const DataTable = ({distributionId}) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div>
+    <div className="max-w-full overflow-x-scroll">
       <table className="table-auto">
         <thead>
           {table.getHeaderGroups().map(headerGroup => (

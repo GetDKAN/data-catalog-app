@@ -25,7 +25,7 @@ const Home = () => {
           
           </div>
           <SearchAPIWrapper
-          customQueryKey="featured"
+            customQueryKey="featured"
             CustomContext={FeaturedDatasetContext}
             rootUrl={import.meta.env.VITE_REACT_APP_ROOT_URL}
             options={{pageSize: 3, getSortOrder: getSortOrder}}
