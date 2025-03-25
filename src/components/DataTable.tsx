@@ -15,7 +15,7 @@ const DataTable = ({distributionId}) => {
   let results = datastore?.results ? datastore.results : [];
 
   const fields = datastore?.schema[distributionId]?.fields;
-  
+
   const columns = useMemo(() => {
     let newCols = []
     if(fields && Object.keys(fields).length > 0) {
