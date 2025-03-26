@@ -18,11 +18,11 @@ const Dataset = () => {
           id={id}
         >
           
-          <div className="grid grid-cols-4 gap-4">
-            <div className="px-4">
+          <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
+            <div className="col-span-4">
               <DatasetPublisherInfo />
             </div>
-            <div className="col-span-3 pr-4">
+            <div className="col-span-4 lg:col-span-8">
               <DatasetHeader />
               <DatasetDescription />
               <Distributions />

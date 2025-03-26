@@ -19,7 +19,7 @@ const Publishers = () => {
             important for large sites that may have several working groups
             publishing data to the same site.
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-wrap lg:flex-nowrap justify-center ">
             {publishers.map((publisher) => <PublisherCard key={publisher.searchUrl} publisher={publisher} />)}
           </div>
         </div>
