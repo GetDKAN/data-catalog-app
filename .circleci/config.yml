@@ -26,6 +26,9 @@ jobs:
           name: Install packages
           command: npm install
       - run:
+          name: Setup playwright
+          command: npx playwright install
+      - run:
           name: Run Vitest
           command: npm run test
 
