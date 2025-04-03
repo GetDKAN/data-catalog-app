@@ -18,40 +18,13 @@ commands:
 jobs:
   build:
     parallelism: 1
-    machine:
-      image: ubuntu-2004:current
+    docker:
+      - image: cimg/node:23.11.0
     steps:
       - checkout
-      - install-ddev  
       - run:
-          name: Set up dirs
-          command: |
-            cd .. &&  mv project frontend
-            mkdir project
+          name: Check node
+          command: node --version
       - run:
-          name: Build Frontend into a full DKAN site
-          command: |
-            which ddev
-            ddev --version
-            ddev config --project-name test-$CIRCLE_WORKFLOW_JOB_ID --project-type drupal9 --docroot docroot --create-docroot
-            ddev get getdkan/ddev-dkan
-            ddev restart
-            ddev status
-            ddev dkan-init --force
-            ddev dkan-site-install
-            ddev dkan-sample-content
-            ddev dkan-frontend-install
-            rm -r docroot/frontend
-            mv ../frontend docroot/frontend
-            cd docroot/frontend && npm install
-            cd ../../
-            ddev dkan-frontend-build
-      - run:
-          name: Run Cypress tests
-          command: |
-            cd docroot/frontend && npx cypress run --config baseUrl="http://test-$CIRCLE_WORKFLOW_JOB_ID.ddev.site"
-        
-      - store_artifacts:
-          path: dkan/cypress/screenshots
-      - store_artifacts:
-          path: dkan/cypress/videos
+          name: Check npm
+          command: npm --version
