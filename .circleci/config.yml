@@ -2,56 +2,19 @@ version: '2.1'
 orbs:
   docker: circleci/docker@2.2.0
 
-commands:
-  install-ddev:
-    steps:
-      - run:
-          name: Install DDev
-          command: |
-            set -e
-            sudo rm -rf /etc/apt/sources.list.d/heroku.list
-            sudo apt-get update
-            sudo apt-get install ca-certificates
-            curl https://apt.fury.io/drud/gpg.key | sudo apt-key add -
-            echo "deb https://apt.fury.io/drud/ * *" | sudo tee -a /etc/apt/sources.list.d/ddev.list
-            sudo apt update && sudo apt install -y ddev
 jobs:
   build:
     parallelism: 1
-    machine:
-      image: ubuntu-2004:current
+    docker:
+      - image: cimg/node:23.11.0
     steps:
       - checkout
-      - install-ddev  
       - run:
-          name: Set up dirs
-          command: |
-            cd .. &&  mv project frontend
-            mkdir project
+          name: Install packages
+          command: npm install
       - run:
-          name: Build Frontend into a full DKAN site
-          command: |
-            which ddev
-            ddev --version
-            ddev config --project-name test-$CIRCLE_WORKFLOW_JOB_ID --project-type drupal9 --docroot docroot --create-docroot
-            ddev get getdkan/ddev-dkan
-            ddev restart
-            ddev status
-            ddev dkan-init --force
-            ddev dkan-site-install
-            ddev dkan-sample-content
-            ddev dkan-frontend-install
-            rm -r docroot/frontend
-            mv ../frontend docroot/frontend
-            cd docroot/frontend && npm install
-            cd ../../
-            ddev dkan-frontend-build
+          name: Setup Playwright
+          command: npx playwright install --with-deps
       - run:
-          name: Run Cypress tests
-          command: |
-            cd docroot/frontend && npx cypress run --config baseUrl="http://test-$CIRCLE_WORKFLOW_JOB_ID.ddev.site"
-        
-      - store_artifacts:
-          path: dkan/cypress/screenshots
-      - store_artifacts:
-          path: dkan/cypress/videos
+          name: Run Vitest
+          command: npm run test

@@ -7,4 +7,4 @@ export const ThemeContext = createContext({
   set: null
 });
 
-export const FeaturedDatasetContext = createContext();
+export const FeaturedDatasetContext = createContext(null);

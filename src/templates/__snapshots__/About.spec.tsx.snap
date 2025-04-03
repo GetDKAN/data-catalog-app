@@ -593,3 +593,597 @@ exports[`About page matches snapshot 1`] = `
   "unmount": [Function],
 }
 `;
+
+exports[`snapshot matches 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    
+    
+    
+  
+
+
+    <div>
+      <div
+        class=""
+      >
+        <header
+          class="bg-white"
+        >
+          <div
+            class="container px-6 m-auto flex items-end py-3 px-4"
+          >
+            <img
+              alt="DKAN Logo"
+              src="https://dkan-default-content-files.s3.amazonaws.com/files/logo.svg"
+            />
+            <div
+              class="flex flex-col ml-3"
+            >
+              <span
+                class="text-lg"
+              >
+                Open Data Catalog
+              </span>
+              <span>
+                Your slogan here.
+              </span>
+            </div>
+          </div>
+          <div
+            class="bg-sky-900 flex"
+          >
+            <nav
+              class="container px-6 m-auto text-white px-4"
+            >
+              <button
+                aria-expanded="false"
+                aria-label="Toggle main menu"
+                class="block h-10 w-10 self-center lg:hidden visible opacity-100"
+              >
+                Menu
+              </button>
+              <ul
+                aria-label="Select page"
+                class="w-full lg:visible lg:flex lg:h-full lg:w-auto lg:items-stretch  hidden opacity-0 hidden"
+                role="menubar"
+              >
+                <li>
+                  <a
+                    class="inline-block py-3 px-4 border-b-3  border-transparent "
+                    data-discover="true"
+                    href="/"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="inline-block py-3 px-4 border-b-3  border-transparent "
+                    data-discover="true"
+                    href="/search"
+                  >
+                    Search
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="inline-block py-3 px-4 border-b-3  border-transparent "
+                    data-discover="true"
+                    href="/publishers"
+                  >
+                    Publishers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current="page"
+                    class="inline-block py-3 px-4 border-b-3  border-yellow-500 "
+                    data-discover="true"
+                    href="/about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="inline-block py-3 px-4 border-b-3  border-transparent "
+                    data-discover="true"
+                    href="/api"
+                  >
+                    API
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main
+          class="mb-6"
+        >
+          <div
+            class="container px-6 m-auto pt-6"
+          >
+            <h1
+              class="text-2xl"
+            >
+              About this site
+            </h1>
+            <div
+              class="dc-page-content row"
+            >
+              <div
+                class="col-md-9 col-sm-12"
+              >
+                <p>
+                  This is the default state of the DKAN data catalog.
+                </p>
+                <p>
+                   This tool helps create open data catalogs using React and other libraries.
+                </p>
+              </div>
+            </div>
+            <h2>
+              App version:
+            </h2>
+            <div
+              class="dc-page-content row"
+            >
+              <div
+                class="col-12"
+              >
+                <p>
+                  data-catalog-app: 
+                  2.0.0-alpha.1
+                </p>
+                <p>
+                  data-catalog-components: 
+                  2.0.0-alpha.13
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer
+          class="text-white"
+        >
+          <div
+            class="pt-16 pb-12 text-sm border-t border-slate-200 bg-sky-900"
+          >
+            <div
+              class="container px-6 mx-auto"
+            >
+              <div
+                class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12"
+              >
+                <div
+                  class="col-span-4 md:col-span-8 lg:col-span-6"
+                >
+                  <h2
+                    class="text-2xl font-bold"
+                  >
+                    Open Source Open Data
+                  </h2>
+                  <p
+                    class="py-2 max-w-md"
+                  >
+                    We can only realize the full power of open data when the tools used for its collection, publishing and analysis are also open and transparent.
+                  </p>
+                </div>
+                <nav
+                  class="col-span-2 md:col-span-4 lg:col-span-2"
+                >
+                  <ul>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://dkan.readthedocs.io/en/latest/index.html"
+                      >
+                        Documentation
+                      </a>
+                    </li>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://github.com/getdkan/dkan"
+                      >
+                        Download
+                      </a>
+                    </li>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://civicactions.com/"
+                      >
+                        CivicActions
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <nav
+                  class="col-span-2 md:col-span-4 lg:col-span-2"
+                >
+                  <ul>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://project-open-data.cio.gov/"
+                      >
+                        Project Open Data
+                      </a>
+                    </li>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://www.w3.org/TR/vocab-dcat/"
+                      >
+                        DCAT
+                      </a>
+                    </li>
+                    <li
+                      class="mb-2 leading-6"
+                    >
+                      <a
+                        href="https://drupal.org/"
+                      >
+                        Drupal
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div
+            class="py-4 text-md bg-sky-950"
+          >
+            <div
+              class="container px-6 mx-auto"
+            >
+              <div
+                class="grid items-center grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12"
+              >
+                <div
+                  class="col-span-2 md:col-span-4 lg:col-span-6"
+                >
+                  <span
+                    class="mr-2"
+                  >
+                    Powered by DKAN
+                     
+                  </span>
+                  <a
+                    href="https://github.com/getdkan"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-github text-xl"
+                      data-icon="github"
+                      data-prefix="fab"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 496 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <span
+                      class="sr-only"
+                    >
+                      GetDKAN Github repo
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class=""
+    >
+      <header
+        class="bg-white"
+      >
+        <div
+          class="container px-6 m-auto flex items-end py-3 px-4"
+        >
+          <img
+            alt="DKAN Logo"
+            src="https://dkan-default-content-files.s3.amazonaws.com/files/logo.svg"
+          />
+          <div
+            class="flex flex-col ml-3"
+          >
+            <span
+              class="text-lg"
+            >
+              Open Data Catalog
+            </span>
+            <span>
+              Your slogan here.
+            </span>
+          </div>
+        </div>
+        <div
+          class="bg-sky-900 flex"
+        >
+          <nav
+            class="container px-6 m-auto text-white px-4"
+          >
+            <button
+              aria-expanded="false"
+              aria-label="Toggle main menu"
+              class="block h-10 w-10 self-center lg:hidden visible opacity-100"
+            >
+              Menu
+            </button>
+            <ul
+              aria-label="Select page"
+              class="w-full lg:visible lg:flex lg:h-full lg:w-auto lg:items-stretch  hidden opacity-0 hidden"
+              role="menubar"
+            >
+              <li>
+                <a
+                  class="inline-block py-3 px-4 border-b-3  border-transparent "
+                  data-discover="true"
+                  href="/"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  class="inline-block py-3 px-4 border-b-3  border-transparent "
+                  data-discover="true"
+                  href="/search"
+                >
+                  Search
+                </a>
+              </li>
+              <li>
+                <a
+                  class="inline-block py-3 px-4 border-b-3  border-transparent "
+                  data-discover="true"
+                  href="/publishers"
+                >
+                  Publishers
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-current="page"
+                  class="inline-block py-3 px-4 border-b-3  border-yellow-500 "
+                  data-discover="true"
+                  href="/about"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  class="inline-block py-3 px-4 border-b-3  border-transparent "
+                  data-discover="true"
+                  href="/api"
+                >
+                  API
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main
+        class="mb-6"
+      >
+        <div
+          class="container px-6 m-auto pt-6"
+        >
+          <h1
+            class="text-2xl"
+          >
+            About this site
+          </h1>
+          <div
+            class="dc-page-content row"
+          >
+            <div
+              class="col-md-9 col-sm-12"
+            >
+              <p>
+                This is the default state of the DKAN data catalog.
+              </p>
+              <p>
+                 This tool helps create open data catalogs using React and other libraries.
+              </p>
+            </div>
+          </div>
+          <h2>
+            App version:
+          </h2>
+          <div
+            class="dc-page-content row"
+          >
+            <div
+              class="col-12"
+            >
+              <p>
+                data-catalog-app: 
+                2.0.0-alpha.1
+              </p>
+              <p>
+                data-catalog-components: 
+                2.0.0-alpha.13
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer
+        class="text-white"
+      >
+        <div
+          class="pt-16 pb-12 text-sm border-t border-slate-200 bg-sky-900"
+        >
+          <div
+            class="container px-6 mx-auto"
+          >
+            <div
+              class="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12"
+            >
+              <div
+                class="col-span-4 md:col-span-8 lg:col-span-6"
+              >
+                <h2
+                  class="text-2xl font-bold"
+                >
+                  Open Source Open Data
+                </h2>
+                <p
+                  class="py-2 max-w-md"
+                >
+                  We can only realize the full power of open data when the tools used for its collection, publishing and analysis are also open and transparent.
+                </p>
+              </div>
+              <nav
+                class="col-span-2 md:col-span-4 lg:col-span-2"
+              >
+                <ul>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://dkan.readthedocs.io/en/latest/index.html"
+                    >
+                      Documentation
+                    </a>
+                  </li>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://github.com/getdkan/dkan"
+                    >
+                      Download
+                    </a>
+                  </li>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://civicactions.com/"
+                    >
+                      CivicActions
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <nav
+                class="col-span-2 md:col-span-4 lg:col-span-2"
+              >
+                <ul>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://project-open-data.cio.gov/"
+                    >
+                      Project Open Data
+                    </a>
+                  </li>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://www.w3.org/TR/vocab-dcat/"
+                    >
+                      DCAT
+                    </a>
+                  </li>
+                  <li
+                    class="mb-2 leading-6"
+                  >
+                    <a
+                      href="https://drupal.org/"
+                    >
+                      Drupal
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div
+          class="py-4 text-md bg-sky-950"
+        >
+          <div
+            class="container px-6 mx-auto"
+          >
+            <div
+              class="grid items-center grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12"
+            >
+              <div
+                class="col-span-2 md:col-span-4 lg:col-span-6"
+              >
+                <span
+                  class="mr-2"
+                >
+                  Powered by DKAN
+                   
+                </span>
+                <a
+                  href="https://github.com/getdkan"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-github text-xl"
+                    data-icon="github"
+                    data-prefix="fab"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 496 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    class="sr-only"
+                  >
+                    GetDKAN Github repo
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholder": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
