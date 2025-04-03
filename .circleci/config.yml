@@ -23,8 +23,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Check node
-          command: node --version
+          name: Install packages
+          command: npm install
       - run:
-          name: Check npm
-          command: npm --version
+          name: Run Vitest
+          command: npm run test
+
