@@ -1,17 +1,27 @@
-import { useContext, useMemo, useState } from "react";
-import { DatastoreContext } from "@civicactions/data-catalog-components";
+import { DatastoreParams } from "@civicactions/data-catalog-components";
 import { selectClasses } from "../theme/tailwindClasses";
 
-const DatatableLimitSelect = () => {
-  const datastoreContext = useContext(DatastoreContext);
-  const { limit, id } = datastoreContext;
+type DatatableLimitSelectProps = {
+  limit: number;
+  id: string;
+  params: {
+    set: Function;
+    previous: DatastoreParams | undefined;
+  }
+}
+
+const DatatableLimitSelect = ({limit, id, params}: DatatableLimitSelectProps) => {
   return (
     <div className="relative sm:mb-6 md:mb-0 md:w-40 sm:w-100">
       <select
         id={`limit_select_${id}`}
         className={selectClasses.input}
-        value={limit.value}
-        onChange={(event) => limit.set(event.target.value)}
+        value={limit}
+        onChange={(event) => params.set({
+          ...params.previous,
+          limit: event.target.value,
+          offset: 0,
+        })}
       >
         <option>10</option>
         <option>25</option>

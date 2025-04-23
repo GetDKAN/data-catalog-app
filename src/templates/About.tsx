@@ -1,7 +1,8 @@
 import Layout from '../components/Layout';
 import { version, dependencies } from '../../package.json';
 
-const About = () => (
+const About = () => {
+  return(
     <Layout title="About">
       <div className="container px-6 m-auto pt-6">
         <h1 className="text-2xl">About this site</h1>
@@ -20,6 +21,7 @@ const About = () => (
         </div>
       </div>
     </Layout>
-);
+  );
+};
 
 export default About;

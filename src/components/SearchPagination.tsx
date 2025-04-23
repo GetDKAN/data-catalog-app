@@ -6,12 +6,11 @@ import { paginationClasses } from "../theme/tailwindClasses";
 const SearchPagination = () => {
   const searchData = useContext(SearchPageContext);
   const total = searchData?.data?.total;
-  const pageSize = searchData.pageSize.value;
+  const pageSize = searchData.searchParams.value?.pageSize ? searchData.searchParams.value.pageSize : 10;
   const pageCount = total ? Math.ceil(total / pageSize) : 0;
   function handlePageClick(event) {
     searchData.page.set(event.selected + 1)
   }
-
   return(
     <div>
       <ReactPaginate

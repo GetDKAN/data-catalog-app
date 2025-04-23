@@ -2,8 +2,6 @@ import SwaggerUI from 'swagger-ui-react';
 import { SpanOpenAPIVersion, SpanVersionStamp } from '@civicactions/swagger-ui-layout';
 import Layout from '../components/Layout';
 
-console.log(import.meta.env.VITE_REACT_APP_ROOT_URL)
-
 const Api = ({  }) => (
   <Layout title="API Documentation">
     <div className="container px-6 m-auto pt-6">

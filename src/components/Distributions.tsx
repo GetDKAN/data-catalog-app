@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { MetadataContext, DatastoreWrapper } from "@civicactions/data-catalog-components";
 import IndividualDistribution from "./IndividualDistribution";
 
-const Distributions = () => {
-  const metadataContext = useContext(MetadataContext);
-  const metadata = metadataContext.metadata;
-  const distributions = metadata?.distribution;
+type DistributionsProps = {
+  distributions: Array<any>;
+  metadata: any;
+}
+
+const Distributions = ({distributions, metadata}: DistributionsProps) => {
+
   if (!distributions || distributions.length === 0) {
     return null;
   }

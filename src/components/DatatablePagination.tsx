@@ -1,21 +1,33 @@
-import { useContext } from "react";
 import ReactPaginate from 'react-paginate';
-import { DatastoreContext } from "@civicactions/data-catalog-components";
+import { DatastoreParams } from '@civicactions/data-catalog-components';
 import { paginationClasses } from "../theme/tailwindClasses";
 
-const DistributionPagination = () => {
-  const datastoreContext = useContext(DatastoreContext);
-  const { count, limit, offset } = datastoreContext;
-  const total = count
-  const pageSize = limit.value;
-  const pageCount = total ? Math.ceil(total / pageSize) : 0;
-  function handlePageClick(event) {
-    offset.set(event.selected * limit.value)
-  }
+type DatatablePaginationProps = {
+  count: number;
+  limit: number;
+  offset: number;
+  params: {
+    set: Function;
+    previous: DatastoreParams | undefined;
+  };
+}
 
+const DatatablePagination = ({ count, limit, offset, params }: DatatablePaginationProps) => {
+  const total = count
+  const pageSize = limit;
+  const pageCount = total ? Math.ceil(total / pageSize) : 0;
+  const currentPage = Math.ceil(offset / pageSize);
+  function handlePageClick(event) {
+    console.log(offset, event, "handle")
+    params.set({
+      ...params.previous,
+      offset: event.selected * limit,
+    })
+  }
   return(
     <div>
       <ReactPaginate
+        initialPage={currentPage}
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}
@@ -34,4 +46,4 @@ const DistributionPagination = () => {
   )
 }
 
-export default DistributionPagination;
+export default DatatablePagination;
