@@ -16,7 +16,7 @@ const DataTable = ({distribution}: DataTableProps) => {
   const columnHelper = createColumnHelper<any>()
   const rootUrl: string = import.meta.env.VITE_REACT_APP_ROOT_URL
   const defaultLimit: number = 10
-  const { data, status, params } = useDatastore(rootUrl, distribution.identifier, distribution.identifier, {})//params: {limit: defaultLimit, offset: 0}
+  const { data, status, params } = useDatastore(rootUrl, distribution.identifier, distribution.identifier, {params: {limit: defaultLimit, offset: 0}})
   const [results, setResults] = useState(data?.results ? data.results : []);
   const [schema, setSchema] = useState(data?.schema ? data.schema[distribution.identifier].fields : {} )
 

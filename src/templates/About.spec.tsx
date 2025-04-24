@@ -15,8 +15,8 @@ test("renders About page", async() => {
 
   await expect.element(getByRole("heading", { name: "About this site", level: 1})).toBeInTheDocument();
   await expect.element(getByRole("heading", { name: "App version:", level: 2})).toBeInTheDocument();
-  await expect.element(getByText("data-catalog-app: 1.6.1")).toBeInTheDocument();
-  await expect.element(getByText("data-catalog-components: 2.0.0-alpha.11")).toBeInTheDocument();
+  await expect.element(getByText("data-catalog-app: 2.0.0-alpha.1")).toBeInTheDocument();
+  await expect.element(getByText("data-catalog-components: 2.0.0-alpha.17")).toBeInTheDocument();
 });
 
 test("snapshot matches", () => {
