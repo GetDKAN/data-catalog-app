@@ -1,31 +1,39 @@
 {
   "name": "@civicactions/data-catalog-app",
-  "version": "1.6.1",
+  "version": "2.0.0-alpha.1",
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "^1.18.1",
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@tanstack/react-query": "^5.14.1",
-    "bootstrap": "^4.4.1",
-    "excerpts": "^0.0.3",
-    "html-to-react": "1.7.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@civicactions/data-catalog-components": "2.0.0-alpha.17",
+    "@civicactions/swagger-ui-layout": "^0.2.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.2.5",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.7",
+    "@tailwindcss/vite": "^4.0.7",
+    "@tanstack/react-query": "^5.66.7",
+    "@tanstack/react-table": "^8.21.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-js-pagination": "^3.0.3",
-    "react-router-dom": "^6.10.0",
-    "swagger-ui-react": "^4.15.5"
+    "react-paginate": "^8.3.0",
+    "react-router-dom": "7.2.0",
+    "swagger-ui-react": "^5.20.1",
+    "tailwindcss": "^4.0.7"
   },
   "scripts": {
     "start": "vite",
     "build": "vite build --base=/frontend/build/static/",
     "test": "vitest",
     "preview": "vite preview",
-    "sass": "sass ./src/theme/index.scss ./src/theme/index.css"
+    "sass": "sass ./src/theme/index.scss ./src/theme/index.css",
+    "tailwind:init": "tailwindcss init -p"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,10 +52,19 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^10.0.1",
-    "@vitejs/plugin-react": "^4.2.0",
-    "reactstrap": "^9.2.1",
-    "sass": "^1.69.5",
-    "vite": "^4.4.9",
-    "vitest": "^0.34.2"
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/react-helmet": "^6.1.11",
+    "@types/swagger-ui-react": "^5.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser": "^3.0.9",
+    "playwright": "^1.51.1",
+    "sass": "^1.85.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.1",
+    "vitest": "^3.0.9",
+    "vitest-browser-react": "^0.1.1"
   }
 }
