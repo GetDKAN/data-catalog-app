@@ -2,12 +2,14 @@ import { useContext } from "react";
 import { MetadataContext } from "@civicactions/data-catalog-components";
 import ThemeTags from "./ThemeTags";
 
-const DatasetHeader = () => {
-  const metadataContext = useContext(MetadataContext);
-  const metadata = metadataContext.metadata;
+type DatasetHeaderProps = {
+  title: string;
+}
+
+const DatasetHeader = ({title}: DatasetHeaderProps) => {
   return (
     <div className="mb-4">
-      <h1 className="text-2xl font-bold">{metadata?.title}</h1>
+      <h1 className="text-2xl font-bold">{title}</h1>
     </div>
   )
 }

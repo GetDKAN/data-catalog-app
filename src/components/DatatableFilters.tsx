@@ -1,24 +1,32 @@
-import { useState, useContext, useEffect, useMemo } from 'react';
-import { DatastoreContext } from "@civicactions/data-catalog-components";
-
+import { useState, useEffect } from 'react';
+import { DatastoreParams } from '@civicactions/data-catalog-components';
 import { cardClasses, buttonClasses, selectClasses, textInputClasses } from '../theme/tailwindClasses';
 
-const DatatableFilters = () => {
-  const datastoreContext = useContext(DatastoreContext);
-  const {datastore, schema, id} = datastoreContext;
+type DatatableFiltersProps = {
+  datastore: any;
+  schema: any;
+  id: string;
+  params: {
+    set: Function;
+    previous: DatastoreParams | undefined;
+  };
+}
+
+const DatatableFilters = ({datastore, schema, id, params}: DatatableFiltersProps) => {
   const [formOpen, setFormOpen] = useState(false);
   const [tempProperty, setTempProperty] = useState(datastore);
   const [tempOperator, setTempOperator] = useState("");
   const [tempValue, setTempValue] = useState("");
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(datastore?.query?.conditions && datastore.query.conditions.length > 0 ? datastore.query.conditions : []);
   const [localSchema, setLocalSchema] = useState(schema);
-  function removeFilter(index) {
+
+  function removeFilter(index: number) {
     let updatedFilters = [...filters]
     updatedFilters.splice(index, 1)
     setFilters(updatedFilters)
   }
 
-  function resetFilters(close) {
+  function resetFilters(close: boolean) {
     setTempValue("")
     setTempOperator("")
     setTempProperty("")
@@ -27,7 +35,7 @@ const DatatableFilters = () => {
     }
   }
 
-  function addFilter(close) {
+  function addFilter(close: boolean) {
     const newFilter = {
       id: Date.now(),
       property: tempProperty,
@@ -36,6 +44,11 @@ const DatatableFilters = () => {
     }
     setFilters([...filters, newFilter])
     resetFilters(close)
+    params.set({
+      ...params.previous,
+      conditions: [...filters, newFilter],
+      offset: 0,
+    });
   }
 
   function handleSubmit(event) {
@@ -59,16 +72,7 @@ const DatatableFilters = () => {
   }
 
   useEffect(() => {
-
-    datastoreContext.conditions.set(filters.map((filter) => ({
-      property: filter.property,
-      operator: filter.operator,
-      value: filter.value,
-    })))
-  }, [filters])
-
-  useEffect(() => {
-    if (!localSchema) {
+    if (Object.keys(schema).length > 0) {
       setLocalSchema(schema)
     }
   }, [schema])

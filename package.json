@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "frontend/build",
   "dependencies": {
-    "@civicactions/data-catalog-components": "2.0.0-alpha.13",
+    "@civicactions/data-catalog-components": "2.0.0-alpha.17",
     "@civicactions/swagger-ui-layout": "^0.2.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",

@@ -19,7 +19,7 @@ const SearchListItem = ({item}: SearchListItemProps) => {
           </Link>
         </h2>
         <div className="py-3">
-          {theme.map((t) => (
+          {theme && theme.map((t) => (
             <ThemeBadge key={t} theme={t} />
           ))}
         </div>

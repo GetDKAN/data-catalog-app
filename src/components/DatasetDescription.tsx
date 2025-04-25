@@ -2,16 +2,18 @@ import { useContext } from "react";
 import { MetadataContext } from "@civicactions/data-catalog-components";
 import ThemeTags from "./ThemeTags";
 
-const DatasetDescription = () => {
-  const metadataContext = useContext(MetadataContext);
-  const metadata = metadataContext.metadata;
+type DatasetDescriptionProps = {
+  description: string;
+}
+
+const DatasetDescription = ({description}: DatasetDescriptionProps) => {
   return (
     <div className="mb-4">
       <div className="mb-4">
-        <ThemeTags />
+        {/* <ThemeTags /> */}
       </div>
       <div>
-        {metadata?.description}
+        {description}
       </div>
     </div>
   )
